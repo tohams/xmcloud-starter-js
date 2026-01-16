@@ -60,12 +60,12 @@ const Default = (props: FullWidthHeroCardProps): JSX.Element => {
         <div className="full-width-hero-card">
           <div className="full-width-hero-card__container container">
             <div className="full-width-hero-card__logo">
-              {(Logo?.value?.src || isEditing) && (
+              {Logo && (Logo.value?.src || isEditing) && (
                 <ContentSdkImage field={Logo} className="full-width-hero-card__icon" />
               )}
               <span>American Heart Association</span>
             </div>
-            {(Title?.value || isEditing) && (
+            {Title && (Title.value || isEditing) && (
               <h1 className="full-width-hero-card__title">
                 <ContentSdkRichText field={Title} />
               </h1>
@@ -73,13 +73,13 @@ const Default = (props: FullWidthHeroCardProps): JSX.Element => {
             <div className="full-width-hero-card__content">
               <div className="full-width-hero-card__body-content">
                 <div className="full-width-hero-card__cta">
-                  {(Subheading?.value || isEditing) && (
+                  {Subheading && (Subheading.value || isEditing) && (
                     <div className="full-width-hero-card__subheading">
                       <ContentSdkRichText field={Subheading} />
                     </div>
                   )}
                   <div className="full-width-hero-card__btns">
-                    {(DonateOnceLink?.value?.href || isEditing) && (
+                    {DonateOnceLink && (DonateOnceLink.value?.href || isEditing) && (
                       <ContentSdkLink
                         field={DonateOnceLink}
                         className="btn btn-round btn-outline-primary col h-theme--red"
@@ -87,7 +87,7 @@ const Default = (props: FullWidthHeroCardProps): JSX.Element => {
                         Donate Once
                       </ContentSdkLink>
                     )}
-                    {(DonateMonthlyLink?.value?.href || isEditing) && (
+                    {DonateMonthlyLink && (DonateMonthlyLink.value?.href || isEditing) && (
                       <ContentSdkLink
                         field={DonateMonthlyLink}
                         className="btn btn-round btn-outline-primary col h-theme--red"
@@ -100,7 +100,7 @@ const Default = (props: FullWidthHeroCardProps): JSX.Element => {
               </div>
               <div className="full-width-hero-card__img">
                 <div>
-                  {(HeroImage?.value?.src || isEditing) && (
+                  {HeroImage && (HeroImage.value?.src || isEditing) && (
                     <ContentSdkImage field={HeroImage} className="is-loaded" />
                   )}
                 </div>
