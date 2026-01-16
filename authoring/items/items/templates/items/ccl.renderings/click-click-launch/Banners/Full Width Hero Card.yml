@@ -12,7 +12,31 @@ SharedFields:
   Value: office/32x32/painting_landscape.png
 - ID: "17bb046a-a32a-41b3-8315-81217947611b"
   Hint: ComponentQuery
-  Value: 
+  Value: |
+    query FullWidthHeroCardQuery($datasource: String!, $language: String!) {
+      datasource: item(path: $datasource, language: $language) {
+        id
+        Logo: field(name: "Logo") {
+          jsonValue
+        }
+        Title: field(name: "Title") {
+          jsonValue
+        }
+        Subheading: field(name: "Subheading") {
+          jsonValue
+        }
+        DonateOnceLink: field(name: "DonateOnceLink") {
+          jsonValue
+        }
+        DonateMonthlyLink: field(name: "DonateMonthlyLink") {
+          jsonValue
+        }
+        HeroImage: field(name: "HeroImage") {
+          jsonValue
+        }
+      }
+    }
+    
 - ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
   Hint: Datasource Template
   Value: "/sitecore/templates/Project/click-click-launch/Components/Banners/Full Width Hero Card"
