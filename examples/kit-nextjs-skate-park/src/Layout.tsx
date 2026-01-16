@@ -316,7 +316,7 @@ const Layout = ({ page }: LayoutProps): JSX.Element => {
                     </ul>
                     <ul>
                       <li className="c-main-nav__item">
-                        <div name="location-selector">
+                        <div id="location-selector">
                           <div>
                             <div className="c-nav-dropdown__container">
                               <button
