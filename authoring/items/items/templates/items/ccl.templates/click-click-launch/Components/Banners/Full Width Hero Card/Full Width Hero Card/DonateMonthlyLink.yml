@@ -1,39 +1,30 @@
 ---
-ID: "f5363609-75e6-46aa-97e1-7986d18daf4e"
+ID: "2647223e-e630-43f8-862a-21c74f3c111e"
 Parent: "6e0b9c49-0793-4f6a-8a92-2845feac23e1"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: "/sitecore/templates/Project/click-click-launch/Components/Full Width Hero Card/Full Width Hero Card/Logo"
+Path: "/sitecore/templates/Project/click-click-launch/Components/Banners/Full Width Hero Card/Full Width Hero Card/DonateMonthlyLink"
 SharedFields:
 - ID: "1eb8ae32-e190-44a6-968d-ed904c794ebf"
   Hint: Source
-  Value: "query:$siteMedia"
-- ID: "21828437-ea4b-40a1-8c61-4ce60ea41db6"
-  Hint: Validate Button
-  Value: "{59D4EE10-627C-4FD3-A964-61A88B092CBC}"
+  Value: "query:$linkableHomes"
 - ID: "24cb32f0-e364-4f37-b400-0f2899097b5b"
   Hint: Enable Shared Language Fallback
   Value: 1
-- ID: "337e20e1-999a-4eea-85ad-b58a03ae75cc"
-  Hint: Quick Action Bar
-  Value: "{59D4EE10-627C-4FD3-A964-61A88B092CBC}"
-- ID: "9c903e29-650d-4af2-b9bd-526d5c14a1a5"
-  Hint: Validator Bar
-  Value: "{59D4EE10-627C-4FD3-A964-61A88B092CBC}"
 - ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
   Hint: Type
-  Value: Image
+  Value: General Link
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
-  Value: 100
+  Value: 500
 Languages:
 - Language: en
   Fields:
   - ID: "19a69332-a23e-4e70-8d16-b2640cb24cc8"
     Hint: Title
-    Value: Logo
+    Value: Donate Monthly Link
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
     Hint: __Display name
-    Value: Logo
+    Value: Donate Monthly Link
   Versions:
   - Version: 1
     Fields:
@@ -42,7 +33,7 @@ Languages:
       Value: 20260115T212014Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "5b525aa9-0660-454d-b325-82649da0ddc2"
+      Value: "6e0b9c49-0793-4f6a-8a92-2845feac23e1"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -60,7 +51,7 @@ Languages:
       Value: 20260115T212014Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "5b525aa9-0660-454d-b325-82649da0ddc2"
+      Value: "6e0b9c49-0793-4f6a-8a92-2845feac23e1"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |

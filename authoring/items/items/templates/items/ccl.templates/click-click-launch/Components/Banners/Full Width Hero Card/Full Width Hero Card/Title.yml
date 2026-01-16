@@ -1,30 +1,30 @@
 ---
-ID: "adf44158-efa9-47f0-95e3-3392802c7717"
+ID: "8b118ca4-2955-4b6e-aad3-2960f2599ee5"
 Parent: "6e0b9c49-0793-4f6a-8a92-2845feac23e1"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: "/sitecore/templates/Project/click-click-launch/Components/Full Width Hero Card/Full Width Hero Card/DonateOnceLink"
+Path: "/sitecore/templates/Project/click-click-launch/Components/Banners/Full Width Hero Card/Full Width Hero Card/Title"
 SharedFields:
 - ID: "1eb8ae32-e190-44a6-968d-ed904c794ebf"
   Hint: Source
-  Value: "query:$linkableHomes"
+  Value: "query:$xaRichTextProfile"
 - ID: "24cb32f0-e364-4f37-b400-0f2899097b5b"
   Hint: Enable Shared Language Fallback
   Value: 1
 - ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
   Hint: Type
-  Value: General Link
+  Value: Rich Text
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
-  Value: 400
+  Value: 200
 Languages:
 - Language: en
   Fields:
   - ID: "19a69332-a23e-4e70-8d16-b2640cb24cc8"
     Hint: Title
-    Value: Donate Once Link
+    Value: Title
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
     Hint: __Display name
-    Value: Donate Once Link
+    Value: Title
   Versions:
   - Version: 1
     Fields:
@@ -33,7 +33,7 @@ Languages:
       Value: 20260115T212014Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "d771fb5d-2fd2-42a4-a979-6d7fc59611e8"
+      Value: "a0dfb090-3280-4208-93c6-ea902808bf84"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -51,7 +51,7 @@ Languages:
       Value: 20260115T212014Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "d771fb5d-2fd2-42a4-a979-6d7fc59611e8"
+      Value: "a0dfb090-3280-4208-93c6-ea902808bf84"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |

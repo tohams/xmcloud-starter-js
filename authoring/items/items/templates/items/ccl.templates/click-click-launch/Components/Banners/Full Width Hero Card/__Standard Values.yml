@@ -1,8 +1,8 @@
 ---
 ID: "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d"
-Parent: "6e0b9c49-0793-4f6a-8a92-2845feac23e1"
-Template: "6e0b9c49-0793-4f6a-8a92-2845feac23e1"
-Path: "/sitecore/templates/Project/click-click-launch/Components/Full Width Hero Card/Full Width Hero Card/__Standard Values"
+Parent: "f1e2d3c4-b5a6-4978-8c7b-6a5f4e3d2c1b"
+Template: "f1e2d3c4-b5a6-4978-8c7b-6a5f4e3d2c1b"
+Path: "/sitecore/templates/Project/click-click-launch/Components/Banners/Full Width Hero Card/__Standard Values"
 SharedFields:
 - ID: "ca9b9f52-4fb0-4f87-a79f-24dea62cda65"
   Hint: __Default workflow
