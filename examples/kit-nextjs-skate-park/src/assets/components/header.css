@@ -1,19 +1,562 @@
-.prod-mode {
-  #header {
-    @apply flex max-mobile-large:pb-0 max-mobile-large:flex-col-reverse;
+.sr-only {
+  @apply absolute w-[1px] h-[1px] p-0 -m-[1px] overflow-hidden whitespace-nowrap border-0;
+  clip: rect(0, 0, 0, 0);
+}
+
+.l-header {
+  @apply w-full bg-white text-[#1b1b1d];
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+}
+
+.l-header a {
+  text-decoration: none !important;
+}
+
+.l-header a:hover {
+  text-decoration: none !important;
+}
+
+.container {
+  @apply w-full mx-auto;
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+}
+
+.container-wide {
+  @apply max-w-[1320px];
+}
+
+/* ===== Utility Bar (top row with Heart Attack link) ===== */
+.l-header__utility__desktop {
+  @apply border-b-0;
+}
+
+.c-utility-bar__main-ul {
+  @apply flex items-center justify-end gap-[24px] text-[13px] font-normal py-[10px] m-0 list-none;
+}
+
+.c-utility-bar__main-ul .c-top-nav__item {
+  @apply list-none;
+}
+
+.c-utility-bar__main-ul .c-top-nav__link {
+  @apply text-[#1b1b1d] no-underline text-[13px];
+}
+
+.c-utility-bar__main-ul .c-top-nav__link:hover {
+  @apply text-[#c41230];
+}
+
+/* Heart Attack and Stroke Symptoms - RED */
+.c-utility-bar__main-ul .c-top-nav__item:first-child .c-top-nav__link,
+.c-utility-bar__main-ul .c-top-nav__item:first-child .c-top-nav__link .c-underline-link {
+  color: #c41230 !important;
+  font-weight: 600;
+  border-bottom: none !important;
+}
+
+.c-underline-link {
+  @apply border-b-0 no-underline;
+  transition: color 0.2s ease;
+}
+
+.c-underline-link:hover {
+  @apply no-underline;
+}
+
+/* ===== Top Navigation (logo, search, donate) ===== */
+.l-header__top {
+  @apply border-b border-solid border-[#e5e5e5];
+}
+
+.c-top-nav {
+  @apply flex items-center justify-between gap-[24px] py-[20px];
+}
+
+.c-top-nav__logo {
+  @apply block flex-shrink-0;
+}
+
+.c-top-nav__logo img {
+  @apply h-[90px] w-auto;
+}
+
+.c-top-nav__menu-trigger {
+  @apply hidden;
+}
+
+.c-top-nav__hamburger {
+  @apply inline-flex items-center justify-center w-[24px] h-[24px] border border-solid border-[#d5d5d5] rounded-full;
+}
+
+.c-top-nav__nav {
+  @apply flex items-center gap-[16px] ml-auto;
+}
+
+/* Search box */
+.coveo-for-sitecore-search-box-container {
+  @apply flex items-center;
+}
+
+.CoveoOmnibox {
+  @apply flex items-center gap-[8px] rounded-full border border-solid border-[#d5d5d5] bg-[#f5f5f5] px-[16px] py-[8px];
+}
+
+.magic-box-input input {
+  @apply bg-transparent text-[13px] text-[#1b1b1d] outline-none w-[140px];
+}
+
+.magic-box-input input::placeholder {
+  @apply text-[#666];
+}
+
+.CoveoSearchButton {
+  @apply text-[#1b1b1d] flex items-center;
+}
+
+.CoveoSearchButton svg {
+  @apply w-[16px] h-[16px] fill-current;
+}
+
+/* Buttons */
+.btn {
+  @apply inline-flex items-center justify-center text-[13px] font-semibold rounded-full px-[20px] py-[10px] no-underline;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  @apply bg-[#c41230] text-white border border-solid border-[#c41230];
+}
+
+.btn-primary:hover {
+  @apply bg-[#a10f28] border-[#a10f28];
+}
+
+.btn-outline-primary {
+  @apply bg-white border border-solid border-[#c41230] text-[#c41230];
+}
+
+.btn-outline-primary:hover {
+  @apply bg-[#fef2f4];
+}
+
+/* ===== Main Navigation (Healthy Living, etc.) ===== */
+.l-header__main {
+  @apply border-b border-solid border-[#e5e5e5];
+}
+
+.c-main-nav {
+  @apply py-[0] flex items-center;
+  width: 100%;
+}
+
+.c-main-nav > ul {
+  @apply list-none m-0 p-0 flex items-center;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
+.c-main-nav > ul:first-child {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  gap: 0;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
+.mr-auto {
+  @apply flex items-center list-none m-0 p-0;
+  width: 100%;
+  justify-content: space-between;
+  gap: 0;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
+.c-main-nav > ul:last-child {
+  flex-shrink: 0;
+  margin-left: 0;
+}
+
+/* Ensure consistent spacing between all nav items */
+.c-main-nav > ul:first-child .c-main-nav__item:not(:last-child) {
+  margin-right: 0;
+}
+
+.mr-auto .c-main-nav__item {
+  @apply mr-0;
+}
+
+.c-main-nav__item {
+  @apply relative;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.c-main-nav__item > .c-nav-dropdown__container > button,
+.c-main-nav__item > div > div > .c-nav-dropdown__container > button {
+  @apply bg-transparent border-0 cursor-pointer py-[16px] px-[20px] text-[15px] text-[#1b1b1d] font-normal;
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  white-space: nowrap;
+}
+
+.c-main-nav__item > .c-nav-dropdown__container > button:hover,
+.c-main-nav__item > div > div > .c-nav-dropdown__container > button:hover {
+  @apply text-[#c41230];
+}
+
+.c-underline-nav-link {
+  @apply text-[#1b1b1d] font-normal text-[15px] bg-transparent border-0 cursor-pointer;
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  white-space: nowrap;
+}
+
+.dropdown-toggle {
+  @apply inline-flex items-center gap-[4px];
+}
+
+.dropdown-toggle::after {
+  content: '';
+  display: inline-block;
+  border-top: 5px solid currentColor;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+
+/* Mega menu dropdown */
+.c-nav-dropdown {
+  @apply hidden absolute left-0 top-full bg-white border border-solid border-[#e5e5e5] rounded-[8px] min-w-[280px] z-[100] py-[16px];
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.c-main-nav__item:hover > .c-nav-dropdown__container > .c-nav-dropdown,
+.c-main-nav__item:hover .c-nav-dropdown {
+  @apply block;
+}
+
+.c-mega-nav__dropdown-header {
+  @apply block text-[15px] font-semibold text-[#1b1b1d] no-underline px-[16px] py-[8px] mb-[4px];
+}
+
+.c-mega-nav__dropdown-header:hover {
+  @apply text-[#c41230];
+}
+
+.c-mega-nav__links {
+  @apply m-0 p-0 list-none;
+}
+
+.c-mega-nav__link {
+  @apply block px-[16px] py-[10px] text-[14px] text-[#1b1b1d] no-underline;
+  transition: all 0.15s ease;
+}
+
+.c-mega-nav__link:hover {
+  @apply bg-[#f5f5f5] text-[#c41230];
+}
+
+/* In Your Community dropdown */
+.location-search {
+  @apply p-[16px];
+}
+
+.location-search__fields {
+  @apply flex items-center gap-[12px] mb-[12px];
+}
+
+.location-search .form-group {
+  @apply flex-1;
+}
+
+.location-search label {
+  @apply block text-[12px] text-[#666] mb-[4px];
+}
+
+.location-search input {
+  @apply w-full border border-solid border-[#d5d5d5] rounded-[4px] px-[12px] py-[8px] text-[14px];
+}
+
+.location-search__or {
+  @apply text-[13px] text-[#666];
+}
+
+.location-search__search {
+  @apply w-full mt-[8px];
+}
+
+/* Hide mobile utility rows on desktop */
+.l-header__utility {
+  @apply hidden;
+}
+
+.c-utility-nav {
+  @apply flex items-center gap-[16px] text-[13px];
+}
+
+/* Color utility classes */
+.h-color--red {
+  color: #c41230 !important;
+}
+
+.h-color--gray-dark {
+  @apply text-[#1b1b1d];
+}
+
+.h-theme--red,
+.h-theme--red .c-underline-link {
+  color: #c41230 !important;
+}
+
+/* Hide sticky logo */
+.does-fade-out .sticky__logo {
+  @apply hidden;
+}
+
+/* Mobile nav (hidden on desktop) */
+.c-mobile-nav {
+  @apply hidden;
+}
+
+/* Flex container for dropdown columns */
+.flex-container {
+  @apply flex;
+}
+
+.column {
+  @apply flex-1;
+}
+
+.d-block {
+  @apply block;
+}
+
+.mb-2 {
+  @apply mb-[8px];
+}
+
+.mb-4 {
+  @apply mb-[16px];
+}
+
+/* In Your Community specific styles */
+.c-main-nav > ul:last-child .c-main-nav__item {
+  @apply ml-0;
+}
+
+.c-main-nav > ul:last-child .c-nav-dropdown {
+  @apply right-0 left-auto;
+}
+
+.btn-tertiary {
+  @apply bg-[#1b1b1d] text-white border-[#1b1b1d];
+}
+
+.btn-tertiary:hover {
+  @apply bg-[#333];
+}
+
+.btn-tertiary:disabled {
+  @apply bg-[#ccc] border-[#ccc] cursor-not-allowed;
+}
+
+.c-select-dropdown__container button {
+  @apply w-full text-left border border-solid border-[#d5d5d5] rounded-[4px] px-[12px] py-[8px] text-[14px] bg-white;
+}
+
+.w-100 {
+  @apply w-full;
+}
+
+.pb-2 {
+  @apply pb-[8px];
+}
+
+.position-static {
+  @apply static;
+}
+
+.mx-0 {
+  @apply mx-0;
+}
+
+.btn-white {
+  @apply bg-white;
+}
+
+.btn--select {
+  @apply text-left;
+}
+
+/* ===== Responsive Styles ===== */
+@media (max-width: 991px) {
+  /* Hide desktop utility bar on mobile */
+  .l-header__utility__desktop {
+    @apply hidden;
+  }
+
+  /* Show mobile utility rows */
+  .l-header__utility {
+    @apply block;
+    @apply border-b border-solid border-[#e5e5e5];
+  }
+
+  /* Center "Heart Attack and Stroke Symptoms" on mobile */
+  .l-header__utility:first-of-type {
+    @apply flex justify-center;
+  }
+
+  .l-header__utility:first-of-type .c-utility-nav {
+    @apply justify-center;
+  }
+
+  /* Show hamburger menu button */
+  .c-top-nav__menu-trigger {
+    @apply block;
+    @apply bg-transparent border-0 cursor-pointer p-0 flex flex-col items-center;
+    @apply self-center;
+    gap: 8px;
+  }
+
+  .c-top-nav__hamburger {
+    @apply flex flex-col items-center;
+    @apply w-auto;
+    @apply border-0 rounded-none;
+    @apply h-auto;
+    @apply bg-transparent;
+    @apply p-0;
+  }
+
+  /* Create three hamburger lines - top line */
+  .c-top-nav__hamburger::before {
+    content: '';
+    @apply block w-[24px] h-[2px] bg-[#1b1b1d] mb-[4px];
+  }
+
+  /* Middle line - hide span text and make it a line */
+  .c-top-nav__hamburger span {
+    @apply block w-[24px] h-[2px] bg-[#1b1b1d] mb-[4px];
+    font-size: 0;
+    text-indent: -9999px;
+    overflow: hidden;
+  }
+
+  /* Bottom line */
+  .c-top-nav__hamburger::after {
+    content: '';
+    @apply block w-[24px] h-[2px] bg-[#1b1b1d];
+    margin-bottom: 8px;
+  }
+
+  /* Add Menu text using button's ::after */
+  .c-top-nav__menu-trigger::after {
+    content: 'Menu';
+    @apply block text-[12px] text-[#1b1b1d];
+    @apply mt-0;
+    line-height: 1.2;
+    width: auto;
+    height: auto;
+    background: none;
+  }
+
+  /* Hide main navigation on mobile */
+  .l-header__main {
+    @apply hidden;
+  }
+
+  /* Adjust top nav for mobile - hamburger, logo, donate/search */
+  .c-top-nav {
+    @apply flex items-center justify-between;
+    @apply py-[16px];
+  }
+
+  .c-top-nav > div:first-child {
+    @apply flex items-center gap-[12px];
+    @apply self-stretch;
+  }
+
+  .c-top-nav__menu-trigger {
+    @apply self-center;
+    align-self: center;
+  }
+
+  .c-top-nav__logo {
+    @apply flex-shrink-0;
+  }
+
+  .c-top-nav__logo img {
+    @apply h-[60px] w-auto;
+  }
+
+  /* Show search icon only (hide search input) */
+  .coveo-for-sitecore-search-box-container {
+    @apply block;
+  }
+
+  .CoveoOmnibox {
+    @apply border-0 bg-transparent p-0;
+  }
+
+  .magic-box-input {
+    @apply hidden;
+  }
+
+  .CoveoSearchButton {
+    @apply flex flex-col items-center;
+  }
+
+  .CoveoSearchButton svg {
+    @apply w-[20px] h-[20px] mb-[4px];
+  }
+
+  .CoveoSearchButton::after {
+    content: 'Search';
+    @apply text-[12px] text-[#1b1b1d];
+  }
+
+  /* Show single DONATE button, hide "Donate Monthly" */
+  .c-top-nav__nav {
+    @apply flex items-center gap-[16px];
+    @apply ml-auto;
+  }
+
+  .c-top-nav__nav > li:has(.btn-outline-primary) {
+    @apply hidden;
+  }
+
+  .c-top-nav__nav > li:has(.btn-primary) .btn {
+    @apply text-[13px] font-semibold px-[20px] py-[10px] uppercase;
+  }
+
+  .c-top-nav__nav > li:has(.btn-primary) .btn span {
+    @apply flex items-center;
+  }
+
+  /* Mobile utility links with pipe separators */
+  .c-utility-nav {
+    @apply flex items-center justify-center gap-[8px];
+    @apply py-[12px];
+  }
+
+  .c-utility-nav li:not(:last-child)::after {
+    content: '|';
+    @apply text-[#d5d5d5] ml-[8px];
   }
 }
 
-header {
-  #header {
-    @apply max-mobile-large:py-0 max-mobile-large:flex-col-reverse;
+@media (min-width: 992px) {
+  /* Ensure main nav doesn't wrap on desktop */
+  .c-main-nav > ul,
+  .c-main-nav > ul:first-child,
+  .mr-auto {
+    flex-wrap: nowrap !important;
+    white-space: nowrap !important;
+  }
 
-    .bs-title {
-      @apply pl-[50px] max-mobile-large:pl-0 max-mobile-large:text-center max-mobile-large:mt-[-5px];
-
-      h1 {
-        @apply text-[24px] font-semibold leading-[18px] pt-[40px] m-0 max-mobile-large:font-medium max-mobile-large:leading-[29px] max-mobile-large:pt-0 max-mobile-large:mb-[10px];
-      }
-    }
+  .c-main-nav__item {
+    flex-shrink: 0;
+    white-space: nowrap;
   }
 }
