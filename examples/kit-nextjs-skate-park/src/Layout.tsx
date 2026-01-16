@@ -410,7 +410,7 @@ const Layout = ({ page }: LayoutProps): JSX.Element => {
                   </ul>
                 </nav>
               </div>
-              <div name="donation-modal"></div>
+              <div id="donation-modal"></div>
             </header>
             <main id="main-content">
               <div id="content">
