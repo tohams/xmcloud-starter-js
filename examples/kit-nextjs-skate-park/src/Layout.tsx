@@ -1,4 +1,5 @@
 import React, { JSX } from "react";
+import Link from "next/link";
 import { Field, Page } from "@sitecore-content-sdk/nextjs";
 import Scripts from "src/Scripts";
 import SitecoreStyles from "components/content-sdk/SitecoreStyles";
@@ -378,9 +379,9 @@ const Layout = ({ page }: LayoutProps): JSX.Element => {
                 <nav aria-label="Mobile Utility Navigation" className="container container-fluid">
                   <ul className="c-utility-nav nav">
                     <li>
-                      <a href="/en/about-us/heart-attack-and-stroke-symptoms" className="c-cta c-cta--icon h-color--red">
+                      <Link href="/en/about-us/heart-attack-and-stroke-symptoms" className="c-cta c-cta--icon h-color--red">
                         Heart Attack and Stroke Symptoms
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </nav>
@@ -394,9 +395,9 @@ const Layout = ({ page }: LayoutProps): JSX.Element => {
                       </a>
                     </li>
                     <li>
-                      <a href="/en/volunteer" className="c-cta c-cta--icon h-color--gray-dark">
+                      <Link href="/en/volunteer" className="c-cta c-cta--icon h-color--gray-dark">
                         Volunteer
-                      </a>
+                      </Link>
                     </li>
                     <li>
                       <a
