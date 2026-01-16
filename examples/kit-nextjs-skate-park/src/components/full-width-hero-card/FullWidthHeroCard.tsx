@@ -10,12 +10,24 @@ import {
 import { ComponentProps } from 'lib/component-props';
 
 interface Fields {
-  Logo?: ImageField;
-  Title?: Field<string>;
-  Subheading?: Field<string>;
-  DonateOnceLink?: LinkField;
-  DonateMonthlyLink?: LinkField;
-  HeroImage?: ImageField;
+  Logo?: {
+    jsonValue?: ImageField;
+  };
+  Title?: {
+    jsonValue?: Field<string>;
+  };
+  Subheading?: {
+    jsonValue?: Field<string>;
+  };
+  DonateOnceLink?: {
+    jsonValue?: LinkField;
+  };
+  DonateMonthlyLink?: {
+    jsonValue?: LinkField;
+  };
+  HeroImage?: {
+    jsonValue?: ImageField;
+  };
 }
 
 type FullWidthHeroCardProps = ComponentProps & {
@@ -43,6 +55,14 @@ const Default = (props: FullWidthHeroCardProps): JSX.Element => {
     DonateMonthlyLink,
     HeroImage,
   } = (datasource || {}) as Fields;
+  
+  // Extract jsonValue from Integrated GraphQL structure
+  const logoField = Logo?.jsonValue;
+  const titleField = Title?.jsonValue;
+  const subheadingField = Subheading?.jsonValue;
+  const donateOnceLinkField = DonateOnceLink?.jsonValue;
+  const donateMonthlyLinkField = DonateMonthlyLink?.jsonValue;
+  const heroImageField = HeroImage?.jsonValue;
 
   if (!datasource && !isEditing) {
     return (
@@ -60,36 +80,42 @@ const Default = (props: FullWidthHeroCardProps): JSX.Element => {
         <div className="full-width-hero-card">
           <div className="full-width-hero-card__container container">
             <div className="full-width-hero-card__logo">
-              {Logo && (Logo.value?.src || isEditing) && (
-                <ContentSdkImage field={Logo} className="full-width-hero-card__icon" />
+              {logoField && (logoField.value?.src || isEditing) && (
+                <ContentSdkImage 
+                  field={logoField} 
+                  className="full-width-hero-card__icon"
+                  width={logoField.value?.width || 200}
+                  height={logoField.value?.height || 200}
+                  unoptimized={logoField.value?.src?.endsWith('.svg')}
+                />
               )}
               <span>American Heart Association</span>
             </div>
-            {Title && (Title.value || isEditing) && (
+            {titleField && (titleField.value || isEditing) && (
               <h1 className="full-width-hero-card__title">
-                <ContentSdkRichText field={Title} />
+                <ContentSdkRichText field={titleField} />
               </h1>
             )}
             <div className="full-width-hero-card__content">
               <div className="full-width-hero-card__body-content">
                 <div className="full-width-hero-card__cta">
-                  {Subheading && (Subheading.value || isEditing) && (
+                  {subheadingField && (subheadingField.value || isEditing) && (
                     <div className="full-width-hero-card__subheading">
-                      <ContentSdkRichText field={Subheading} />
+                      <ContentSdkRichText field={subheadingField} />
                     </div>
                   )}
                   <div className="full-width-hero-card__btns">
-                    {DonateOnceLink && (DonateOnceLink.value?.href || isEditing) && (
+                    {donateOnceLinkField && (donateOnceLinkField.value?.href || isEditing) && (
                       <ContentSdkLink
-                        field={DonateOnceLink}
+                        field={donateOnceLinkField}
                         className="btn btn-round btn-outline-primary col h-theme--red"
                       >
                         Donate Once
                       </ContentSdkLink>
                     )}
-                    {DonateMonthlyLink && (DonateMonthlyLink.value?.href || isEditing) && (
+                    {donateMonthlyLinkField && (donateMonthlyLinkField.value?.href || isEditing) && (
                       <ContentSdkLink
-                        field={DonateMonthlyLink}
+                        field={donateMonthlyLinkField}
                         className="btn btn-round btn-outline-primary col h-theme--red"
                       >
                         Donate Monthly
@@ -100,8 +126,14 @@ const Default = (props: FullWidthHeroCardProps): JSX.Element => {
               </div>
               <div className="full-width-hero-card__img">
                 <div>
-                  {HeroImage && (HeroImage.value?.src || isEditing) && (
-                    <ContentSdkImage field={HeroImage} className="is-loaded" />
+                  {heroImageField && (heroImageField.value?.src || isEditing) && (
+                    <ContentSdkImage 
+                      field={heroImageField} 
+                      className="is-loaded"
+                      width={heroImageField.value?.width || 1200}
+                      height={heroImageField.value?.height || 800}
+                      unoptimized={heroImageField.value?.src?.endsWith('.svg')}
+                    />
                   )}
                 </div>
               </div>

@@ -1,13 +1,32 @@
 .full-width-hero-card {
   @apply w-full bg-white;
+  position: relative;
 }
 
 .full-width-hero-card__container {
-  @apply py-[40px] px-[24px];
+  @apply relative px-[24px];
+  position: relative;
+  padding-top: 24px; /* Reduced from 40px */
+  padding-bottom: 60px; /* White space below red for image and shadow */
 }
 
+/* Full-width red background from top */
+.full-width-hero-card__container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: calc(50% - 50vw);
+  width: 100vw;
+  background-color: #dc143c; /* American Heart Association red */
+  z-index: 0;
+  bottom: auto;
+}
+
+/* Position logo and title above the pseudo-element */
 .full-width-hero-card__logo {
-  @apply flex items-center gap-[12px] mb-[24px];
+  @apply flex items-center gap-[12px] mb-[16px] relative;
+  z-index: 1;
+  position: relative;
 }
 
 .full-width-hero-card__icon {
@@ -15,22 +34,31 @@
 }
 
 .full-width-hero-card__logo span {
-  @apply text-[#1b1b1d] text-[14px] font-normal;
+  @apply text-white text-[14px] font-normal;
   font-family: 'Open Sans', Helvetica, Arial, sans-serif;
 }
 
 .full-width-hero-card__title {
-  @apply text-[#1b1b1d] text-[32px] md:text-[40px] font-bold mb-[24px];
+  @apply text-white text-[32px] md:text-[52px] font-bold mb-[20px] relative;
   font-family: 'Open Sans', Helvetica, Arial, sans-serif;
   line-height: 1.2;
+  z-index: 1;
+  position: relative;
+}
+
+.full-width-hero-card__title * {
+  @apply text-white;
 }
 
 .full-width-hero-card__content {
   @apply flex flex-col md:flex-row gap-[32px] items-start;
+  position: relative;
+  z-index: 1;
 }
 
 .full-width-hero-card__body-content {
-  @apply flex-1;
+  @apply flex-1 relative;
+  z-index: 1;
 }
 
 .full-width-hero-card__cta {
@@ -38,8 +66,13 @@
 }
 
 .full-width-hero-card__subheading {
-  @apply text-[#1b1b1d] text-[16px] leading-relaxed;
+  @apply text-white leading-relaxed;
+  font-size: 19.2px;
   font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+}
+
+.full-width-hero-card__subheading * {
+  @apply text-white;
 }
 
 .full-width-hero-card__subheading .text-uppercase {
@@ -48,32 +81,105 @@
 
 .full-width-hero-card__btns {
   @apply flex flex-col sm:flex-row gap-[16px];
+  width: 100%;
 }
 
 .full-width-hero-card__btns .btn {
-  @apply flex-1 sm:flex-initial;
+  @apply flex-1;
+  min-width: 0;
+}
+
+/* Override button styles for red banner context - buttons should be white text on red background */
+.full-width-hero-card .btn-outline-primary {
+  background-color: #dc143c !important;
+  border: 1px solid white !important;
+  color: white !important;
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  padding: 14px 28px !important;
+  width: 100% !important;
+}
+
+.full-width-hero-card .btn-outline-primary:hover {
+  background-color: #c41230 !important;
+  border-color: white !important;
+  color: white !important;
+  font-size: 20px !important;
+}
+
+.full-width-hero-card .btn-outline-primary * {
+  color: white !important;
+  font-size: 20px !important;
+}
+
+.full-width-hero-card .h-theme--red {
+  color: white !important;
 }
 
 .full-width-hero-card__img {
-  @apply w-full md:w-auto md:flex-shrink-0;
+  @apply w-full md:w-auto md:flex-shrink-0 relative;
+  z-index: 2;
 }
 
 .full-width-hero-card__img img {
-  @apply w-full h-auto rounded-[8px];
+  @apply w-full h-auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .full-width-hero-card__img > div {
   @apply w-full;
 }
 
+/* On desktop: Position image absolutely so container height = body-content only */
+/* Red background stops at body-content bottom (just below buttons) */
 @media (min-width: 768px) {
+  .full-width-hero-card__content {
+    position: relative;
+    min-height: 0;
+  }
+  
+  /* Image positioned absolutely - doesn't affect container height */
   .full-width-hero-card__img {
-    @apply max-w-[400px];
+    position: absolute !important;
+    right: 0;
+    top: 0;
+    height: auto;
+    max-height: none;
+  }
+  
+  .full-width-hero-card__body-content {
+    padding-right: calc(600px + 32px);
+  }
+  
+  /* Container has white space for image below red */
+  .full-width-hero-card__container {
+    padding-bottom: 400px; /* Enough space for image + shadow */
+  }
+  
+  /* Red background stops BEFORE padding-bottom area */
+  /* Red covers: padding-top + logo + title + body-content + 60px extra below buttons */
+  /* Red stops at: 60px below buttons */
+  .full-width-hero-card__container::before {
+    bottom: 340px; /* Stop 340px from bottom (400px padding - 60px extra red = 340px) */
+    height: auto;
   }
 }
 
 @media (min-width: 992px) {
+  .full-width-hero-card__body-content {
+    padding-right: calc(684px + 32px);
+  }
+  
   .full-width-hero-card__img {
-    @apply max-w-[500px];
+    @apply max-w-[684px];
+  }
+  
+  .full-width-hero-card__container {
+    padding-bottom: 450px; /* More space for larger image */
+  }
+  
+  /* Red stops before padding-bottom on larger screens too, with 60px extra */
+  .full-width-hero-card__container::before {
+    bottom: 390px; /* Stop 390px from bottom (450px padding - 60px extra red = 390px) */
   }
 }
