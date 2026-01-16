@@ -9,7 +9,7 @@ footer {
     @apply text-[14px];
 
     a {
-      @apply text-text-white;
+      @apply text-text-white hover:text-text-red;
     }
 
     p,
