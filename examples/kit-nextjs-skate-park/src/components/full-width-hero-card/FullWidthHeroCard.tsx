@@ -8,7 +8,6 @@ import {
   LinkField,
 } from '@sitecore-content-sdk/nextjs';
 import { ComponentProps } from 'lib/component-props';
-import '../../assets/components/full-width-hero-card.css';
 
 interface Fields {
   Logo?: ImageField;

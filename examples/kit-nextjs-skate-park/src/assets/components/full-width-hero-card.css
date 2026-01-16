@@ -3,7 +3,6 @@
 }
 
 .full-width-hero-card__container {
-  @apply container container-wide;
   @apply py-[40px] px-[24px];
 }
 
