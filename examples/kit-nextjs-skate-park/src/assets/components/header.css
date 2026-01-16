@@ -159,7 +159,7 @@
 .c-main-nav > ul:first-child {
   flex: 1;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 0;
   flex-wrap: nowrap;
   white-space: nowrap;
@@ -167,8 +167,8 @@
 
 .mr-auto {
   @apply flex items-center list-none m-0 p-0;
-  width: 100%;
-  justify-content: space-between;
+  width: auto;
+  justify-content: flex-start;
   gap: 0;
   flex-wrap: nowrap;
   white-space: nowrap;
