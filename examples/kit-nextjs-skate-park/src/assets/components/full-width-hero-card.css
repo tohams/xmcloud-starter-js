@@ -1,0 +1,80 @@
+.full-width-hero-card {
+  @apply w-full bg-white;
+}
+
+.full-width-hero-card__container {
+  @apply container container-wide;
+  @apply py-[40px] px-[24px];
+}
+
+.full-width-hero-card__logo {
+  @apply flex items-center gap-[12px] mb-[24px];
+}
+
+.full-width-hero-card__icon {
+  @apply h-[32px] w-auto;
+}
+
+.full-width-hero-card__logo span {
+  @apply text-[#1b1b1d] text-[14px] font-normal;
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+}
+
+.full-width-hero-card__title {
+  @apply text-[#1b1b1d] text-[32px] md:text-[40px] font-bold mb-[24px];
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  line-height: 1.2;
+}
+
+.full-width-hero-card__content {
+  @apply flex flex-col md:flex-row gap-[32px] items-start;
+}
+
+.full-width-hero-card__body-content {
+  @apply flex-1;
+}
+
+.full-width-hero-card__cta {
+  @apply flex flex-col gap-[24px];
+}
+
+.full-width-hero-card__subheading {
+  @apply text-[#1b1b1d] text-[16px] leading-relaxed;
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+}
+
+.full-width-hero-card__subheading .text-uppercase {
+  @apply uppercase font-semibold;
+}
+
+.full-width-hero-card__btns {
+  @apply flex flex-col sm:flex-row gap-[16px];
+}
+
+.full-width-hero-card__btns .btn {
+  @apply flex-1 sm:flex-initial;
+}
+
+.full-width-hero-card__img {
+  @apply w-full md:w-auto md:flex-shrink-0;
+}
+
+.full-width-hero-card__img img {
+  @apply w-full h-auto rounded-[8px];
+}
+
+.full-width-hero-card__img > div {
+  @apply w-full;
+}
+
+@media (min-width: 768px) {
+  .full-width-hero-card__img {
+    @apply max-w-[400px];
+  }
+}
+
+@media (min-width: 992px) {
+  .full-width-hero-card__img {
+    @apply max-w-[500px];
+  }
+}
