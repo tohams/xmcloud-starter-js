@@ -254,7 +254,8 @@ const Layout = ({ page }: LayoutProps): JSX.Element => {
                         </li>
                         <li className="c-top-nav__item">
                           <a role="button" href="https://mygiving.heart.org/-/XXRCJWZY" className="btn btn-round btn-primary">
-                            <span>Donate Once</span>
+                            <span className="desktop-text">Donate Once</span>
+                            <span className="mobile-text">Donate</span>
                           </a>
                         </li>
                         <li className="c-top-nav__item">

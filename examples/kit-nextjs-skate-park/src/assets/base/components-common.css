@@ -2,7 +2,9 @@
 .boxed {
   @apply box-border my-[20px] mx-0 max-mobile-large:p-[10px] max-mobile:p-[10px];
   > div {
-    @apply max-w-[960px] mx-auto! my-0!;
+    @apply max-w-[960px] mx-auto;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
   }
 }
 

@@ -82,7 +82,7 @@
       @apply hidden fixed top-0 bottom-0 right-0 left-0 bg-bg-black-active z-[1];
 
       * {
-        @apply text-center!;
+        text-align: center !important;
       }
 
       nav {

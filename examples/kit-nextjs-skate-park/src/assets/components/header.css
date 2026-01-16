@@ -439,7 +439,7 @@
     @apply block;
     @apply bg-transparent border-0 cursor-pointer p-0 flex flex-col items-center;
     @apply self-center;
-    gap: 8px;
+    gap: 3px;
   }
 
   .c-top-nav__hamburger {
@@ -469,7 +469,7 @@
   .c-top-nav__hamburger::after {
     content: '';
     @apply block w-[24px] h-[2px] bg-[#1b1b1d];
-    margin-bottom: 8px;
+    margin-bottom: 3px;
   }
 
   /* Add Menu text using button's ::after */
@@ -497,6 +497,7 @@
   .c-top-nav > div:first-child {
     @apply flex items-center gap-[12px];
     @apply self-stretch;
+    margin-left: -8px; /* Move logo a little to the left */
   }
 
   .c-top-nav__menu-trigger {
@@ -509,7 +510,7 @@
   }
 
   .c-top-nav__logo img {
-    @apply h-[60px] w-auto;
+    @apply h-[45px] w-auto;
   }
 
   /* Show search icon only (hide search input) */
@@ -540,12 +541,22 @@
 
   /* Show single DONATE button, hide "Donate Monthly" */
   .c-top-nav__nav {
-    @apply flex items-center gap-[16px];
+    @apply flex items-center gap-[8px];
     @apply ml-auto;
+    margin-right: -8px; /* Move Donate and Search more to the right */
   }
 
   .c-top-nav__nav > li:has(.btn-outline-primary) {
     @apply hidden;
+  }
+
+  /* Show "Donate" text on mobile, hide "Donate Once" */
+  .c-top-nav__nav > li:has(.btn-primary) .btn .desktop-text {
+    display: none !important;
+  }
+
+  .c-top-nav__nav > li:has(.btn-primary) .btn .mobile-text {
+    display: inline !important;
   }
 
   .c-top-nav__nav > li:has(.btn-primary) .btn {
@@ -554,6 +565,15 @@
 
   .c-top-nav__nav > li:has(.btn-primary) .btn span {
     @apply flex items-center;
+  }
+
+  /* Flip order on mobile: Donate first, then Search */
+  .c-top-nav__nav > li:has(.btn-primary) {
+    order: 1;
+  }
+
+  .c-top-nav__nav > li:has(.meganav-search) {
+    order: 2;
   }
 
   /* Mobile utility links with pipe separators */
@@ -568,7 +588,27 @@
   }
 }
 
+/* Default desktop: show "Donate Once", hide "Donate" - moved to desktop media query */
+
 @media (min-width: 992px) {
+  /* Desktop: show "Donate Once", hide "Donate" */
+  .c-top-nav__nav > li:has(.btn-primary) .btn .desktop-text {
+    display: inline !important;
+  }
+
+  .c-top-nav__nav > li:has(.btn-primary) .btn .mobile-text {
+    display: none !important;
+  }
+
+  /* Reset order on desktop (default order) */
+  .c-top-nav__nav > li:has(.btn-primary) {
+    order: 0;
+  }
+
+  .c-top-nav__nav > li:has(.meganav-search) {
+    order: 0;
+  }
+
   /* Ensure main nav doesn't wrap on desktop */
   .c-main-nav > ul,
   .c-main-nav > ul:first-child,

@@ -15,6 +15,7 @@
 
 .image-default-size {
   img {
-    @apply max-w-none w-auto!;
+    @apply max-w-none;
+    width: auto !important;
   }
 }

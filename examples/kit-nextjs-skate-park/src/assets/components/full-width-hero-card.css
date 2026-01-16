@@ -3,11 +3,261 @@
   position: relative;
 }
 
+/* Remove padding from parent elements that could interfere */
+.component.full-width-hero-card {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.full-width-hero-card .component-content {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
 .full-width-hero-card__container {
-  @apply relative px-[24px];
+  @apply relative;
   position: relative;
-  padding-top: 24px; /* Reduced from 40px */
-  padding-bottom: 60px; /* White space below red for image and shadow */
+  padding-top: 24px;
+  padding-bottom: 30px;
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* Responsive horizontal padding - scales with viewport width above 1170px */
+/* At 1170px and below: minimal padding (24px internal) */
+/* Above 1170px: progressively increase padding */
+/* At 1905px viewport width: 366px padding on each side */
+.full-width-hero-card__container {
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+}
+
+/* Calculate padding: (viewport - 1170) * factor to reach 366px at 1905px */
+/* Factor = 366 / (1905 - 1170) = 366 / 735 ≈ 0.498 */
+@media screen and (min-width: 1171px) {
+  .full-width-hero-card__container {
+    padding-left: clamp(24px, calc(24px + (100vw - 1170px) * 0.498), 366px) !important;
+    padding-right: clamp(24px, calc(24px + (100vw - 1170px) * 0.498), 366px) !important;
+  }
+}
+
+/* Fine-tune at specific breakpoints for precise control */
+@media screen and (min-width: 1900px) {
+  .full-width-hero-card__container {
+    padding-left: 366px !important;
+    padding-right: 366px !important;
+  }
+}
+
+@media screen and (min-width: 1800px) and (max-width: 1899px) {
+  .full-width-hero-card__container {
+    padding-left: calc(24px + (1800px - 1170px) * 0.498) !important;
+    padding-right: calc(24px + (1800px - 1170px) * 0.498) !important;
+  }
+}
+
+@media screen and (min-width: 1700px) and (max-width: 1799px) {
+  .full-width-hero-card__container {
+    padding-left: calc(24px + (1700px - 1170px) * 0.498) !important;
+    padding-right: calc(24px + (1700px - 1170px) * 0.498) !important;
+  }
+}
+
+@media screen and (min-width: 1600px) and (max-width: 1699px) {
+  .full-width-hero-card__container {
+    padding-left: calc(24px + (1600px - 1170px) * 0.498) !important;
+    padding-right: calc(24px + (1600px - 1170px) * 0.498) !important;
+  }
+}
+
+@media screen and (min-width: 1500px) and (max-width: 1599px) {
+  .full-width-hero-card__container {
+    padding-left: calc(24px + (1500px - 1170px) * 0.498) !important;
+    padding-right: calc(24px + (1500px - 1170px) * 0.498) !important;
+  }
+}
+
+@media screen and (min-width: 1400px) and (max-width: 1499px) {
+  .full-width-hero-card__container {
+    padding-left: calc(24px + (1400px - 1170px) * 0.498) !important;
+    padding-right: calc(24px + (1400px - 1170px) * 0.498) !important;
+  }
+}
+
+@media screen and (min-width: 1300px) and (max-width: 1399px) {
+  .full-width-hero-card__container {
+    padding-left: calc(24px + (1300px - 1170px) * 0.498) !important;
+    padding-right: calc(24px + (1300px - 1170px) * 0.498) !important;
+  }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1299px) {
+  .full-width-hero-card__container {
+    padding-left: calc(24px + (1200px - 1170px) * 0.498) !important;
+    padding-right: calc(24px + (1200px - 1170px) * 0.498) !important;
+  }
+}
+
+@media screen and (min-width: 1171px) and (max-width: 1199px) {
+  .full-width-hero-card__container {
+    padding-left: calc(24px + (100vw - 1170px) * 0.498) !important;
+    padding-right: calc(24px + (100vw - 1170px) * 0.498) !important;
+  }
+  
+  /* Ensure side-by-side layout at this range - same as desktop */
+  .full-width-hero-card__content {
+    display: flex !important;
+    flex-direction: row !important;
+  }
+  
+  .full-width-hero-card__btns {
+    display: flex !important;
+    flex-direction: row !important;
+  }
+  
+  .full-width-hero-card__img {
+    @apply w-auto flex-shrink-0;
+    position: absolute !important;
+    right: 0;
+    top: 0;
+    height: auto;
+    max-height: none;
+    max-width: 600px;
+  }
+  
+  .full-width-hero-card__body-content {
+    padding-right: calc(600px + 32px) !important;
+    width: auto !important;
+    max-width: none !important;
+  }
+  
+  .full-width-hero-card__container {
+    padding-bottom: 450px;
+  }
+  
+  .full-width-hero-card__container::before {
+    bottom: 390px;
+    height: auto;
+  }
+}
+
+/* 1024px-1170px: 24px padding (minimal internal padding) */
+@media screen and (max-width: 1170px) and (min-width: 1024px) {
+  .full-width-hero-card__container {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+  
+  /* At 1024px, buttons should stack vertically but image stays on right */
+  .full-width-hero-card__btns {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    align-items: flex-start !important;
+  }
+  
+  /* Buttons should be full width of available space at medium sizes */
+  .full-width-hero-card .full-width-hero-card__btns .btn-outline-primary {
+    width: 100% !important;
+    min-width: auto !important;
+    padding: 14px 32px !important;
+  }
+  
+  .full-width-hero-card__btns .btn {
+    width: 100% !important;
+  }
+  
+  /* Buttons should be white with red text at medium widths */
+  .full-width-hero-card .full-width-hero-card__btns .btn-outline-primary {
+    background-color: white !important;
+    border: 1px solid white !important;
+    color: #dc143c !important;
+  }
+  
+  .full-width-hero-card .full-width-hero-card__btns .btn-outline-primary:hover {
+    background-color: #f0f0f0 !important;
+    border-color: white !important;
+    color: #dc143c !important;
+  }
+  
+  .full-width-hero-card .full-width-hero-card__btns .btn-outline-primary * {
+    color: #dc143c !important;
+  }
+  
+  /* Content remains side-by-side so image stays on right */
+  .full-width-hero-card__content {
+    display: flex !important;
+    flex-direction: row !important;
+  }
+  
+  /* Image positioned absolutely to stay on right - takes up 60% of component width */
+  .full-width-hero-card__img {
+    position: absolute !important;
+    right: 24px;
+    top: 0;
+    height: auto;
+    max-height: none;
+    width: 60% !important;
+    max-width: none !important;
+  }
+  
+  .full-width-hero-card__body-content {
+    padding-right: calc(60% + 48px) !important;
+    width: 40% !important;
+  }
+  
+  /* Ensure gap between text and image */
+  .full-width-hero-card__content {
+    gap: 24px !important;
+  }
+  
+  .full-width-hero-card__container {
+    padding-bottom: 400px;
+  }
+  
+  /* Red background stops 60px below buttons at 1024px */
+  .full-width-hero-card__container::before {
+    bottom: 340px !important;
+    height: auto !important;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .full-width-hero-card__container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .full-width-hero-card__container {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .full-width-hero-card__container {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .full-width-hero-card__container {
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .full-width-hero-card__container {
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+  }
 }
 
 /* Full-width red background from top */
@@ -17,9 +267,11 @@
   top: 0;
   left: calc(50% - 50vw);
   width: 100vw;
-  background-color: #dc143c; /* American Heart Association red */
+  background-color: #dc143c;
   z-index: 0;
-  bottom: auto;
+  /* Default bottom value to ensure it always shows - will be overridden by media queries */
+  bottom: 0;
+  height: 100%;
 }
 
 /* Position logo and title above the pseudo-element */
@@ -51,9 +303,16 @@
 }
 
 .full-width-hero-card__content {
-  @apply flex flex-col md:flex-row gap-[32px] items-start;
-  position: relative;
+  @apply flex flex-col gap-[32px] relative;
   z-index: 1;
+  position: relative;
+}
+
+/* Side-by-side layout on desktop (1200px+) */
+@media screen and (min-width: 1200px) {
+  .full-width-hero-card__content {
+    @apply flex-row;
+  }
 }
 
 .full-width-hero-card__body-content {
@@ -80,8 +339,17 @@
 }
 
 .full-width-hero-card__btns {
-  @apply flex flex-col sm:flex-row gap-[16px];
+  @apply flex flex-col gap-[16px];
   width: 100%;
+  flex-wrap: wrap; /* Allow buttons to wrap if needed */
+}
+
+/* Buttons side-by-side on desktop (1200px+) */
+@media screen and (min-width: 1200px) {
+  .full-width-hero-card__btns {
+    @apply flex-row;
+    flex-wrap: wrap; /* Allow buttons to wrap if they don't fit */
+  }
 }
 
 .full-width-hero-card__btns .btn {
@@ -89,35 +357,41 @@
   min-width: 0;
 }
 
-/* Override button styles for red banner context - buttons should be white text on red background */
+/* Button styles for red banner context - white background with red text at all widths */
 .full-width-hero-card .btn-outline-primary {
-  background-color: #dc143c !important;
+  background-color: white !important;
   border: 1px solid white !important;
-  color: white !important;
+  color: #dc143c !important;
   font-size: 20px !important;
   font-weight: 600 !important;
   padding: 14px 28px !important;
   width: 100% !important;
+  white-space: nowrap !important; /* Prevent text wrapping inside buttons */
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
 }
 
 .full-width-hero-card .btn-outline-primary:hover {
-  background-color: #c41230 !important;
+  background-color: #f0f0f0 !important;
   border-color: white !important;
-  color: white !important;
-  font-size: 20px !important;
+  color: #dc143c !important;
 }
 
 .full-width-hero-card .btn-outline-primary * {
-  color: white !important;
+  color: #dc143c !important;
   font-size: 20px !important;
 }
 
 .full-width-hero-card .h-theme--red {
-  color: white !important;
+  color: #dc143c !important;
+}
+
+.full-width-hero-card .h-theme--red * {
+  color: #dc143c !important;
 }
 
 .full-width-hero-card__img {
-  @apply w-full md:w-auto md:flex-shrink-0 relative;
+  @apply w-full relative;
   z-index: 2;
 }
 
@@ -130,56 +404,63 @@
   @apply w-full;
 }
 
-/* On desktop: Position image absolutely so container height = body-content only */
-/* Red background stops at body-content bottom (just below buttons) */
-@media (min-width: 768px) {
-  .full-width-hero-card__content {
-    position: relative;
-    min-height: 0;
-  }
-  
-  /* Image positioned absolutely - doesn't affect container height */
+/* Desktop layout (1200px+): side-by-side with image absolutely positioned */
+@media screen and (min-width: 1200px) {
   .full-width-hero-card__img {
+    @apply w-auto flex-shrink-0;
     position: absolute !important;
     right: 0;
     top: 0;
     height: auto;
     max-height: none;
+    max-width: 684px;
   }
   
-  .full-width-hero-card__body-content {
-    padding-right: calc(600px + 32px);
-  }
-  
-  /* Container has white space for image below red */
-  .full-width-hero-card__container {
-    padding-bottom: 400px; /* Enough space for image + shadow */
-  }
-  
-  /* Red background stops BEFORE padding-bottom area */
-  /* Red covers: padding-top + logo + title + body-content + 60px extra below buttons */
-  /* Red stops at: 60px below buttons */
-  .full-width-hero-card__container::before {
-    bottom: 340px; /* Stop 340px from bottom (400px padding - 60px extra red = 340px) */
-    height: auto;
-  }
-}
-
-@media (min-width: 992px) {
   .full-width-hero-card__body-content {
     padding-right: calc(684px + 32px);
   }
   
+  .full-width-hero-card__container {
+    padding-bottom: 450px;
+  }
+  
+  /* Red background stops 60px below buttons */
+  .full-width-hero-card__container::before {
+    bottom: 390px;
+    height: auto;
+  }
+}
+
+/* Mobile/tablet layout (<1024px): stacked with image below text */
+@media screen and (max-width: 1023px) {
+  .full-width-hero-card__content {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto auto !important;
+    gap: 32px !important;
+  }
+  
+  .full-width-hero-card__body-content {
+    grid-row: 1 !important;
+    grid-column: 1 !important;
+    width: 100% !important;
+  }
+  
   .full-width-hero-card__img {
-    @apply max-w-[684px];
+    grid-row: 2 !important;
+    grid-column: 1 !important;
+    width: 100% !important;
+    margin-bottom: 30px !important;
+    position: static !important;
   }
   
   .full-width-hero-card__container {
-    padding-bottom: 450px; /* More space for larger image */
+    padding-bottom: 0 !important;
   }
   
-  /* Red stops before padding-bottom on larger screens too, with 60px extra */
+  /* Red background stops 30px above image bottom */
   .full-width-hero-card__container::before {
-    bottom: 390px; /* Stop 390px from bottom (450px padding - 60px extra red = 390px) */
+    bottom: 60px !important;
+    height: auto !important;
   }
 }
