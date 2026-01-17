@@ -84,7 +84,7 @@ const Default = (props: FlexCardContainerProps): JSX.Element => {
 
               return (
                 <li key={index} className="flex-card-grid--item col-6 col-md-3">
-                  {(linkField?.value?.href || isEditing) ? (
+                  {(linkField?.value?.href || isEditing) && linkField ? (
                     <ContentSdkLink
                       field={linkField}
                       className="flex-card-grid--link h-placeholder-image h-placeholder-image--3-2 white-100 card-drop-shadow"
