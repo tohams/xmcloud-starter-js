@@ -20,7 +20,7 @@
   @apply relative;
   position: relative;
   padding-top: 24px;
-  padding-bottom: 30px;
+  padding-bottom: 0px;
   max-width: 100% !important;
   margin-left: 0 !important;
   margin-right: 0 !important;
@@ -139,7 +139,7 @@
   }
   
   .full-width-hero-card__container::before {
-    bottom: 390px;
+    bottom: 420px;
     height: auto;
   }
 }
@@ -218,9 +218,9 @@
     padding-bottom: 400px;
   }
   
-  /* Red background stops 60px below buttons at 1024px */
+  /* Red background extends closer to bottom - only 30px white space */
   .full-width-hero-card__container::before {
-    bottom: 340px !important;
+    bottom: 370px !important;
     height: auto !important;
   }
 }
@@ -424,9 +424,9 @@
     padding-bottom: 450px;
   }
   
-  /* Red background stops 60px below buttons */
+  /* Red background extends closer to bottom - only 30px white space */
   .full-width-hero-card__container::before {
-    bottom: 390px;
+    bottom: 420px;
     height: auto;
   }
 }
@@ -458,9 +458,9 @@
     padding-bottom: 0 !important;
   }
   
-  /* Red background stops 30px above image bottom */
+  /* Red background extends closer to bottom - only 30px white space */
   .full-width-hero-card__container::before {
-    bottom: 60px !important;
+    bottom: 30px !important;
     height: auto !important;
   }
 }

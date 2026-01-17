@@ -58,92 +58,106 @@ const Default = (props: FlexCardContainerProps): JSX.Element => {
     );
   }
 
+  // Group cards into pairs (2 cards per wrapper div)
+  const cardPairs: FlexCardFields[][] = [];
+  for (let i = 0; i < flexCards.length; i += 2) {
+    cardPairs.push(flexCards.slice(i, i + 2));
+  }
+
+  const renderCard = (card: FlexCardFields, index: number) => {
+    // Safe destructuring with fallbacks
+    const { Icon, Title, Copy, Link } = card || {};
+    const iconField = Icon?.jsonValue;
+    const titleField = Title?.jsonValue;
+    const copyField = Copy?.jsonValue;
+    const linkField = Link?.jsonValue;
+
+    // Check if card has content or we're in editing mode
+    const hasContent =
+      iconField?.value?.src ||
+      titleField?.value ||
+      copyField?.value ||
+      linkField?.value?.href;
+
+    if (!hasContent && !isEditing) {
+      return null;
+    }
+
+    return (
+      <li key={index} className="flex-card-grid--item">
+        {(linkField?.value?.href || isEditing) && linkField ? (
+          <ContentSdkLink
+            field={linkField}
+            className="flex-card-grid--link white-100 card-drop-shadow"
+          >
+            <div className="flex-card-grid--content">
+              {iconField && (iconField.value?.src || isEditing) && (
+                <div className="flex-card-grid--icon-holder flex-card-grid--icon-holder--red">
+                  <ContentSdkImage
+                    field={iconField}
+                    className="flex-card-grid--icon"
+                    width={22}
+                    height={30}
+                    unoptimized={iconField.value?.src?.endsWith('.svg')}
+                  />
+                </div>
+              )}
+              {titleField && (titleField.value || isEditing) && (
+                <h2 className="flex-card-grid--title">
+                  <Text field={titleField} />
+                </h2>
+              )}
+              {copyField && (copyField.value || isEditing) && (
+                <p className="flex-card-grid--copy">
+                  <Text field={copyField} />
+                </p>
+              )}
+            </div>
+          </ContentSdkLink>
+        ) : (
+          <div className="flex-card-grid--link white-100 card-drop-shadow">
+            <div className="flex-card-grid--content">
+              {iconField && (iconField.value?.src || isEditing) && (
+                <div className="flex-card-grid--icon-holder flex-card-grid--icon-holder--red">
+                  <ContentSdkImage
+                    field={iconField}
+                    className="flex-card-grid--icon"
+                    width={22}
+                    height={30}
+                    unoptimized={iconField.value?.src?.endsWith('.svg')}
+                  />
+                </div>
+              )}
+              {titleField && (titleField.value || isEditing) && (
+                <h2 className="flex-card-grid--title">
+                  <Text field={titleField} />
+                </h2>
+              )}
+              {copyField && (copyField.value || isEditing) && (
+                <p className="flex-card-grid--copy">
+                  <Text field={copyField} />
+                </p>
+              )}
+            </div>
+          </div>
+        )}
+      </li>
+    );
+  };
+
   return (
     <div className={`component flex-card-container ${styles || ''}`} id={id}>
       <div className="component-content">
         <div className="container container-fluid">
-          <ul className="flex-card-grid row">
-            {flexCards.map((card, index) => {
-              // Safe destructuring with fallbacks
-              const { Icon, Title, Copy, Link } = card || {};
-              const iconField = Icon?.jsonValue;
-              const titleField = Title?.jsonValue;
-              const copyField = Copy?.jsonValue;
-              const linkField = Link?.jsonValue;
-
-              // Check if card has content or we're in editing mode
-              const hasContent =
-                iconField?.value?.src ||
-                titleField?.value ||
-                copyField?.value ||
-                linkField?.value?.href;
-
-              if (!hasContent && !isEditing) {
-                return null;
-              }
-
-              return (
-                <li key={index} className="flex-card-grid--item col-6 col-md-3">
-                  {(linkField?.value?.href || isEditing) && linkField ? (
-                    <ContentSdkLink
-                      field={linkField}
-                      className="flex-card-grid--link h-placeholder-image h-placeholder-image--3-2 white-100 card-drop-shadow"
-                    >
-                      <div className="flex-card-grid--content">
-                        {iconField && (iconField.value?.src || isEditing) && (
-                          <div className="flex-card-grid--icon-holder flex-card-grid--icon-holder--red">
-                            <ContentSdkImage
-                              field={iconField}
-                              className="flex-card-grid--icon"
-                              width={typeof iconField.value?.width === 'number' ? iconField.value.width : 102}
-                              height={typeof iconField.value?.height === 'number' ? iconField.value.height : 136}
-                              unoptimized={iconField.value?.src?.endsWith('.svg')}
-                            />
-                          </div>
-                        )}
-                        {titleField && (titleField.value || isEditing) && (
-                          <h2 className="flex-card-grid--title">
-                            <Text field={titleField} />
-                          </h2>
-                        )}
-                        {copyField && (copyField.value || isEditing) && (
-                          <p className="flex-card-grid--copy">
-                            <Text field={copyField} />
-                          </p>
-                        )}
-                      </div>
-                    </ContentSdkLink>
-                  ) : (
-                    <div className="flex-card-grid--link h-placeholder-image h-placeholder-image--3-2 white-100 card-drop-shadow">
-                      <div className="flex-card-grid--content">
-                        {iconField && (iconField.value?.src || isEditing) && (
-                          <div className="flex-card-grid--icon-holder flex-card-grid--icon-holder--red">
-                            <ContentSdkImage
-                              field={iconField}
-                              className="flex-card-grid--icon"
-                              width={typeof iconField.value?.width === 'number' ? iconField.value.width : 102}
-                              height={typeof iconField.value?.height === 'number' ? iconField.value.height : 136}
-                              unoptimized={iconField.value?.src?.endsWith('.svg')}
-                            />
-                          </div>
-                        )}
-                        {titleField && (titleField.value || isEditing) && (
-                          <h2 className="flex-card-grid--title">
-                            <Text field={titleField} />
-                          </h2>
-                        )}
-                        {copyField && (copyField.value || isEditing) && (
-                          <p className="flex-card-grid--copy">
-                            <Text field={copyField} />
-                          </p>
-                        )}
-                      </div>
-                    </div>
-                  )}
-                </li>
-              );
-            })}
-          </ul>
+          <div className="flex-card-container--wrapper">
+            {cardPairs.map((pair, pairIndex) => (
+              <div key={pairIndex} className="flex-card-pair">
+                <ul className="flex-card-grid">
+                  {pair.map((card, cardIndex) => renderCard(card, pairIndex * 2 + cardIndex))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

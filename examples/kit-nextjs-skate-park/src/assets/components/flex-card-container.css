@@ -1,53 +1,113 @@
 .flex-card-container {
   @apply w-full;
+  background-color: #ffffff;
+  padding-top: 40px;
+  padding-bottom: 60px;
 }
 
 .flex-card-container .component-content {
   @apply w-full;
 }
 
-/* Base column class for mobile (50% width) - scoped to flex-card-grid */
-.flex-card-grid .col-6 {
-  @apply w-1/2;
-}
-
-.flex-card-grid {
-  @apply list-none flex flex-wrap -mx-4;
-  margin: 0;
+.flex-card-container .container {
+  max-width: none;
   padding: 0;
 }
 
+.flex-card-container .container-fluid {
+  padding: 0;
+  width: 100%;
+}
+
+.flex-card-container--wrapper {
+  display: flex;
+  flex-wrap: nowrap; /* Keep pairs on same line by default */
+  justify-content: center;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.flex-card-pair {
+  display: flex;
+  justify-content: center;
+  padding: 0 7.5px;
+  box-sizing: border-box;
+  flex: 0 0 auto;
+}
+
+/* Only wrap pairs when viewport is too narrow for both */
+@media screen and (max-width: 1100px) {
+  .flex-card-container--wrapper {
+    flex-wrap: wrap;
+  }
+  
+  .flex-card-pair {
+    margin-bottom: 30px;
+  }
+  
+  .flex-card-pair:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.flex-card-grid {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 15px;
+}
+
 .flex-card-grid--item {
-  @apply px-4 mb-8;
-  /* Bootstrap grid classes (col-6 col-md-3) handle the width */
+  flex: 0 0 auto;
+  width: 262.5px;
+  min-width: 212.5px;
+  box-sizing: border-box;
+}
+
+/* Allow cards to shrink when viewport is narrow */
+@media screen and (max-width: 580px) {
+  .flex-card-grid--item {
+    width: auto;
+    flex: 1 1 212.5px;
+    max-width: 262.5px;
+  }
 }
 
 .flex-card-grid--link {
-  @apply block h-full bg-white rounded-lg overflow-hidden transition-shadow duration-300;
+  @apply block bg-white rounded-lg transition-all duration-300;
   display: block;
   text-decoration: none;
   color: inherit;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15), 0 8px 24px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  width: 100%;
+  height: 320px;
+  box-sizing: border-box;
 }
 
 .flex-card-grid--link:hover {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.2), 0 12px 36px rgba(0, 0, 0, 0.12);
   text-decoration: none;
   color: inherit;
+  transform: translateY(-4px);
 }
 
 .flex-card-grid--content {
-  @apply p-6 flex flex-col items-center text-center h-full;
-  padding: 24px;
-  min-height: 280px;
+  @apply flex flex-col items-center text-center h-full;
+  padding: 32px 24px 24px;
+  height: 320px;
+  box-sizing: border-box;
 }
 
 .flex-card-grid--icon-holder {
   @apply flex items-center justify-center mb-4 rounded-full;
-  width: 80px;
-  height: 80px;
-  background-color: #dc143c; /* Red background */
+  width: 88px;
+  height: 88px;
+  background-color: #dc143c;
   flex-shrink: 0;
+  margin-bottom: 20px;
 }
 
 .flex-card-grid--icon-holder--red {
@@ -55,61 +115,64 @@
 }
 
 .flex-card-grid--icon {
-  @apply w-auto h-auto;
-  max-width: 60px;
-  max-height: 60px;
+  width: 22px;
+  height: 30px;
   object-fit: contain;
 }
 
 .flex-card-grid--title {
-  @apply text-xl font-bold mb-3 text-gray-900;
-  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  @apply font-bold mb-2 text-gray-900;
+  font-size: 18px;
   line-height: 1.3;
   margin-bottom: 12px;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .flex-card-grid--copy {
-  @apply text-base text-gray-700;
-  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  @apply text-gray-600;
+  font-size: 14px;
   line-height: 1.5;
   margin: 0;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-/* Ensure proper spacing and layout */
+/* Utility classes */
 .white-100 {
   background-color: #ffffff;
 }
 
 .card-drop-shadow {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15), 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
+/* Remove aspect ratio constraint */
 .h-placeholder-image--3-2 {
-  aspect-ratio: 3 / 2;
+  aspect-ratio: auto;
 }
 
 /* Responsive adjustments */
 @media screen and (max-width: 767px) {
   .flex-card-grid--content {
-    padding: 20px;
-    min-height: 260px;
+    padding: 28px 20px 20px;
   }
 
   .flex-card-grid--icon-holder {
-    width: 70px;
-    height: 70px;
+    width: 76px;
+    height: 76px;
+    margin-bottom: 16px;
   }
 
   .flex-card-grid--icon {
-    max-width: 50px;
-    max-height: 50px;
+    width: 22px;
+    height: 30px;
   }
 
   .flex-card-grid--title {
-    @apply text-lg;
+    font-size: 16px;
+    margin-bottom: 10px;
   }
 
   .flex-card-grid--copy {
-    @apply text-sm;
+    font-size: 13px;
   }
 }
