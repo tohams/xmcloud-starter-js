@@ -67,6 +67,35 @@ interface ComponentProps {
 <Image field={fields?.image} />
 ```
 
+### GraphQL Query Best Practices
+When creating GraphQL queries for Sitecore components:
+- **ALWAYS use field names, NOT field IDs** in GraphQL queries
+- Field names are stable across environments and easier to maintain
+- Field IDs can vary between local and deployed environments
+
+```typescript
+// ✅ CORRECT: Use field names
+query ComponentQuery($datasource: String!, $language: String!) {
+  datasource: item(path: $datasource, language: $language) {
+    Icon1: field(name: "Icon 1") {
+      jsonValue
+    }
+    Title1: field(name: "Title 1") {
+      jsonValue
+    }
+  }
+}
+
+// ❌ INCORRECT: Don't use field IDs
+query ComponentQuery($datasource: String!, $language: String!) {
+  datasource: item(path: $datasource, language: $language) {
+    Icon1: field(id: "A1B2C3D4-E5F6-4A5B-8C9D-0E1F2A3B4C5D") {
+      jsonValue
+    }
+  }
+}
+```
+
 ### App Router Specific Patterns
 ```typescript
 // Server Component (default)
@@ -234,3 +263,4 @@ export default async function LocalizedPage() {
 13. **Implement proper internationalization** with next-intl
 14. **Follow App Router file conventions** (layout.tsx, loading.tsx, error.tsx)
 15. **Optimize for Core Web Vitals** and user experience
+16. **ALWAYS use field names (not field IDs) in GraphQL queries** for cross-environment compatibility

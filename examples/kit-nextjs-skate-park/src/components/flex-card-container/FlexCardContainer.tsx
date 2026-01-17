@@ -49,36 +49,29 @@ const Default = (props: FlexCardContainerProps): JSX.Element => {
   const { data } = fields || {};
   const { datasource } = data || {};
 
-  // Debug logging
-  console.log('FlexCardContainer Debug:', { 
-    fields, 
-    data, 
-    datasource,
-    hasFields: !!fields,
-    hasData: !!data,
-    hasDatasource: !!datasource,
-    fieldsKeys: fields ? Object.keys(fields) : [],
-    dataKeys: data ? Object.keys(data) : []
-  });
-
+  // If no datasource data, show placeholder in editing mode or use mock data
   if (!datasource) {
-    return (
-      <div className={`component flex-card-container ${styles || ''}`} id={id}>
-        <div className="component-content">
-          <div style={{ padding: '20px', background: '#f5f5f5', border: '2px dashed #ccc' }}>
-            <h3 style={{ marginTop: 0 }}>Flex Card Container</h3>
-            <p><strong>Status:</strong> No datasource data received</p>
-            <p style={{ fontSize: '12px', color: '#666' }}>
-              This usually means:
-              <br />1. The template fields haven&apos;t been deployed to XM Cloud yet (run a build/deploy)
-              <br />2. The datasource item exists but has no content
-              <br />3. GraphQL query needs to be updated
-            </p>
-            <p style={{ fontSize: '12px', color: '#666' }}>
-              Check browser console for debug info
-            </p>
+    // In editing mode, show helpful message
+    if (isEditing) {
+      return (
+        <div className={`component flex-card-container ${styles || ''}`} id={id}>
+          <div className="component-content">
+            <div style={{ padding: '20px', background: '#f5f5f5', border: '2px dashed #ccc' }}>
+              <h3 style={{ marginTop: 0 }}>Flex Card Container</h3>
+              <p><strong>Status:</strong> Waiting for template deployment</p>
+              <p style={{ fontSize: '12px', color: '#666' }}>
+                The template fields need to be deployed to XM Cloud, then you can fill in the content.
+              </p>
+            </div>
           </div>
         </div>
+      );
+    }
+    
+    // For non-editing mode, show nothing
+    return (
+      <div className={`component flex-card-container ${styles || ''}`} id={id}>
+        <div className="component-content"></div>
       </div>
     );
   }
