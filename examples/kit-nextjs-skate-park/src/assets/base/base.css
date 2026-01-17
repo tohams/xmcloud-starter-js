@@ -57,7 +57,22 @@ ol {
   }
 }
 a {
-  @apply text-text-red underline text-[1em] hover:text-text-basic-active;
+  @apply text-text-red text-[1em];
+  text-decoration: none;
+  position: relative;
+  /* Exclude buttons and image links from red underline */
+  &:not(.btn):not([class*="btn-"]):not(button):not([class*="button"]):not(:has(img)):hover {
+    @apply text-text-red;
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #de232f;
+    }
+  }
 }
 table {
   @apply border-2 border-solid border-border-gray;

@@ -10,10 +10,29 @@
 
 .l-header a {
   text-decoration: none !important;
+  position: relative;
+  margin: 0;
+  padding: 0;
 }
 
-.l-header a:hover {
+/* Remove spacing from direct anchor in header */
+.l-header > a {
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block;
+}
+
+.l-header a:not(.btn):not([class*="btn-"]):not(button):not(:has(img)):not(.c-main-nav__item a):not(.c-nav-dropdown__container a):hover {
   text-decoration: none !important;
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #de232f;
+  }
 }
 
 .container {
@@ -23,16 +42,27 @@
 }
 
 .container-wide {
-  @apply max-w-[1320px];
+  max-width: 1290px !important;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* ===== Utility Bar (top row with Heart Attack link) ===== */
 .l-header__utility__desktop {
   @apply border-b-0;
+  padding-top: 0;
+  padding-bottom: 0;
+  height: 42px;
+  display: flex;
+  align-items: center;
 }
 
 .c-utility-bar__main-ul {
-  @apply flex items-center justify-end gap-[24px] text-[13px] font-normal py-[10px] m-0 list-none;
+  @apply flex items-center justify-end gap-[24px] font-normal m-0 list-none;
+  padding-top: 0;
+  padding-bottom: 0;
+  font-size: 16px;
+  height: 42px;
 }
 
 .c-utility-bar__main-ul .c-top-nav__item {
@@ -40,11 +70,24 @@
 }
 
 .c-utility-bar__main-ul .c-top-nav__link {
-  @apply text-[#1b1b1d] no-underline text-[13px];
+  @apply text-[#1b1b1d] no-underline;
+  font-size: 16px;
 }
 
+.c-utility-bar__main-ul .c-top-nav__link {
+  position: relative;
+}
 .c-utility-bar__main-ul .c-top-nav__link:hover {
-  @apply text-[#c41230];
+  @apply text-[#1b1b1d];
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #de232f;
+  }
 }
 
 /* Heart Attack and Stroke Symptoms - RED */
@@ -57,20 +100,43 @@
 
 .c-underline-link {
   @apply border-b-0 no-underline;
-  transition: color 0.2s ease;
+  position: relative;
 }
 
 .c-underline-link:hover {
   @apply no-underline;
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #de232f;
+  }
+}
+
+/* Prevent c-underline-link inside nav buttons from creating ::after underline */
+.c-main-nav__item .c-underline-link::after,
+.c-main-nav__item .c-underline-link:hover::after,
+.c-nav-dropdown__container .c-underline-link::after,
+.c-nav-dropdown__container .c-underline-link:hover::after,
+.c-main-nav__item button .c-underline-link::after,
+.c-main-nav__item button .c-underline-link:hover::after {
+  display: none !important;
+  content: none !important;
+  background: none !important;
 }
 
 /* ===== Top Navigation (logo, search, donate) ===== */
 .l-header__top {
   @apply border-b border-solid border-[#e5e5e5];
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 
 .c-top-nav {
-  @apply flex items-center justify-between gap-[24px] py-[20px];
+  @apply flex items-center justify-between gap-[24px];
 }
 
 .c-top-nav__logo {
@@ -103,7 +169,8 @@
 }
 
 .magic-box-input input {
-  @apply bg-transparent text-[13px] text-[#1b1b1d] outline-none w-[140px];
+  @apply bg-transparent text-[#1b1b1d] outline-none w-[140px];
+  font-size: 14px;
 }
 
 .magic-box-input input::placeholder {
@@ -120,12 +187,16 @@
 
 /* Buttons */
 .btn {
-  @apply inline-flex items-center justify-center text-[13px] font-semibold rounded-full px-[20px] py-[10px] no-underline;
+  @apply inline-flex items-center justify-center font-semibold rounded-full no-underline;
   transition: all 0.2s ease;
+  font-size: 16px;
 }
 
 .btn-primary {
   @apply bg-[#c41230] text-white border border-solid border-[#c41230];
+  width: 177.4px;
+  height: 42px;
+  padding: 0;
 }
 
 .btn-primary:hover {
@@ -134,6 +205,9 @@
 
 .btn-outline-primary {
   @apply bg-white border border-solid border-[#c41230] text-[#c41230];
+  width: 177.4px;
+  height: 42px;
+  padding: 0;
 }
 
 .btn-outline-primary:hover {
@@ -143,11 +217,22 @@
 /* ===== Main Navigation (Healthy Living, etc.) ===== */
 .l-header__main {
   @apply border-b border-solid border-[#e5e5e5];
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .c-main-nav {
   @apply py-[0] flex items-center;
   width: 100%;
+}
+
+/* Prevent any links inside the main nav from getting underline styles */
+.c-main-nav a::after,
+.c-main-nav a:hover::after {
+  display: none !important;
+  content: none !important;
+  background: none !important;
 }
 
 .c-main-nav > ul {
@@ -204,10 +289,12 @@
   min-width: fit-content;
 }
 
+
 .c-main-nav__item > .c-nav-dropdown__container > button,
 .c-main-nav__item > div > div > .c-nav-dropdown__container > button {
-  @apply bg-transparent border-0 cursor-pointer py-[16px] px-[12px] text-[14px] text-[#1b1b1d] font-normal;
+  @apply bg-transparent border-0 cursor-pointer py-[16px] px-[12px] text-[#1b1b1d] font-normal;
   font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  font-size: 16px;
   white-space: nowrap;
   flex-shrink: 1;
   display: inline-block;
@@ -215,16 +302,66 @@
   width: auto;
   position: relative;
   min-width: fit-content;
+  /* Add transparent border to prevent layout shift on hover */
+  border-bottom: 2px solid transparent;
+  &::after {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-right: 1.5px solid #1b1b1d;
+    border-bottom: 1.5px solid #1b1b1d;
+    transform: rotate(45deg);
+    margin-left: 6px;
+    vertical-align: middle;
+    margin-top: -2px;
+  }
 }
 
+.c-main-nav__item > .c-nav-dropdown__container > button,
+.c-main-nav__item > div > div > .c-nav-dropdown__container > button {
+  position: relative;
+}
 .c-main-nav__item > .c-nav-dropdown__container > button:hover,
 .c-main-nav__item > div > div > .c-nav-dropdown__container > button:hover {
-  @apply text-[#c41230];
+  @apply text-[#1b1b1d];
+  border-bottom: 2px solid #de232f;
+  /* Prevent any ::after underlines on button or its children */
+  &::after {
+    /* Only allow chevron, not underline */
+  }
+  a::after {
+    display: none !important;
+    content: none !important;
+  }
+}
+
+/* Prevent global link underline styles from applying to links inside nav buttons */
+.c-main-nav__item a::after,
+.c-nav-dropdown__container a::after,
+.c-main-nav__item button a::after,
+.c-main-nav__item a:hover::after,
+.c-nav-dropdown__container a:hover::after,
+.c-main-nav__item button a:hover::after,
+.c-main-nav__item > .c-nav-dropdown__container > button a::after,
+.c-main-nav__item > div > div > .c-nav-dropdown__container > button a::after,
+.c-main-nav__item > .c-nav-dropdown__container > button a:hover::after,
+.c-main-nav__item > div > div > .c-nav-dropdown__container > button a:hover::after {
+  display: none !important;
+  content: none !important;
+  background: none !important;
+}
+
+/* Prevent hover area from extending beyond button */
+.c-main-nav__item > .c-nav-dropdown__container > button,
+.c-main-nav__item > div > div > .c-nav-dropdown__container > button {
+  box-sizing: border-box;
 }
 
 .c-underline-nav-link {
-  @apply text-[#1b1b1d] font-normal text-[14px] bg-transparent border-0 cursor-pointer;
+  @apply text-[#1b1b1d] font-normal bg-transparent border-0 cursor-pointer;
   font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  font-size: 16px;
   white-space: nowrap;
 }
 
@@ -241,30 +378,37 @@
 .dropdown-toggle::after {
   content: '';
   display: inline-block;
-  border-top: 5px solid currentColor;
-  border-right: 4px solid transparent;
-  border-left: 4px solid transparent;
-  margin-left: 4px;
+  width: 6px;
+  height: 6px;
+  border-right: 1.5px solid #1b1b1d;
+  border-bottom: 1.5px solid #1b1b1d;
+  transform: rotate(45deg);
+  margin-left: 6px;
   vertical-align: middle;
+  margin-top: -2px;
 }
 
-/* Mega menu dropdown */
+/* Mega menu dropdown - hidden for now */
 .c-nav-dropdown {
-  @apply hidden absolute left-0 top-full bg-white border border-solid border-[#e5e5e5] rounded-[8px] min-w-[280px] z-[100] py-[16px];
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-}
-
-.c-main-nav__item:hover > .c-nav-dropdown__container > .c-nav-dropdown,
-.c-main-nav__item:hover .c-nav-dropdown {
-  @apply block;
+  @apply hidden;
 }
 
 .c-mega-nav__dropdown-header {
   @apply block text-[15px] font-semibold text-[#1b1b1d] no-underline px-[16px] py-[8px] mb-[4px];
+  position: relative;
 }
 
 .c-mega-nav__dropdown-header:hover {
-  @apply text-[#c41230];
+  @apply text-[#1b1b1d];
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #de232f;
+  }
 }
 
 .c-mega-nav__links {
@@ -273,11 +417,20 @@
 
 .c-mega-nav__link {
   @apply block px-[16px] py-[10px] text-[14px] text-[#1b1b1d] no-underline;
-  transition: all 0.15s ease;
+  position: relative;
 }
 
 .c-mega-nav__link:hover {
-  @apply bg-[#f5f5f5] text-[#c41230];
+  @apply bg-[#f5f5f5] text-[#1b1b1d];
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #de232f;
+  }
 }
 
 /* In Your Community dropdown */

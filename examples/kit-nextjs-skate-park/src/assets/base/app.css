@@ -25,8 +25,20 @@ a {
   color: var(--color-text-basic);
   cursor: pointer;
   font-size: 0.85em;
-  &:hover {
-    color: var(--color-text-basic-active);
+  position: relative;
+  text-decoration: none;
+  /* Exclude buttons and image links from red underline */
+  &:not(.btn):not([class*="btn-"]):not(button):not([class*="button"]):not(:has(img)):not(.c-main-nav__item a):not(.c-nav-dropdown__container a):hover {
+    color: var(--color-text-basic);
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #de232f;
+    }
   }
 }
 

@@ -16,7 +16,19 @@
     li {
       @apply bg-transparent block text-[13px];
       a {
-        @apply inline text-text-basic relative pl-[10px] text-[1em] no-underline hover:text-text-basic-active hover:no-underline hover:border-b-1 hover:border-solid hover:border-border-basic-color;
+        @apply inline text-text-basic relative pl-[10px] text-[1em] no-underline;
+        &:not(:has(img)):hover {
+          @apply text-text-basic;
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #de232f;
+          }
+        }
         &:before {
           @apply content-["\f054"] absolute left-0 top-[50%] translate-y-[-50%] text-[10px];
         }

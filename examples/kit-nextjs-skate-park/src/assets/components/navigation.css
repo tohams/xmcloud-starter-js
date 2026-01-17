@@ -8,24 +8,47 @@
   .level0,
   .level1 {
     > .navigation-title > a {
-      @apply text-navigation-font-basic border-solid border-b-2 border-t-0 border-r-0 border-l-0 border-border-basic-color pr-[10px] mr-[5px] hover:no-underline;
+      @apply text-navigation-font-basic border-0 pr-[10px] mr-[5px] hover:no-underline;
     }
   }
   a {
-    @apply text-text-basic hover:text-text-basic focus:text-text-basic;
+    @apply text-text-basic focus:text-text-basic;
     .lt-ie9 &,
     .lt-ie9 & span {
       @apply text-text-basic;
     }
   }
   li {
+    @apply relative;
     &.submenu {
       @apply mb-0;
     }
     > .navigation-title {
       > a {
-        @apply py-[3px] pl-0 pr-[5px] block text-text-basic no-underline;
+        @apply py-[3px] pl-0 pr-[5px] block text-text-basic no-underline relative border-b-0;
+        position: relative;
+        &:not(:has(img)):hover {
+          @apply text-text-basic;
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #de232f;
+          }
+        }
       }
+    }
+    > ul {
+      @apply hidden;
+    }
+    &:hover > ul {
+      @apply hidden;
+    }
+    &.active > ul {
+      @apply hidden;
     }
     > ul a {
       @apply text-navigation-font-basic-submenu;
@@ -71,7 +94,20 @@
 
       > .navigation-title {
         > a {
-          @apply border-0 text-[14px] font-normal;
+          @apply border-0 text-[14px] font-normal relative;
+          position: relative;
+          &:not(:has(img)):hover {
+            @apply text-text-basic;
+            &::after {
+              content: '';
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              width: 100%;
+              height: 2px;
+              background-color: #de232f;
+            }
+          }
         }
       }
     }
