@@ -16,25 +16,23 @@ SharedFields:
     query FullWidthHeroCardQuery($datasource: String!, $language: String!) {
       datasource: item(path: $datasource, language: $language) {
         id
-        ... on FullWidthHeroCard {
-          Logo {
-            jsonValue
-          }
-          Title {
-            jsonValue
-          }
-          Subheading {
-            jsonValue
-          }
-          DonateOnceLink {
-            jsonValue
-          }
-          DonateMonthlyLink {
-            jsonValue
-          }
-          HeroImage {
-            jsonValue
-          }
+        Logo: field(name: "Logo") {
+          jsonValue
+        }
+        Title: field(name: "Title") {
+          jsonValue
+        }
+        Subheading: field(name: "Subheading") {
+          jsonValue
+        }
+        DonateOnceLink: field(name: "DonateOnceLink") {
+          jsonValue
+        }
+        DonateMonthlyLink: field(name: "DonateMonthlyLink") {
+          jsonValue
+        }
+        HeroImage: field(name: "HeroImage") {
+          jsonValue
         }
       }
     }

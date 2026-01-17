@@ -64,6 +64,23 @@ const Default = (props: FullWidthHeroCardProps): JSX.Element => {
   const donateMonthlyLinkField = DonateMonthlyLink?.jsonValue;
   const heroImageField = HeroImage?.jsonValue;
 
+  // Debug logging - remove after debugging
+  if (typeof window !== 'undefined') {
+    console.log('FullWidthHeroCard Debug:', {
+      hasDatasource: !!datasource,
+      datasource,
+      Logo,
+      Title,
+      Subheading,
+      DonateOnceLink,
+      DonateMonthlyLink,
+      HeroImage,
+      logoField,
+      titleField,
+      subheadingField,
+    });
+  }
+
   if (!datasource && !isEditing) {
     return (
       <div className={`component full-width-hero-card ${styles || ''}`} id={id}>
