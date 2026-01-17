@@ -95,8 +95,8 @@ const Default = (props: FlexCardContainerProps): JSX.Element => {
                             <ContentSdkImage
                               field={iconField}
                               className="flex-card-grid--icon"
-                              width={iconField.value?.width || 102}
-                              height={iconField.value?.height || 136}
+                              width={typeof iconField.value?.width === 'number' ? iconField.value.width : 102}
+                              height={typeof iconField.value?.height === 'number' ? iconField.value.height : 136}
                               unoptimized={iconField.value?.src?.endsWith('.svg')}
                             />
                           </div>
@@ -121,8 +121,8 @@ const Default = (props: FlexCardContainerProps): JSX.Element => {
                             <ContentSdkImage
                               field={iconField}
                               className="flex-card-grid--icon"
-                              width={iconField.value?.width || 102}
-                              height={iconField.value?.height || 136}
+                              width={typeof iconField.value?.width === 'number' ? iconField.value.width : 102}
+                              height={typeof iconField.value?.height === 'number' ? iconField.value.height : 136}
                               unoptimized={iconField.value?.src?.endsWith('.svg')}
                             />
                           </div>
