@@ -50,20 +50,34 @@ const Default = (props: FlexCardContainerProps): JSX.Element => {
   const { datasource } = data || {};
 
   // Debug logging
-  console.log('FlexCardContainer Debug:', { fields, data, datasource });
+  console.log('FlexCardContainer Debug:', { 
+    fields, 
+    data, 
+    datasource,
+    hasFields: !!fields,
+    hasData: !!data,
+    hasDatasource: !!datasource,
+    fieldsKeys: fields ? Object.keys(fields) : [],
+    dataKeys: data ? Object.keys(data) : []
+  });
 
   if (!datasource) {
     return (
       <div className={`component flex-card-container ${styles || ''}`} id={id}>
         <div className="component-content">
-          <span className="is-empty-hint">
-            Flex Card Container - No datasource set
-            {isEditing && (
-              <div style={{ fontSize: '12px', marginTop: '8px', color: '#666' }}>
-                Debug: Check browser console for data structure
-              </div>
-            )}
-          </span>
+          <div style={{ padding: '20px', background: '#f5f5f5', border: '2px dashed #ccc' }}>
+            <h3 style={{ marginTop: 0 }}>Flex Card Container</h3>
+            <p><strong>Status:</strong> No datasource data received</p>
+            <p style={{ fontSize: '12px', color: '#666' }}>
+              This usually means:
+              <br />1. The template fields haven't been deployed to XM Cloud yet (run a build/deploy)
+              <br />2. The datasource item exists but has no content
+              <br />3. GraphQL query needs to be updated
+            </p>
+            <p style={{ fontSize: '12px', color: '#666' }}>
+              Check browser console for debug info
+            </p>
+          </div>
         </div>
       </div>
     );
