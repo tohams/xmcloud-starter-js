@@ -1,8 +1,8 @@
 ---
 ID: "69403688-7243-4F78-9CA2-25DC8333CE35"
-Parent: "B7869AA1-3BBE-4B4D-A085-0836468511C9"
+Parent: "5035D4F2-2FA2-4FD2-B961-4E852872380E"
 Template: "ab86861a-6030-46c5-b394-e8f99e8b87db"
-Path: "/sitecore/templates/Project/click-click-launch/Components/Banners/Flex Cards/Flex Card"
+Path: "/sitecore/templates/Project/click-click-launch/Components/Banners/Flex Card"
 SharedFields:
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon

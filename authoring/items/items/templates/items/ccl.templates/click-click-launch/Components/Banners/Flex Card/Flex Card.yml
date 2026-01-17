@@ -1,12 +1,12 @@
 ---
-ID: "B7869AA1-3BBE-4B4D-A085-0836468511C9"
-Parent: "5035d4f2-2fa2-4fd2-b961-4e852872380e"
+ID: "69403688-7243-4F78-9CA2-25DC8333CE35"
+Parent: "5035D4F2-2FA2-4FD2-B961-4E852872380E"
 Template: "ab86861a-6030-46c5-b394-e8f99e8b87db"
-Path: "/sitecore/templates/Project/click-click-launch/Components/Banners/Flex Cards"
+Path: "/sitecore/templates/Project/click-click-launch/Components/Banners/Flex Card"
 SharedFields:
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
-  Value: Applications/32x32/navigate_right2.png
+  Value: Applications/32x32/navigate_right.png
 - ID: "12c33f3f-86c5-43a5-aeb4-5598cec45116"
   Hint: __Base template
   Value: |
@@ -17,13 +17,13 @@ SharedFields:
   Value: 100
 - ID: "f7d48a55-2158-4f02-9356-756654404f73"
   Hint: __Standard values
-  Value: "{4C8EDB31-F394-4459-8043-F372A8471335}"
+  Value: "{CDA5ECB6-5E63-456D-A726-8202BBB5D78E}"
 Languages:
 - Language: en
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
     Hint: __Display name
-    Value: Flex Cards
+    Value: Flex Card
   Versions:
   - Version: 1
     Fields:
@@ -36,7 +36,7 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "B7869AA1-3BBE-4B4D-A085-0836468511C9"
+      Value: "69403688-7243-4F78-9CA2-25DC8333CE35"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
