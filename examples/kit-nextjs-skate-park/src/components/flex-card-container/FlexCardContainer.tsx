@@ -70,7 +70,7 @@ const Default = (props: FlexCardContainerProps): JSX.Element => {
             <p><strong>Status:</strong> No datasource data received</p>
             <p style={{ fontSize: '12px', color: '#666' }}>
               This usually means:
-              <br />1. The template fields haven't been deployed to XM Cloud yet (run a build/deploy)
+              <br />1. The template fields haven&apos;t been deployed to XM Cloud yet (run a build/deploy)
               <br />2. The datasource item exists but has no content
               <br />3. GraphQL query needs to be updated
             </p>
