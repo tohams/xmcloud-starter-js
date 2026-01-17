@@ -16,22 +16,53 @@ SharedFields:
     query FlexCardContainerQuery($datasource: String!, $language: String!) {
       datasource: item(path: $datasource, language: $language) {
         id
-        children {
-          results {
-            id
-            Icon: field(name: "Icon") {
-              jsonValue
-            }
-            Title: field(name: "Title") {
-              jsonValue
-            }
-            Copy: field(name: "Copy") {
-              jsonValue
-            }
-            Link: field(name: "Link") {
-              jsonValue
-            }
-          }
+        Icon1: field(name: "Icon 1") {
+          jsonValue
+        }
+        Title1: field(name: "Title 1") {
+          jsonValue
+        }
+        Copy1: field(name: "Copy 1") {
+          jsonValue
+        }
+        Link1: field(name: "Link 1") {
+          jsonValue
+        }
+        Icon2: field(name: "Icon 2") {
+          jsonValue
+        }
+        Title2: field(name: "Title 2") {
+          jsonValue
+        }
+        Copy2: field(name: "Copy 2") {
+          jsonValue
+        }
+        Link2: field(name: "Link 2") {
+          jsonValue
+        }
+        Icon3: field(name: "Icon 3") {
+          jsonValue
+        }
+        Title3: field(name: "Title 3") {
+          jsonValue
+        }
+        Copy3: field(name: "Copy 3") {
+          jsonValue
+        }
+        Link3: field(name: "Link 3") {
+          jsonValue
+        }
+        Icon4: field(name: "Icon 4") {
+          jsonValue
+        }
+        Title4: field(name: "Title 4") {
+          jsonValue
+        }
+        Copy4: field(name: "Copy 4") {
+          jsonValue
+        }
+        Link4: field(name: "Link 4") {
+          jsonValue
         }
       }
     }

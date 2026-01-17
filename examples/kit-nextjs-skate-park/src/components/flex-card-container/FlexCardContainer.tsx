@@ -9,29 +9,32 @@ import {
 } from '@sitecore-content-sdk/nextjs';
 import { ComponentProps } from 'lib/component-props';
 
-interface FlexCardFields {
-  Icon?: {
-    jsonValue?: ImageField;
-  };
-  Title?: {
-    jsonValue?: Field<string>;
-  };
-  Copy?: {
-    jsonValue?: Field<string>;
-  };
-  Link?: {
-    jsonValue?: LinkField;
-  };
+interface FlexCardContainerFields {
+  Icon1?: { jsonValue?: ImageField };
+  Title1?: { jsonValue?: Field<string> };
+  Copy1?: { jsonValue?: Field<string> };
+  Link1?: { jsonValue?: LinkField };
+  
+  Icon2?: { jsonValue?: ImageField };
+  Title2?: { jsonValue?: Field<string> };
+  Copy2?: { jsonValue?: Field<string> };
+  Link2?: { jsonValue?: LinkField };
+  
+  Icon3?: { jsonValue?: ImageField };
+  Title3?: { jsonValue?: Field<string> };
+  Copy3?: { jsonValue?: Field<string> };
+  Link3?: { jsonValue?: LinkField };
+  
+  Icon4?: { jsonValue?: ImageField };
+  Title4?: { jsonValue?: Field<string> };
+  Copy4?: { jsonValue?: Field<string> };
+  Link4?: { jsonValue?: LinkField };
 }
 
 type FlexCardContainerProps = ComponentProps & {
   fields: {
     data?: {
-      datasource?: {
-        children?: {
-          results?: FlexCardFields[];
-        };
-      };
+      datasource?: FlexCardContainerFields;
     };
   };
 };
@@ -45,32 +48,53 @@ const Default = (props: FlexCardContainerProps): JSX.Element => {
   // Safe destructuring with fallbacks
   const { data } = fields || {};
   const { datasource } = data || {};
-  const { children } = datasource || {};
-  const flexCards = children?.results || [];
 
-  if (!flexCards.length && !isEditing) {
+  if (!datasource) {
     return (
       <div className={`component flex-card-container ${styles || ''}`} id={id}>
         <div className="component-content">
-          <span className="is-empty-hint">Flex Card Container</span>
+          <span className="is-empty-hint">Flex Card Container - No datasource set</span>
         </div>
       </div>
     );
   }
 
-  // Group cards into pairs (2 cards per wrapper div)
-  const cardPairs: FlexCardFields[][] = [];
-  for (let i = 0; i < flexCards.length; i += 2) {
-    cardPairs.push(flexCards.slice(i, i + 2));
-  }
+  // Build cards array from the denormalized fields
+  const cards = [
+    {
+      icon: datasource.Icon1?.jsonValue,
+      title: datasource.Title1?.jsonValue,
+      copy: datasource.Copy1?.jsonValue,
+      link: datasource.Link1?.jsonValue,
+    },
+    {
+      icon: datasource.Icon2?.jsonValue,
+      title: datasource.Title2?.jsonValue,
+      copy: datasource.Copy2?.jsonValue,
+      link: datasource.Link2?.jsonValue,
+    },
+    {
+      icon: datasource.Icon3?.jsonValue,
+      title: datasource.Title3?.jsonValue,
+      copy: datasource.Copy3?.jsonValue,
+      link: datasource.Link3?.jsonValue,
+    },
+    {
+      icon: datasource.Icon4?.jsonValue,
+      title: datasource.Title4?.jsonValue,
+      copy: datasource.Copy4?.jsonValue,
+      link: datasource.Link4?.jsonValue,
+    },
+  ];
 
-  const renderCard = (card: FlexCardFields, index: number) => {
-    // Safe destructuring with fallbacks
-    const { Icon, Title, Copy, Link } = card || {};
-    const iconField = Icon?.jsonValue;
-    const titleField = Title?.jsonValue;
-    const copyField = Copy?.jsonValue;
-    const linkField = Link?.jsonValue;
+  // Group cards into pairs (2 cards per wrapper div)
+  const cardPairs = [
+    [cards[0], cards[1]],
+    [cards[2], cards[3]],
+  ];
+
+  const renderCard = (card: typeof cards[0], index: number) => {
+    const { icon: iconField, title: titleField, copy: copyField, link: linkField } = card;
 
     // Check if card has content or we're in editing mode
     const hasContent =

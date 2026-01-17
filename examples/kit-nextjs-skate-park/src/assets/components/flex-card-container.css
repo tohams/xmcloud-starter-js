@@ -1,8 +1,16 @@
 .flex-card-container {
   @apply w-full;
   background-color: #ffffff;
-  padding-top: 40px;
-  padding-bottom: 60px;
+  padding-top: 130px;
+  padding-bottom: 80px;
+  margin-top: 0;
+}
+
+/* Reduce top padding at medium widths */
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .flex-card-container {
+    padding-top: 60px;
+  }
 }
 
 .flex-card-container .component-content {

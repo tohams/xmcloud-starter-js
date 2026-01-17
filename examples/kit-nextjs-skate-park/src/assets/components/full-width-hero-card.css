@@ -135,11 +135,11 @@
   }
   
   .full-width-hero-card__container {
-    padding-bottom: 450px;
+    padding-bottom: 60px;
   }
   
   .full-width-hero-card__container::before {
-    bottom: 420px;
+    bottom: 30px;
     height: auto;
   }
 }
@@ -215,12 +215,12 @@
   }
   
   .full-width-hero-card__container {
-    padding-bottom: 400px;
+    padding-bottom: 60px;
   }
   
-  /* Red background extends closer to bottom - only 30px white space */
+  /* Red background extends to bottom with minimal white space */
   .full-width-hero-card__container::before {
-    bottom: 370px !important;
+    bottom: 30px !important;
     height: auto !important;
   }
 }
@@ -421,12 +421,12 @@
   }
   
   .full-width-hero-card__container {
-    padding-bottom: 450px;
+    padding-bottom: 60px;
   }
   
-  /* Red background extends closer to bottom - only 30px white space */
+  /* Red background extends to bottom with minimal white space */
   .full-width-hero-card__container::before {
-    bottom: 420px;
+    bottom: 30px;
     height: auto;
   }
 }

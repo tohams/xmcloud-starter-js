@@ -4,9 +4,6 @@ Parent: "B7869AA1-3BBE-4B4D-A085-0836468511C9"
 Template: "B7869AA1-3BBE-4B4D-A085-0836468511C9"
 Path: "/sitecore/templates/Project/click-click-launch/Components/Banners/Flex Cards/__Standard Values"
 SharedFields:
-- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
-  Hint: __Masters
-  Value: "{69403688-7243-4F78-9CA2-25DC8333CE35}"
 - ID: "ca9b9f52-4fb0-4f87-a79f-24dea62cda65"
   Hint: __Default workflow
   Value: "{A053ED9F-4099-4682-9411-2B4C98E481E4}"
