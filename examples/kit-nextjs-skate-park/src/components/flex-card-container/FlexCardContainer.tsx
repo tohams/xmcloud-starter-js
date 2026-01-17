@@ -49,11 +49,21 @@ const Default = (props: FlexCardContainerProps): JSX.Element => {
   const { data } = fields || {};
   const { datasource } = data || {};
 
+  // Debug logging
+  console.log('FlexCardContainer Debug:', { fields, data, datasource });
+
   if (!datasource) {
     return (
       <div className={`component flex-card-container ${styles || ''}`} id={id}>
         <div className="component-content">
-          <span className="is-empty-hint">Flex Card Container - No datasource set</span>
+          <span className="is-empty-hint">
+            Flex Card Container - No datasource set
+            {isEditing && (
+              <div style={{ fontSize: '12px', marginTop: '8px', color: '#666' }}>
+                Debug: Check browser console for data structure
+              </div>
+            )}
+          </span>
         </div>
       </div>
     );
