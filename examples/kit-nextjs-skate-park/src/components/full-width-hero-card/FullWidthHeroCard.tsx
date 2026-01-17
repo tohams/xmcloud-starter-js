@@ -84,8 +84,8 @@ const Default = (props: FullWidthHeroCardProps): JSX.Element => {
                 <ContentSdkImage 
                   field={logoField} 
                   className="full-width-hero-card__icon"
-                  width={logoField.value?.width || 200}
-                  height={logoField.value?.height || 200}
+                  width={typeof logoField.value?.width === 'number' ? logoField.value.width : 200}
+                  height={typeof logoField.value?.height === 'number' ? logoField.value.height : 200}
                   unoptimized={logoField.value?.src?.endsWith('.svg')}
                 />
               )}
@@ -130,8 +130,8 @@ const Default = (props: FullWidthHeroCardProps): JSX.Element => {
                     <ContentSdkImage 
                       field={heroImageField} 
                       className="is-loaded"
-                      width={heroImageField.value?.width || 1200}
-                      height={heroImageField.value?.height || 800}
+                      width={typeof heroImageField.value?.width === 'number' ? heroImageField.value.width : 1200}
+                      height={typeof heroImageField.value?.height === 'number' ? heroImageField.value.height : 800}
                       unoptimized={heroImageField.value?.src?.endsWith('.svg')}
                     />
                   )}
