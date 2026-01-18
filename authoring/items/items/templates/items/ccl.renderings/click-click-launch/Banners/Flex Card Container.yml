@@ -14,7 +14,8 @@ SharedFields:
   Hint: ComponentQuery
   Value: |
     query FlexCardContainerQuery($datasource: String!, $language: String!) {
-      datasource: item(path: $datasource, language: $language) {
+      # Try by ID first (if datasource has braces), then fallback to path
+      datasource: item(id: $datasource, language: $language) {
         id
         Icon1: field(name: "Icon 1") {
           jsonValue

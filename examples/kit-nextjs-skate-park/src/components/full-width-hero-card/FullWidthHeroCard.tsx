@@ -50,6 +50,7 @@ const Default = (props: FullWidthHeroCardProps): JSX.Element => {
   
   // Debug
   console.log('FullWidthHeroCard DEBUG:', {
+    'rendering.dataSource': props.rendering?.dataSource,
     'hasFields': !!fields,
     'hasData': !!data,
     'hasDatasource': !!datasource,
