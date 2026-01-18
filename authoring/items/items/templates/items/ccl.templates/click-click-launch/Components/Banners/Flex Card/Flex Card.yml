@@ -1,5 +1,5 @@
 ---
-ID: "F1E2D3C4-B5A6-4C7D-8E9F-0A1B2C3D4E5"
+ID: "E1F2D3C4-A5B6-4C7D-8E9F-0F1A2B3C4D5"
 Parent: "5035d4f2-2fa2-4fd2-b961-4e852872380e"
 Template: "ab86861a-6030-46c5-b394-e8f99e8b87db"
 Path: "/sitecore/templates/Project/click-click-launch/Components/Banners/Flex Card"
@@ -36,7 +36,7 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "F1E2D3C4-B5A6-4C7D-8E9F-0A1B2C3D4E5"
+      Value: "E1F2D3C4-A5B6-4C7D-8E9F-0F1A2B3C4D5"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
