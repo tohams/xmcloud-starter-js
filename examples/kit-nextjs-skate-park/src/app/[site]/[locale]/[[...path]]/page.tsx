@@ -119,7 +119,7 @@ export default async function Page({ params, searchParams }: PageProps) {
   }
   
   // Check the actual layout structure - components might be in a different location
-  const layout = page.layout as Record<string, unknown>;
+  const layout = page.layout as unknown as Record<string, unknown>;
   console.log('SERVER: Top-level layout keys:', Object.keys(layout));
   console.log('SERVER: layout.sitecore keys:', layout.sitecore ? Object.keys(layout.sitecore as Record<string, unknown>) : 'no sitecore');
   
