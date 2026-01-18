@@ -54,6 +54,47 @@ export default async function Page({ params, searchParams }: PageProps) {
     components
   );
 
+  // Debug: Search ENTIRE page structure for FlexCardContainer
+  const findAllComponents = (obj: any, path = '', depth = 0): any[] => {
+    const results: any[] = [];
+    if (depth > 15) return results;
+    
+    if (obj?.componentName) {
+      results.push({
+        name: obj.componentName,
+        uid: obj.uid,
+        path: path,
+        hasFields: !!obj.fields,
+        hasDataSource: !!obj.dataSource,
+      });
+    }
+    
+    if (obj?.placeholders) {
+      for (const key of Object.keys(obj.placeholders)) {
+        const items = Array.isArray(obj.placeholders[key]) ? obj.placeholders[key] : [obj.placeholders[key]];
+        items.forEach((component, idx) => {
+          results.push(...findAllComponents(component, `${path}/${key}[${idx}]`, depth + 1));
+        });
+      }
+    }
+    
+    if (Array.isArray(obj)) {
+      obj.forEach((item, idx) => {
+        results.push(...findAllComponents(item, `${path}[${idx}]`, depth + 1));
+      });
+    }
+    
+    return results;
+  };
+  
+  const allComponents = findAllComponents(page.layout);
+  console.log('SERVER: ALL components in page.layout:', allComponents.map(c => c.name));
+  const flexCard = allComponents.find(c => c.name === 'FlexCardContainer');
+  console.log('SERVER: FlexCardContainer found?', !!flexCard);
+  if (flexCard) {
+    console.log('SERVER: FlexCardContainer details:', flexCard);
+  }
+
   return (
     <NextIntlClientProvider>
       <Providers page={page} componentProps={componentProps}>

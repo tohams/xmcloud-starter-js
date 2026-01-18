@@ -45,13 +45,12 @@ const Default = (props: FlexCardContainerProps): JSX.Element => {
   const { page } = props;
   const { isEditing } = page.mode;
 
-  // Debug everything
-  console.log('FlexCardContainer FULL DEBUG:', {
-    props,
-    fields,
-    params,
-    rendering: props.rendering,
-    hasRendering: !!props.rendering,
+  // Debug everything - check what we're actually receiving
+  console.log('FlexCardContainer DEBUG:', {
+    'fields': fields,
+    'fields.data': fields?.data,
+    'fields.data.datasource': fields?.data?.datasource,
+    'ALL keys in datasource': fields?.data?.datasource ? Object.keys(fields.data.datasource) : 'no datasource',
   });
 
   // Safe destructuring with fallbacks

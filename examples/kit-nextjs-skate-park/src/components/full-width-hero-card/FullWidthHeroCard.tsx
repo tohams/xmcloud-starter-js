@@ -47,6 +47,14 @@ const Default = (props: FullWidthHeroCardProps): JSX.Element => {
   // Safe destructuring with fallbacks
   const { data } = fields || {};
   const { datasource } = data || {};
+  
+  // Debug
+  console.log('FullWidthHeroCard DEBUG:', {
+    'hasFields': !!fields,
+    'hasData': !!data,
+    'hasDatasource': !!datasource,
+    'datasourceKeys': datasource ? Object.keys(datasource) : 'none'
+  });
   const {
     Logo,
     Title,

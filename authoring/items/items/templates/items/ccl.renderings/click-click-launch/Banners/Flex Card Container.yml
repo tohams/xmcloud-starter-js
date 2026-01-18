@@ -97,6 +97,9 @@ SharedFields:
 - ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
   Hint: __Shared revision
   Value: "6DFC9586-0E09-4868-AE38-6E20D5C1CDD3"
+- ID: "e829c217-5e94-4306-9c48-2634b094fdc2"
+  Hint: OtherProperties
+  Value: IsRenderingsWithDynamicPlaceholders=true
 Languages:
 - Language: en
   Versions:
