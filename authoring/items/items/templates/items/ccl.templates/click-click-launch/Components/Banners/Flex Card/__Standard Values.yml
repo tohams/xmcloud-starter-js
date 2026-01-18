@@ -1,6 +1,6 @@
 ---
-ID: "F2E3D4C5-B6A7-4C8D-9E0F-1A2B3C4D5E6F"
-Parent: "F1E2D3C4-B5A6-4C7D-8E9F-0A1B2C3D4E5F"
+ID: "F2E3D4C5-B6A7-4C8D-9E0F-1A2B3C4D5E6"
+Parent: "F1E2D3C4-B5A6-4C7D-8E9F-0A1B2C3D4E5"
 Template: "4d37f636-04af-4d52-b377-5b6d9948a5e8"
 Path: "/sitecore/templates/Project/click-click-launch/Components/Banners/Flex Card/__Standard Values"
 SharedFields:
@@ -21,7 +21,7 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "F2E3D4C5-B6A7-4C8D-9E0F-1A2B3C4D5E6F"
+      Value: "F2E3D4C5-B6A7-4C8D-9E0F-1A2B3C4D5E6"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
