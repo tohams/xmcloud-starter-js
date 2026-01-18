@@ -65,8 +65,9 @@ export default async function Page({ params, searchParams }: PageProps) {
   
   // Check if FlexCardContainer UID is in componentProps
   const flexCardUid = '4dafb3dc-e197-4210-9e31-2d09b3e7ab18';
-  if (componentProps[flexCardUid]) {
-    console.log('SERVER: FlexCardContainer UID found! Data:', JSON.stringify(componentProps[flexCardUid], null, 2).substring(0, 500));
+  const componentPropsRecord = componentProps as Record<string, unknown>;
+  if (componentPropsRecord[flexCardUid]) {
+    console.log('SERVER: FlexCardContainer UID found! Data:', JSON.stringify(componentPropsRecord[flexCardUid], null, 2).substring(0, 500));
   }
 
   // Debug: Search ENTIRE page structure for FlexCardContainer
