@@ -49,6 +49,14 @@ const Default = (props: FlexCardContainerProps): JSX.Element => {
   const { data } = fields || {};
   const { datasource } = data || {};
 
+  // Debug logging
+  console.log('FlexCardContainer Debug:', { 
+    fields, 
+    data, 
+    datasource,
+    allFieldKeys: datasource ? Object.keys(datasource) : []
+  });
+
   // If no datasource data, show placeholder in editing mode or use mock data
   if (!datasource) {
     // In editing mode, show helpful message
