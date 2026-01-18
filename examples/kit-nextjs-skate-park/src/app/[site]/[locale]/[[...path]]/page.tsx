@@ -55,23 +55,28 @@ export default async function Page({ params, searchParams }: PageProps) {
   );
 
   // Debug: Search ENTIRE page structure for FlexCardContainer
-  const findAllComponents = (obj: any, path = '', depth = 0): any[] => {
-    const results: any[] = [];
+  const findAllComponents = (obj: unknown, path = '', depth = 0): Array<{name: string; uid: string; path: string; hasFields: boolean; hasDataSource: boolean}> => {
+    const results: Array<{name: string; uid: string; path: string; hasFields: boolean; hasDataSource: boolean}> = [];
     if (depth > 15) return results;
     
-    if (obj?.componentName) {
+    if (!obj || typeof obj !== 'object') return results;
+    
+    const objRecord = obj as Record<string, unknown>;
+    
+    if (objRecord.componentName && typeof objRecord.componentName === 'string') {
       results.push({
-        name: obj.componentName,
-        uid: obj.uid,
+        name: objRecord.componentName,
+        uid: typeof objRecord.uid === 'string' ? objRecord.uid : '',
         path: path,
-        hasFields: !!obj.fields,
-        hasDataSource: !!obj.dataSource,
+        hasFields: !!objRecord.fields,
+        hasDataSource: !!objRecord.dataSource,
       });
     }
     
-    if (obj?.placeholders) {
-      for (const key of Object.keys(obj.placeholders)) {
-        const items = Array.isArray(obj.placeholders[key]) ? obj.placeholders[key] : [obj.placeholders[key]];
+    if (objRecord.placeholders && typeof objRecord.placeholders === 'object') {
+      const placeholders = objRecord.placeholders as Record<string, unknown>;
+      for (const key of Object.keys(placeholders)) {
+        const items = Array.isArray(placeholders[key]) ? placeholders[key] : [placeholders[key]];
         items.forEach((component, idx) => {
           results.push(...findAllComponents(component, `${path}/${key}[${idx}]`, depth + 1));
         });
