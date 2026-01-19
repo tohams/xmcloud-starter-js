@@ -292,14 +292,18 @@
 
 .c-main-nav__item > .c-nav-dropdown__container > button,
 .c-main-nav__item > div > div > .c-nav-dropdown__container > button {
-  @apply bg-transparent border-0 cursor-pointer py-[16px] px-[12px] text-[#1b1b1d] font-normal;
+  @apply bg-transparent border-0 cursor-pointer py-[16px] px-[8px] text-[#1b1b1d] font-normal;
   font-family: 'Open Sans', Helvetica, Arial, sans-serif;
   font-size: 16px;
   white-space: normal;
-  flex-shrink: 0;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+  flex-shrink: 1;
   display: inline-block;
   box-sizing: border-box;
   width: auto;
+  max-width: 120px;
   position: relative;
   text-align: center;
   line-height: 1.3;
