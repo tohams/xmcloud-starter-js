@@ -246,7 +246,7 @@
   display: flex;
   justify-content: space-between;
   gap: 0;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   white-space: nowrap;
   min-width: 0;
   width: auto;
@@ -257,7 +257,7 @@
   flex: 1 1 auto;
   justify-content: flex-start;
   gap: 24px;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   white-space: nowrap;
   min-width: 0;
 }
@@ -762,11 +762,11 @@
     order: 0;
   }
 
-  /* Ensure main nav doesn't wrap on desktop */
+  /* Allow main nav to wrap on desktop if needed */
   .c-main-nav > ul,
   .c-main-nav > ul:first-child,
   .mr-auto {
-    flex-wrap: nowrap !important;
+    flex-wrap: wrap !important;
     white-space: nowrap !important;
   }
 
