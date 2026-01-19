@@ -566,7 +566,7 @@
 }
 
 /* ===== Responsive Styles ===== */
-@media (max-width: 991px) {
+@media (max-width: 1024px) {
   /* Hide desktop utility bar on mobile */
   .l-header__utility__desktop {
     @apply hidden;
@@ -743,7 +743,7 @@
 
 /* Default desktop: show "Donate Once", hide "Donate" - moved to desktop media query */
 
-@media (min-width: 992px) {
+@media (min-width: 1025px) {
   /* Desktop: show "Donate Once", hide "Donate" */
   .c-top-nav__nav > li:has(.btn-primary) .btn .desktop-text {
     display: inline !important;
