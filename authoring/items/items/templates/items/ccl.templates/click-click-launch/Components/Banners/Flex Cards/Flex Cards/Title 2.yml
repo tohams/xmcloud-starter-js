@@ -1,0 +1,24 @@
+---
+ID: "d1e2f3a4-b5c6-2d78-9e0f-1a2b3c4d5e6f"
+Parent: "d1e2f3a4-b5c6-8d79-0e1f-2a3b4c5d6e7f"
+Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
+Path: "/sitecore/templates/Project/click-click-launch/Components/Banners/Flex Cards/Flex Cards/Title 2"
+SharedFields:
+- ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
+  Hint: Type
+  Value: Single-Line Text
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 600
+Languages:
+- Language: en
+  Fields:
+  - ID: "19a69332-a23e-4e70-8d16-b44b38f09e63"
+    Hint: __Sortorder
+    Value: 600
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20260119T000000Z
