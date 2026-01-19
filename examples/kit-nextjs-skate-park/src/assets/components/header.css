@@ -244,8 +244,8 @@
 .c-main-nav > ul:first-child {
   flex: 1 1 auto;
   display: flex;
-  justify-content: flex-start;
-  gap: 4px;
+  justify-content: space-between;
+  gap: 12px;
   flex-wrap: nowrap;
   white-space: nowrap;
   min-width: 0;
@@ -256,7 +256,7 @@
   @apply flex items-center list-none m-0 p-0;
   flex: 1 1 auto;
   justify-content: space-between;
-  gap: 4px;
+  gap: 12px;
   flex-wrap: nowrap;
   white-space: nowrap;
   min-width: 0;
@@ -276,14 +276,15 @@
   margin: 0;
   flex-shrink: 1;
   flex-grow: 0;
-  min-width: fit-content;
+  flex-basis: auto;
+  min-width: 0;
 }
 
 .c-main-nav__item {
   @apply relative;
   flex-shrink: 1;
-  flex-grow: 1;
-  flex-basis: 0;
+  flex-grow: 0;
+  flex-basis: auto;
   white-space: nowrap;
   margin: 0;
   box-sizing: border-box;
