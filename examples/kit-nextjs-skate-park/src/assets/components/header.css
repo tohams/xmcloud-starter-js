@@ -244,19 +244,19 @@
 .c-main-nav > ul:first-child {
   flex: 1 1 auto;
   display: flex;
-  justify-content: space-evenly;
-  gap: 8px;
+  justify-content: flex-start;
+  gap: 4px;
   flex-wrap: nowrap;
   white-space: nowrap;
   min-width: 0;
-  width: auto;
+  width: 100%;
 }
 
 .mr-auto {
   @apply flex items-center list-none m-0 p-0;
   flex: 1 1 auto;
-  justify-content: space-evenly;
-  gap: 8px;
+  justify-content: space-between;
+  gap: 4px;
   flex-wrap: nowrap;
   white-space: nowrap;
   min-width: 0;
@@ -282,11 +282,12 @@
 .c-main-nav__item {
   @apply relative;
   flex-shrink: 1;
-  flex-grow: 0;
+  flex-grow: 1;
+  flex-basis: 0;
   white-space: nowrap;
   margin: 0;
   box-sizing: border-box;
-  min-width: fit-content;
+  min-width: 0;
 }
 
 
@@ -570,7 +571,7 @@
 }
 
 /* ===== Responsive Styles ===== */
-@media (max-width: 1024px) {
+@media (max-width: 976px) {
   /* Hide desktop utility bar on mobile */
   .l-header__utility__desktop {
     @apply hidden;
@@ -747,7 +748,7 @@
 
 /* Default desktop: show "Donate Once", hide "Donate" - moved to desktop media query */
 
-@media (min-width: 1025px) {
+@media (min-width: 977px) {
   /* Desktop: show "Donate Once", hide "Donate" */
   .c-top-nav__nav > li:has(.btn-primary) .btn .desktop-text {
     display: inline !important;
