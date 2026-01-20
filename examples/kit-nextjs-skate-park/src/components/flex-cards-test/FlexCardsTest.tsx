@@ -65,7 +65,7 @@ const Default = (props: FlexCardsTestProps): JSX.Element => {
         <h2>Flex Cards Test Component</h2>
         <p><strong>Datasource ID:</strong> {props.rendering?.dataSource || 'none'}</p>
         <p><strong>Is Editing:</strong> {isEditing ? 'Yes' : 'No'}</p>
-        <p><strong>Has Datasource:</strong> {datasource ? 'Yes' : 'No'}</p>
+        <p><strong>Has Any Field:</strong> {hasAnyField ? 'Yes' : 'No'}</p>
         
         {hasAnyField && (
           <>
