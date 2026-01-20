@@ -17,30 +17,26 @@ interface CardData {
 }
 
 interface Fields {
-  Icon1?: { jsonValue?: ImageField };
-  Title1?: { jsonValue?: Field<string> };
-  Copy1?: { jsonValue?: Field<string> };
-  Link1?: { jsonValue?: LinkField };
-  Icon2?: { jsonValue?: ImageField };
-  Title2?: { jsonValue?: Field<string> };
-  Copy2?: { jsonValue?: Field<string> };
-  Link2?: { jsonValue?: LinkField };
-  Icon3?: { jsonValue?: ImageField };
-  Title3?: { jsonValue?: Field<string> };
-  Copy3?: { jsonValue?: Field<string> };
-  Link3?: { jsonValue?: LinkField };
-  Icon4?: { jsonValue?: ImageField };
-  Title4?: { jsonValue?: Field<string> };
-  Copy4?: { jsonValue?: Field<string> };
-  Link4?: { jsonValue?: LinkField };
+  Icon1?: ImageField;
+  Title1?: Field<string>;
+  Copy1?: Field<string>;
+  Link1?: LinkField;
+  Icon2?: ImageField;
+  Title2?: Field<string>;
+  Copy2?: Field<string>;
+  Link2?: LinkField;
+  Icon3?: ImageField;
+  Title3?: Field<string>;
+  Copy3?: Field<string>;
+  Link3?: LinkField;
+  Icon4?: ImageField;
+  Title4?: Field<string>;
+  Copy4?: Field<string>;
+  Link4?: LinkField;
 }
 
 type FlexCardsContainerProps = ComponentProps & {
-  fields: {
-    data?: {
-      datasource?: Fields;
-    };
-  };
+  fields: Fields;
 };
 
 const Default = (props: FlexCardsContainerProps): JSX.Element => {
@@ -49,21 +45,7 @@ const Default = (props: FlexCardsContainerProps): JSX.Element => {
   const { page } = props;
   const { isEditing } = page.mode;
 
-  // Safe destructuring with fallbacks
-  const { data } = fields || {};
-  const { datasource } = data || {};
-
-  // Debug logging
-  console.log('FlexCardsContainer DEBUG:', {
-    'rendering.dataSource': props.rendering?.dataSource,
-    'hasFields': !!fields,
-    'hasData': !!data,
-    'hasDatasource': !!datasource,
-    'datasourceKeys': datasource ? Object.keys(datasource) : 'none',
-    'fullFields': JSON.stringify(fields, null, 2),
-    'fullDatasource': JSON.stringify(datasource, null, 2),
-  });
-
+  // With default JSS shaping, fields come directly
   const {
     Icon1,
     Title1,
@@ -81,33 +63,33 @@ const Default = (props: FlexCardsContainerProps): JSX.Element => {
     Title4,
     Copy4,
     Link4,
-  } = (datasource || {}) as Fields;
+  } = fields || {};
 
-  // Extract jsonValue fields
+  // Build cards array from fields (no need for jsonValue extraction with default JSS)
   const cards: CardData[] = [
     {
-      icon: Icon1?.jsonValue,
-      title: Title1?.jsonValue,
-      copy: Copy1?.jsonValue,
-      link: Link1?.jsonValue,
+      icon: Icon1,
+      title: Title1,
+      copy: Copy1,
+      link: Link1,
     },
     {
-      icon: Icon2?.jsonValue,
-      title: Title2?.jsonValue,
-      copy: Copy2?.jsonValue,
-      link: Link2?.jsonValue,
+      icon: Icon2,
+      title: Title2,
+      copy: Copy2,
+      link: Link2,
     },
     {
-      icon: Icon3?.jsonValue,
-      title: Title3?.jsonValue,
-      copy: Copy3?.jsonValue,
-      link: Link3?.jsonValue,
+      icon: Icon3,
+      title: Title3,
+      copy: Copy3,
+      link: Link3,
     },
     {
-      icon: Icon4?.jsonValue,
-      title: Title4?.jsonValue,
-      copy: Copy4?.jsonValue,
-      link: Link4?.jsonValue,
+      icon: Icon4,
+      title: Title4,
+      copy: Copy4,
+      link: Link4,
     },
   ];
 
@@ -121,7 +103,10 @@ const Default = (props: FlexCardsContainerProps): JSX.Element => {
     );
   };
 
-  if (!datasource && !isEditing) {
+  // Check if any cards have content
+  const hasAnyContent = cards.some(hasCardContent);
+
+  if (!hasAnyContent && !isEditing) {
     return (
       <div className={`component flex-cards-container ${styles || ''}`} id={id}>
         <div className="component-content">
