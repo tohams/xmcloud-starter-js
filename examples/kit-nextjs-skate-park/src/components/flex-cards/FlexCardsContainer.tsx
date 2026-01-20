@@ -118,8 +118,8 @@ const Default = (props: FlexCardsContainerProps): JSX.Element => {
 
   return (
     <div className={`component flex-cards-container ${styles || ''}`} id={id}>
-      <div className="component-content py-16">
-        <div className="container mx-auto px-4 max-w-6xl">
+      <div className="component-content py-16 mt-16">
+        <div className="container mx-auto px-4 max-w-6xl" style={{ marginLeft: 'auto', marginRight: 'auto' }}>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center">
             {cards.map((card, index) => {
               // In editing mode, show all cards. In preview/live, only show cards with content
@@ -144,14 +144,14 @@ const Default = (props: FlexCardsContainerProps): JSX.Element => {
 
                   {/* Title - 24px font */}
                   {card.title && (card.title.value || isEditing) && (
-                    <h3 className="flex-card__title text-2xl font-bold mb-4 text-gray-900 leading-tight text-left">
+                    <h3 className="flex-card__title text-[24px] font-bold mb-4 text-gray-900 leading-tight text-left">
                       <ContentSdkText field={card.title} />
                     </h3>
                   )}
 
                   {/* Copy - 16px font */}
                   {card.copy && (card.copy.value || isEditing) && (
-                    <p className="flex-card__copy text-base text-gray-600 leading-relaxed text-left">
+                    <p className="flex-card__copy text-[16px] text-gray-600 leading-relaxed text-left">
                       <ContentSdkText field={card.copy} />
                     </p>
                   )}

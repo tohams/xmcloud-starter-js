@@ -20,7 +20,8 @@
   @apply relative;
   position: relative;
   padding-top: 24px;
-  padding-bottom: 20px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
   max-width: 100% !important;
   margin-left: 0 !important;
   margin-right: 0 !important;
@@ -135,7 +136,8 @@
   }
   
   .full-width-hero-card__container {
-    padding-bottom: 20px;
+    padding-bottom: 0;
+    margin-bottom: 20px;
   }
   
   .full-width-hero-card__container::before {
@@ -421,7 +423,8 @@
   }
   
   .full-width-hero-card__container {
-    padding-bottom: 20px;
+    padding-bottom: 0;
+    margin-bottom: 20px;
   }
   
   /* Red background extends to bottom */
@@ -455,7 +458,8 @@
   }
   
   .full-width-hero-card__container {
-    padding-bottom: 20px !important;
+    padding-bottom: 0 !important;
+    margin-bottom: 20px !important;
   }
   
   /* Red background extends to bottom */
