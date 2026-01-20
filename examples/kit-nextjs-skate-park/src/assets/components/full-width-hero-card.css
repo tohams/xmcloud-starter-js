@@ -123,7 +123,7 @@
     @apply w-auto flex-shrink-0;
     position: absolute !important;
     right: 0;
-    bottom: 0;
+    top: 96px;
     height: auto;
     max-height: none;
     max-width: 600px;
@@ -131,7 +131,6 @@
   
   .full-width-hero-card__body-content {
     padding-right: calc(600px + 32px) !important;
-    padding-bottom: 500px !important; /* Space for image */
     width: auto !important;
     max-width: none !important;
   }
@@ -142,8 +141,8 @@
   }
   
   .full-width-hero-card__container::before {
-    bottom: 0;
-    height: 100%;
+    bottom: 140px;
+    height: auto;
   }
 }
 
@@ -200,7 +199,7 @@
   .full-width-hero-card__img {
     position: absolute !important;
     right: 24px;
-    bottom: 0;
+    top: 96px;
     height: auto;
     max-height: none;
     width: 60% !important;
@@ -209,7 +208,6 @@
   
   .full-width-hero-card__body-content {
     padding-right: calc(60% + 48px) !important;
-    padding-bottom: 500px !important; /* Space for image */
     width: 40% !important;
   }
   
@@ -225,8 +223,8 @@
   
   /* Red background extends to bottom */
   .full-width-hero-card__container::before {
-    bottom: 0 !important;
-    height: 100% !important;
+    bottom: 140px !important;
+    height: auto !important;
   }
 }
 
@@ -415,7 +413,7 @@
     @apply w-auto flex-shrink-0;
     position: absolute !important;
     right: 0;
-    bottom: 0;
+    top: 96px;
     height: auto;
     max-height: none;
     max-width: 684px;
@@ -423,7 +421,6 @@
   
   .full-width-hero-card__body-content {
     padding-right: calc(684px + 32px);
-    padding-bottom: 500px; /* Space for image - ensures container is tall enough for typical image heights */
   }
   
   .full-width-hero-card__container {
@@ -434,8 +431,8 @@
   
   /* Red background extends to bottom of container (which now includes image space) */
   .full-width-hero-card__container::before {
-    bottom: 0;
-    height: 100%;
+    bottom: 140px;
+    height: auto;
   }
 }
 
