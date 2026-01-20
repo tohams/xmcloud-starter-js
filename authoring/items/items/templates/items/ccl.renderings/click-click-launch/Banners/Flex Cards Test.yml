@@ -28,6 +28,9 @@ SharedFields:
         Link1: field(name: "Link1") {
           jsonValue
         }
+        Title2: field(name: "Title2") {
+          jsonValue
+        }
       }
     }
     
