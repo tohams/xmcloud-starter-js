@@ -40,6 +40,18 @@ SharedFields:
         Link2: field(name: "Link2") {
           jsonValue
         }
+        Icon3: field(name: "Icon3") {
+          jsonValue
+        }
+        Title3: field(name: "Title3") {
+          jsonValue
+        }
+        Copy3: field(name: "Copy3") {
+          jsonValue
+        }
+        Link3: field(name: "Link3") {
+          jsonValue
+        }
       }
     }
     
