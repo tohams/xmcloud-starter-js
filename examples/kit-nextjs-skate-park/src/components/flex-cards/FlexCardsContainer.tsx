@@ -144,14 +144,14 @@ const Default = (props: FlexCardsContainerProps): JSX.Element => {
 
                   {/* Title - 24px font */}
                   {card.title && (card.title.value || isEditing) && (
-                    <h3 className="flex-card__title text-[24px] font-bold mb-4 text-gray-900 leading-tight text-left">
+                    <h3 className="flex-card__title font-bold mb-4 text-gray-900 leading-tight text-left" style={{ fontSize: '24px' }}>
                       <ContentSdkText field={card.title} />
                     </h3>
                   )}
 
                   {/* Copy - 16px font */}
                   {card.copy && (card.copy.value || isEditing) && (
-                    <p className="flex-card__copy text-[16px] text-gray-600 leading-relaxed text-left">
+                    <p className="flex-card__copy text-gray-600 leading-relaxed text-left" style={{ fontSize: '16px' }}>
                       <ContentSdkText field={card.copy} />
                     </p>
                   )}
