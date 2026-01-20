@@ -118,6 +118,7 @@
   .full-width-hero-card__content {
     display: flex !important;
     flex-direction: row !important;
+    align-items: flex-start !important;
   }
   
   .full-width-hero-card__btns {
@@ -127,23 +128,19 @@
   
   .full-width-hero-card__img {
     @apply w-auto flex-shrink-0;
-    position: absolute !important;
-    right: 0;
-    top: calc(
-      var(--hero-logo-size) +
-        var(--hero-logo-gap) +
-        (var(--hero-title-size) * var(--hero-title-line-height)) +
-        var(--hero-title-gap)
-    );
+    position: relative !important;
+    right: auto;
+    top: 0;
     height: auto;
     max-height: none;
-    max-width: 600px;
+    width: 600px;
+    max-width: 50%;
+    margin-bottom: -120px;
   }
   
   .full-width-hero-card__body-content {
-    padding-right: calc(600px + 32px) !important;
-    width: auto !important;
-    max-width: none !important;
+    width: 50% !important;
+    max-width: 50% !important;
   }
   
   .full-width-hero-card__container {
@@ -204,26 +201,22 @@
   .full-width-hero-card__content {
     display: flex !important;
     flex-direction: row !important;
+    align-items: flex-start !important;
   }
   
   /* Image positioned absolutely to stay on right - takes up 60% of component width */
   .full-width-hero-card__img {
-    position: absolute !important;
-    right: 24px;
-    top: calc(
-      var(--hero-logo-size) +
-        var(--hero-logo-gap) +
-        (var(--hero-title-size) * var(--hero-title-line-height)) +
-        var(--hero-title-gap)
-    );
+    position: relative !important;
+    right: auto;
+    top: 0;
     height: auto;
     max-height: none;
     width: 60% !important;
-    max-width: none !important;
+    max-width: 60% !important;
+    margin-bottom: -120px;
   }
   
   .full-width-hero-card__body-content {
-    padding-right: calc(60% + 48px) !important;
     width: 40% !important;
   }
   
@@ -331,6 +324,7 @@
 @media screen and (min-width: 1200px) {
   .full-width-hero-card__content {
     @apply flex-row;
+    align-items: flex-start;
   }
 }
 
@@ -427,21 +421,18 @@
 @media screen and (min-width: 1200px) {
   .full-width-hero-card__img {
     @apply w-auto flex-shrink-0;
-    position: absolute !important;
-    right: 0;
-    top: calc(
-      var(--hero-logo-size) +
-        var(--hero-logo-gap) +
-        (var(--hero-title-size) * var(--hero-title-line-height)) +
-        var(--hero-title-gap)
-    );
+    position: relative !important;
+    right: auto;
+    top: 0;
     height: auto;
     max-height: none;
-    max-width: 684px;
+    width: 684px;
+    max-width: 50%;
+    margin-bottom: -140px;
   }
   
   .full-width-hero-card__body-content {
-    padding-right: calc(684px + 32px);
+    width: 50%;
   }
   
   .full-width-hero-card__container {
