@@ -119,8 +119,8 @@ const Default = (props: FlexCardsContainerProps): JSX.Element => {
   return (
     <div className={`component flex-cards-container ${styles || ''}`} id={id}>
       <div className="component-content">
-        <div className="container mx-auto px-4 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="container mx-auto px-4 py-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {cards.map((card, index) => {
               // In editing mode, show all cards. In preview/live, only show cards with content
               if (!isEditing && !hasCardContent(card)) {
@@ -130,17 +130,16 @@ const Default = (props: FlexCardsContainerProps): JSX.Element => {
               return (
                 <div
                   key={index}
-                  className="flex-card bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 p-6 flex flex-col items-center text-center"
-                  style={{ width: '262.5px', minHeight: '320px' }}
+                  className="flex-card flex flex-col items-center text-center"
                 >
                   {/* Icon */}
                   {card.icon && (card.icon.value?.src || isEditing) && (
-                    <div className="mb-4">
+                    <div className="flex-card__icon-wrapper mb-6">
                       <ContentSdkImage
                         field={card.icon}
-                        className="flex-card__icon"
-                        width={22}
-                        height={30}
+                        className="flex-card__icon mx-auto"
+                        width={60}
+                        height={60}
                         unoptimized={card.icon.value?.src?.endsWith('.svg')}
                       />
                     </div>
@@ -148,24 +147,24 @@ const Default = (props: FlexCardsContainerProps): JSX.Element => {
 
                   {/* Title */}
                   {card.title && (card.title.value || isEditing) && (
-                    <h3 className="flex-card__title text-xl font-bold mb-3">
+                    <h3 className="flex-card__title text-lg font-bold mb-3 text-gray-900">
                       <ContentSdkText field={card.title} />
                     </h3>
                   )}
 
                   {/* Copy */}
                   {card.copy && (card.copy.value || isEditing) && (
-                    <p className="flex-card__copy text-sm text-gray-600 mb-4 flex-grow">
+                    <p className="flex-card__copy text-sm text-gray-700 mb-4 leading-relaxed">
                       <ContentSdkText field={card.copy} />
                     </p>
                   )}
 
                   {/* Link */}
                   {card.link && (card.link.value?.href || isEditing) && (
-                    <div className="mt-auto">
+                    <div className="flex-card__link-wrapper mt-auto">
                       <ContentSdkLink
                         field={card.link}
-                        className="flex-card__link text-red-600 hover:text-red-800 font-medium transition-colors duration-200"
+                        className="flex-card__link text-sm text-gray-600 hover:text-gray-900 underline transition-colors duration-200"
                       />
                     </div>
                   )}

@@ -13,9 +13,7 @@ import * as PageContent from 'src/components/page-content/PageContent';
 import * as Navigation from 'src/components/navigation/Navigation';
 import * as LinkList from 'src/components/link-list/LinkList';
 import * as Image from 'src/components/image/Image';
-import * as HeroCardTest from 'src/components/hero-card-test/HeroCardTest';
 import * as FullWidthHeroCard from 'src/components/full-width-hero-card/FullWidthHeroCard';
-import * as FlexCardsTest from 'src/components/flex-cards-test/FlexCardsTest';
 import * as FlexCardsContainer from 'src/components/flex-cards/FlexCardsContainer';
 import * as ContentBlock from 'src/components/content-block/ContentBlock';
 import * as Container from 'src/components/container/Container';
@@ -34,9 +32,7 @@ export const componentMap = new Map<string, NextjsContentSdkComponent>([
   ['Navigation', { ...Navigation, componentType: 'client' }],
   ['LinkList', { ...LinkList }],
   ['Image', { ...Image }],
-  ['HeroCardTest', { ...HeroCardTest }],
   ['FullWidthHeroCard', { ...FullWidthHeroCard }],
-  ['FlexCardsTest', { ...FlexCardsTest }],
   ['FlexCardsContainer', { ...FlexCardsContainer }],
   ['ContentBlock', { ...ContentBlock }],
   ['Container', { ...Container }],
