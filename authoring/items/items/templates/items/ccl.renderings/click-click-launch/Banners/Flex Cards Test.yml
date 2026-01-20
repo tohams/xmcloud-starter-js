@@ -12,49 +12,7 @@ SharedFields:
   Value: Applications/32x32/document_heart.png
 - ID: "17bb046a-a32a-41b3-8315-81217947611b"
   Hint: ComponentQuery
-  Value: |
-    query FlexCardsTestQuery($datasource: String!, $language: String!) {
-      datasource: item(path: $datasource, language: $language) {
-        id
-        Icon2: field(name: "Icon2") {
-          jsonValue
-        }
-        Title2: field(name: "Title2") {
-          jsonValue
-        }
-        Copy2: field(name: "Copy2") {
-          jsonValue
-        }
-        Link2: field(name: "Link2") {
-          jsonValue
-        }
-        Icon3: field(name: "Icon3") {
-          jsonValue
-        }
-        Title3: field(name: "Title3") {
-          jsonValue
-        }
-        Copy3: field(name: "Copy3") {
-          jsonValue
-        }
-        Link3: field(name: "Link3") {
-          jsonValue
-        }
-        Icon4: field(name: "Icon4") {
-          jsonValue
-        }
-        Title4: field(name: "Title4") {
-          jsonValue
-        }
-        Copy4: field(name: "Copy4") {
-          jsonValue
-        }
-        Link4: field(name: "Link4") {
-          jsonValue
-        }
-      }
-    }
-    
+  Value: 
 - ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
   Hint: Datasource Template
   Value: "/sitecore/templates/Project/click-click-launch/Components/Banners/Flex Cards"
