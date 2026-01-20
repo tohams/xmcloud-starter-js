@@ -123,7 +123,7 @@
     @apply w-auto flex-shrink-0;
     position: absolute !important;
     right: 0;
-    top: var(--hero-image-top, 108px);
+    top: var(--hero-image-top, 72px);
     height: auto;
     max-height: none;
     max-width: 600px;
@@ -199,7 +199,7 @@
   .full-width-hero-card__img {
     position: absolute !important;
     right: 24px;
-    top: var(--hero-image-top, 108px);
+    top: var(--hero-image-top, 72px);
     height: auto;
     max-height: none;
     width: 60% !important;
@@ -413,7 +413,7 @@
     @apply w-auto flex-shrink-0;
     position: absolute !important;
     right: 0;
-    top: var(--hero-image-top, 108px);
+    top: var(--hero-image-top, 72px);
     height: auto;
     max-height: none;
     max-width: 684px;
