@@ -16,6 +16,12 @@ Languages:
   - ID: "19a69332-a23e-4e70-8d16-b44b38f09e63"
     Hint: __Sortorder
     Value: 300
+  - ID: "19a69332-a23e-4e70-8d16-b2640cb24cc8"
+    Hint: Title
+    Value: Copy1
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Copy1
   Versions:
   - Version: 1
     Fields:
