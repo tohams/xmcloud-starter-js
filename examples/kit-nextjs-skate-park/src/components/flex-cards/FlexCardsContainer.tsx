@@ -130,7 +130,7 @@ const Default = (props: FlexCardsContainerProps): JSX.Element => {
               return (
                 <div
                   key={index}
-                  className="flex-card bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 p-8 flex flex-col items-center text-center w-full"
+                  className="flex-card bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 p-8 flex flex-col items-start w-full"
                 >
                   {/* Icon with red circle background */}
                   {card.icon && (card.icon.value?.src || isEditing) && (
@@ -147,14 +147,14 @@ const Default = (props: FlexCardsContainerProps): JSX.Element => {
 
                   {/* Title */}
                   {card.title && (card.title.value || isEditing) && (
-                    <h3 className="flex-card__title text-xl font-bold mb-4 text-gray-900 leading-tight">
+                    <h3 className="flex-card__title text-xl font-bold mb-4 text-gray-900 leading-tight text-left">
                       <ContentSdkText field={card.title} />
                     </h3>
                   )}
 
                   {/* Copy */}
                   {card.copy && (card.copy.value || isEditing) && (
-                    <p className="flex-card__copy text-base text-gray-600 mb-6 leading-relaxed">
+                    <p className="flex-card__copy text-base text-gray-600 mb-6 leading-relaxed text-left">
                       <ContentSdkText field={card.copy} />
                     </p>
                   )}
