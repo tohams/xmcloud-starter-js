@@ -1,6 +1,12 @@
 .full-width-hero-card {
   @apply w-full bg-white;
   position: relative;
+  /* Align hero image top to subheading start */
+  --hero-logo-size: 32px;
+  --hero-logo-gap: 16px;
+  --hero-title-size: 42px;
+  --hero-title-line-height: 1.1;
+  --hero-title-gap: 12px;
 }
 
 /* Remove padding from parent elements that could interfere */
@@ -123,7 +129,12 @@
     @apply w-auto flex-shrink-0;
     position: absolute !important;
     right: 0;
-    top: var(--hero-image-top, 72px);
+    top: calc(
+      var(--hero-logo-size) +
+        var(--hero-logo-gap) +
+        (var(--hero-title-size) * var(--hero-title-line-height)) +
+        var(--hero-title-gap)
+    );
     height: auto;
     max-height: none;
     max-width: 600px;
@@ -199,7 +210,12 @@
   .full-width-hero-card__img {
     position: absolute !important;
     right: 24px;
-    top: var(--hero-image-top, 72px);
+    top: calc(
+      var(--hero-logo-size) +
+        var(--hero-logo-gap) +
+        (var(--hero-title-size) * var(--hero-title-line-height)) +
+        var(--hero-title-gap)
+    );
     height: auto;
     max-height: none;
     width: 60% !important;
@@ -413,7 +429,12 @@
     @apply w-auto flex-shrink-0;
     position: absolute !important;
     right: 0;
-    top: var(--hero-image-top, 72px);
+    top: calc(
+      var(--hero-logo-size) +
+        var(--hero-logo-gap) +
+        (var(--hero-title-size) * var(--hero-title-line-height)) +
+        var(--hero-title-gap)
+    );
     height: auto;
     max-height: none;
     max-width: 684px;
