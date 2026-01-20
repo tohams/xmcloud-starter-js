@@ -6,7 +6,10 @@ interface Fields {
   Title1?: { jsonValue?: unknown };
   Copy1?: { jsonValue?: unknown };
   Link1?: { jsonValue?: unknown };
+  Icon2?: { jsonValue?: unknown };
   Title2?: { jsonValue?: unknown };
+  Copy2?: { jsonValue?: unknown };
+  Link2?: { jsonValue?: unknown };
 }
 
 type FlexCardsTestProps = ComponentProps & {
@@ -71,12 +74,19 @@ const Default = (props: FlexCardsTestProps): JSX.Element => {
             </pre>
             
             <h3>Field Values:</h3>
+            <h4>Card 1:</h4>
             <ul style={{ textAlign: 'left' }}>
               <li><strong>Icon1:</strong> {JSON.stringify(datasource.Icon1?.jsonValue)}</li>
               <li><strong>Title1:</strong> {JSON.stringify(datasource.Title1?.jsonValue)}</li>
               <li><strong>Copy1:</strong> {JSON.stringify(datasource.Copy1?.jsonValue)}</li>
               <li><strong>Link1:</strong> {JSON.stringify(datasource.Link1?.jsonValue)}</li>
+            </ul>
+            <h4>Card 2:</h4>
+            <ul style={{ textAlign: 'left' }}>
+              <li><strong>Icon2:</strong> {JSON.stringify(datasource.Icon2?.jsonValue)}</li>
               <li><strong>Title2:</strong> {JSON.stringify(datasource.Title2?.jsonValue)}</li>
+              <li><strong>Copy2:</strong> {JSON.stringify(datasource.Copy2?.jsonValue)}</li>
+              <li><strong>Link2:</strong> {JSON.stringify(datasource.Link2?.jsonValue)}</li>
             </ul>
           </>
         )}
