@@ -118,20 +118,17 @@ const Default = (props: FlexCardsContainerProps): JSX.Element => {
 
   return (
     <div className={`component flex-cards-container ${styles || ''}`} id={id}>
-      <div className="component-content bg-gray-50 py-16">
+      <div className="component-content py-16">
         <div className="container mx-auto px-4 max-w-6xl">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center">
             {cards.map((card, index) => {
               // In editing mode, show all cards. In preview/live, only show cards with content
               if (!isEditing && !hasCardContent(card)) {
                 return null;
               }
 
-              return (
-                <div
-                  key={index}
-                  className="flex-card bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 p-8 flex flex-col items-start w-full"
-                >
+              const cardContent = (
+                <div className="flex-card bg-white rounded-lg shadow-xl hover:shadow-2xl transition-shadow duration-300 p-8 flex flex-col items-start w-full h-full cursor-pointer">
                   {/* Icon with red circle background */}
                   {card.icon && (card.icon.value?.src || isEditing) && (
                     <div className="flex-card__icon-wrapper mb-6 w-[50px] h-[50px] bg-red-600 rounded-full flex items-center justify-center">
@@ -145,31 +142,39 @@ const Default = (props: FlexCardsContainerProps): JSX.Element => {
                     </div>
                   )}
 
-                  {/* Title */}
+                  {/* Title - 24px font */}
                   {card.title && (card.title.value || isEditing) && (
-                    <h3 className="flex-card__title text-xl font-bold mb-4 text-gray-900 leading-tight text-left">
+                    <h3 className="flex-card__title text-2xl font-bold mb-4 text-gray-900 leading-tight text-left">
                       <ContentSdkText field={card.title} />
                     </h3>
                   )}
 
-                  {/* Copy */}
+                  {/* Copy - 16px font */}
                   {card.copy && (card.copy.value || isEditing) && (
-                    <p className="flex-card__copy text-base text-gray-600 mb-6 leading-relaxed text-left">
+                    <p className="flex-card__copy text-base text-gray-600 leading-relaxed text-left">
                       <ContentSdkText field={card.copy} />
                     </p>
                   )}
-
-                  {/* Link */}
-                  {card.link && (card.link.value?.href || isEditing) && (
-                    <div className="flex-card__link-wrapper mt-auto">
-                      <ContentSdkLink
-                        field={card.link}
-                        className="flex-card__link text-base text-gray-700 hover:text-gray-900 font-medium"
-                      />
-                    </div>
-                  )}
                 </div>
               );
+
+              // Wrap entire card in link if link exists (no visible link text)
+              if (card.link?.value?.href && !isEditing) {
+                return (
+                  <a
+                    key={index}
+                    href={card.link.value.href}
+                    className="w-full block no-underline"
+                    target={card.link.value.target}
+                    rel={card.link.value.target === '_blank' ? 'noopener noreferrer' : undefined}
+                  >
+                    {cardContent}
+                  </a>
+                );
+              }
+
+              // In editing mode or no link, just show card
+              return <div key={index} className="w-full">{cardContent}</div>;
             })}
           </div>
         </div>
