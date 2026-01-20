@@ -316,6 +316,14 @@
   @apply text-white;
 }
 
+.full-width-hero-card__title div,
+.full-width-hero-card__title div div {
+  line-height: 32px;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+}
+
 .full-width-hero-card__content {
   @apply flex flex-col gap-[32px] relative;
   z-index: 1;
