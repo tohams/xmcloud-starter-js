@@ -303,8 +303,10 @@
 }
 
 .full-width-hero-card__title {
-  @apply text-white text-[28px] md:text-[42px] font-bold mb-[12px] relative;
-  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  @apply text-white mb-[12px] relative;
+  font-family: Montserrat, "Helvetica Neue", Arial, sans-serif;
+  font-size: 50px;
+  font-weight: 500;
   line-height: 1.1;
   z-index: 1;
   position: relative;

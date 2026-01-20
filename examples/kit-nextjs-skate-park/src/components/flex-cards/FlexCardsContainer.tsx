@@ -120,8 +120,9 @@ const Default = (props: FlexCardsContainerProps): JSX.Element => {
     <div className={`component flex-cards-container ${styles || ''}`} id={id}>
       <div className="component-content py-16 mt-16">
         <div className="container mx-auto px-4 max-w-6xl" style={{ marginLeft: 'auto', marginRight: 'auto' }}>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center">
-            {cards.map((card, index) => {
+          <div className="flex justify-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center">
+              {cards.map((card, index) => {
               // In editing mode, show all cards. In preview/live, only show cards with content
               if (!isEditing && !hasCardContent(card)) {
                 return null;
@@ -175,7 +176,8 @@ const Default = (props: FlexCardsContainerProps): JSX.Element => {
 
               // In editing mode or no link, just show card
               return <div key={index} className="w-full">{cardContent}</div>;
-            })}
+              })}
+            </div>
           </div>
         </div>
       </div>
