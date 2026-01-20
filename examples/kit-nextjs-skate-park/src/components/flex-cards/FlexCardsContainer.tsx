@@ -119,8 +119,8 @@ const Default = (props: FlexCardsContainerProps): JSX.Element => {
   return (
     <div className={`component flex-cards-container ${styles || ''}`} id={id}>
       <div className="component-content bg-gray-50 py-16">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center">
             {cards.map((card, index) => {
               // In editing mode, show all cards. In preview/live, only show cards with content
               if (!isEditing && !hasCardContent(card)) {
@@ -130,16 +130,16 @@ const Default = (props: FlexCardsContainerProps): JSX.Element => {
               return (
                 <div
                   key={index}
-                  className="flex-card bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 p-8 flex flex-col items-center text-center"
+                  className="flex-card bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 p-8 flex flex-col items-center text-center w-full"
                 >
-                  {/* Icon */}
+                  {/* Icon with red circle background */}
                   {card.icon && (card.icon.value?.src || isEditing) && (
-                    <div className="flex-card__icon-wrapper mb-6">
+                    <div className="flex-card__icon-wrapper mb-6 w-[50px] h-[50px] bg-red-600 rounded-full flex items-center justify-center">
                       <ContentSdkImage
                         field={card.icon}
-                        className="flex-card__icon mx-auto"
-                        width={80}
-                        height={80}
+                        className="flex-card__icon"
+                        width={30}
+                        height={30}
                         unoptimized={card.icon.value?.src?.endsWith('.svg')}
                       />
                     </div>
