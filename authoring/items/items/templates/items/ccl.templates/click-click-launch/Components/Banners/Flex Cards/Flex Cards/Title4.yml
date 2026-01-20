@@ -1,21 +1,21 @@
 ---
-ID: "c1d2e3f4-a5b6-1c78-9d0e-1f2a3b4c5d6e"
+ID: "f1a2b3c4-d5e6-0f78-9a0b-1c2d3e4f5a6b"
 Parent: "d1e2f3a4-b5c6-8d79-0e1f-2a3b4c5d6e7f"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: "/sitecore/templates/Project/click-click-launch/Components/Banners/Flex Cards/Flex Cards/Icon 2"
+Path: "/sitecore/templates/Project/click-click-launch/Components/Banners/Flex Cards/Flex Cards/Title4"
 SharedFields:
 - ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
   Hint: Type
-  Value: Image
+  Value: Single-Line Text
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
-  Value: 500
+  Value: 1400
 Languages:
 - Language: en
   Fields:
   - ID: "19a69332-a23e-4e70-8d16-b44b38f09e63"
     Hint: __Sortorder
-    Value: 500
+    Value: 1400
   Versions:
   - Version: 1
     Fields:
