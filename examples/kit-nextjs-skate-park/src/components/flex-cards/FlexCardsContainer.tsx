@@ -60,6 +60,8 @@ const Default = (props: FlexCardsContainerProps): JSX.Element => {
     'hasData': !!data,
     'hasDatasource': !!datasource,
     'datasourceKeys': datasource ? Object.keys(datasource) : 'none',
+    'fullFields': JSON.stringify(fields, null, 2),
+    'fullDatasource': JSON.stringify(datasource, null, 2),
   });
 
   const {
