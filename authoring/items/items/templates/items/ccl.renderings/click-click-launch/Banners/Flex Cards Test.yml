@@ -16,18 +16,6 @@ SharedFields:
     query FlexCardsTestQuery($datasource: String!, $language: String!) {
       datasource: item(path: $datasource, language: $language) {
         id
-        Icon1: field(name: "Icon1") {
-          jsonValue
-        }
-        Title1: field(name: "Title1") {
-          jsonValue
-        }
-        Copy1: field(name: "Copy1") {
-          jsonValue
-        }
-        Link1: field(name: "Link1") {
-          jsonValue
-        }
         Icon2: field(name: "Icon2") {
           jsonValue
         }

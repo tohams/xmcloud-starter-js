@@ -2,10 +2,6 @@ import React, { JSX } from 'react';
 import { ComponentProps } from 'lib/component-props';
 
 interface Fields {
-  Icon1?: { jsonValue?: unknown };
-  Title1?: { jsonValue?: unknown };
-  Copy1?: { jsonValue?: unknown };
-  Link1?: { jsonValue?: unknown };
   Icon2?: { jsonValue?: unknown };
   Title2?: { jsonValue?: unknown };
   Copy2?: { jsonValue?: unknown };
@@ -81,14 +77,7 @@ const Default = (props: FlexCardsTestProps): JSX.Element => {
               {JSON.stringify(datasource, null, 2)}
             </pre>
             
-            <h3>ALL CARDS (1-4 Together):</h3>
-            <h4>Card 1:</h4>
-            <ul style={{ textAlign: 'left' }}>
-              <li><strong>Icon1:</strong> {JSON.stringify(datasource.Icon1?.jsonValue)}</li>
-              <li><strong>Title1:</strong> {JSON.stringify(datasource.Title1?.jsonValue)}</li>
-              <li><strong>Copy1:</strong> {JSON.stringify(datasource.Copy1?.jsonValue)}</li>
-              <li><strong>Link1:</strong> {JSON.stringify(datasource.Link1?.jsonValue)}</li>
-            </ul>
+            <h3>Cards 2, 3, and 4 Together (Skipping Card 1):</h3>
             <h4>Card 2:</h4>
             <ul style={{ textAlign: 'left' }}>
               <li><strong>Icon2:</strong> {JSON.stringify(datasource.Icon2?.jsonValue)}</li>
