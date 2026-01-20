@@ -2,18 +2,6 @@ import React, { JSX } from 'react';
 import { ComponentProps } from 'lib/component-props';
 
 interface Fields {
-  Icon1?: { jsonValue?: unknown };
-  Title1?: { jsonValue?: unknown };
-  Copy1?: { jsonValue?: unknown };
-  Link1?: { jsonValue?: unknown };
-  Icon2?: { jsonValue?: unknown };
-  Title2?: { jsonValue?: unknown };
-  Copy2?: { jsonValue?: unknown };
-  Link2?: { jsonValue?: unknown };
-  Icon3?: { jsonValue?: unknown };
-  Title3?: { jsonValue?: unknown };
-  Copy3?: { jsonValue?: unknown };
-  Link3?: { jsonValue?: unknown };
   Icon4?: { jsonValue?: unknown };
   Title4?: { jsonValue?: unknown };
   Copy4?: { jsonValue?: unknown };
@@ -81,29 +69,7 @@ const Default = (props: FlexCardsTestProps): JSX.Element => {
               {JSON.stringify(datasource, null, 2)}
             </pre>
             
-            <h3>Field Values:</h3>
-            <h4>Card 1:</h4>
-            <ul style={{ textAlign: 'left' }}>
-              <li><strong>Icon1:</strong> {JSON.stringify(datasource.Icon1?.jsonValue)}</li>
-              <li><strong>Title1:</strong> {JSON.stringify(datasource.Title1?.jsonValue)}</li>
-              <li><strong>Copy1:</strong> {JSON.stringify(datasource.Copy1?.jsonValue)}</li>
-              <li><strong>Link1:</strong> {JSON.stringify(datasource.Link1?.jsonValue)}</li>
-            </ul>
-            <h4>Card 2:</h4>
-            <ul style={{ textAlign: 'left' }}>
-              <li><strong>Icon2:</strong> {JSON.stringify(datasource.Icon2?.jsonValue)}</li>
-              <li><strong>Title2:</strong> {JSON.stringify(datasource.Title2?.jsonValue)}</li>
-              <li><strong>Copy2:</strong> {JSON.stringify(datasource.Copy2?.jsonValue)}</li>
-              <li><strong>Link2:</strong> {JSON.stringify(datasource.Link2?.jsonValue)}</li>
-            </ul>
-            <h4>Card 3:</h4>
-            <ul style={{ textAlign: 'left' }}>
-              <li><strong>Icon3:</strong> {JSON.stringify(datasource.Icon3?.jsonValue)}</li>
-              <li><strong>Title3:</strong> {JSON.stringify(datasource.Title3?.jsonValue)}</li>
-              <li><strong>Copy3:</strong> {JSON.stringify(datasource.Copy3?.jsonValue)}</li>
-              <li><strong>Link3:</strong> {JSON.stringify(datasource.Link3?.jsonValue)}</li>
-            </ul>
-            <h4>Card 4:</h4>
+            <h3>Card 4 ONLY (Testing in Isolation):</h3>
             <ul style={{ textAlign: 'left' }}>
               <li><strong>Icon4:</strong> {JSON.stringify(datasource.Icon4?.jsonValue)}</li>
               <li><strong>Title4:</strong> {JSON.stringify(datasource.Title4?.jsonValue)}</li>
