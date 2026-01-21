@@ -34,7 +34,7 @@
 /* Responsive */
 @media screen and (max-width: 991px) {
   .wear-red-promo__container > div {
-    flex-direction: column !important;
+    flex-direction: column-reverse !important;
   }
 
   .wear-red-promo__image {

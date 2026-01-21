@@ -95,10 +95,9 @@ const Default = (props: HomePagePromoProps): JSX.Element => {
               className="home-page-promo__header"
               style={{
                 color: 'white',
-                fontFamily: 'Georgia, "Times New Roman", serif',
+                fontFamily: "'Open Sans', Helvetica, Arial, sans-serif",
                 fontSize: 42,
-                fontWeight: 400,
-                fontStyle: 'italic',
+                fontWeight: 700,
                 lineHeight: 1.2,
                 marginBottom: 24,
               }}
