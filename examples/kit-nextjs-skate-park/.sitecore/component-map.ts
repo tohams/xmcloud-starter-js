@@ -13,6 +13,7 @@ import * as PageContent from 'src/components/page-content/PageContent';
 import * as Navigation from 'src/components/navigation/Navigation';
 import * as LinkList from 'src/components/link-list/LinkList';
 import * as Image from 'src/components/image/Image';
+import * as HomePagePromo from 'src/components/home-page-promo/HomePagePromo';
 import * as FullWidthHeroCard from 'src/components/full-width-hero-card/FullWidthHeroCard';
 import * as FlexCardsContainer from 'src/components/flex-cards/FlexCardsContainer';
 import * as ContentBlock from 'src/components/content-block/ContentBlock';
@@ -32,6 +33,7 @@ export const componentMap = new Map<string, NextjsContentSdkComponent>([
   ['Navigation', { ...Navigation, componentType: 'client' }],
   ['LinkList', { ...LinkList }],
   ['Image', { ...Image }],
+  ['HomePagePromo', { ...HomePagePromo }],
   ['FullWidthHeroCard', { ...FullWidthHeroCard }],
   ['FlexCardsContainer', { ...FlexCardsContainer }],
   ['ContentBlock', { ...ContentBlock }],

@@ -1,0 +1,51 @@
+.home-page-promo {
+  @apply w-full;
+}
+
+.home-page-promo__container {
+  width: 100%;
+}
+
+/* Responsive adjustments for columns */
+@media screen and (max-width: 991px) {
+  .home-page-promo__columns {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .home-page-promo__header {
+    font-size: 32px !important;
+  }
+
+  .home-page-promo__subheader {
+    font-size: 16px !important;
+  }
+
+  .home-page-promo__title {
+    font-size: 36px !important;
+  }
+
+  .home-page-promo__button-wrapper a {
+    padding: 14px 40px !important;
+    min-width: 250px !important;
+  }
+}
+
+/* Button hover effect */
+.home-page-promo__button-wrapper a:hover {
+  background-color: white !important;
+  color: #c41230 !important;
+}
+
+/* RichText content styling */
+.home-page-promo__subheader p {
+  margin: 0;
+  color: white;
+}
+
+.home-page-promo__subheader a {
+  color: white;
+  text-decoration: underline;
+}
