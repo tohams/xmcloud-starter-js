@@ -135,133 +135,133 @@ const Default = (props: PromoRowProps): JSX.Element => {
                     flexDirection: 'column',
                   }}
                 >
-                  {/* Content */}
-                  <div
-                    className="promo-row__card-content"
-                    style={{
-                      padding: '24px 32px 32px 32px',
-                      flex: 1,
-                      display: 'flex',
-                      flexDirection: 'column',
-                    }}
-                  >
-                    {/* Image */}
-                    {(card.image?.value?.src || isEditing) && (
-                      <div
-                        className="promo-row__card-image"
+                {/* Content */}
+                <div
+                  className="promo-row__card-content"
+                  style={{
+                    padding: '24px 32px 32px 32px',
+                    flex: 1,
+                    display: 'flex',
+                    flexDirection: 'column',
+                  }}
+                >
+                  {/* Image */}
+                  {(card.image?.value?.src || isEditing) && (
+                    <div
+                      className="promo-row__card-image"
+                      style={{
+                        width: '100%',
+                        maxWidth: 309,
+                        aspectRatio: '309/206',
+                        overflow: 'hidden',
+                        marginBottom: 20,
+                        borderRadius: 4,
+                        marginLeft: 'auto',
+                        marginRight: 'auto',
+                      }}
+                    >
+                      <ContentSdkImage
+                        field={card.image}
                         style={{
                           width: '100%',
-                          maxWidth: 309,
-                          aspectRatio: '309/206',
-                          overflow: 'hidden',
-                          marginBottom: 20,
-                          borderRadius: 4,
-                          marginLeft: 'auto',
-                          marginRight: 'auto',
+                          height: '100%',
+                          objectFit: 'cover',
                         }}
-                      >
-                        <ContentSdkImage
-                          field={card.image}
-                          style={{
-                            width: '100%',
-                            height: '100%',
-                            objectFit: 'cover',
-                          }}
-                        />
-                      </div>
-                    )}
-                    {/* Title */}
-                    {(card.title?.value || isEditing) && (
-                      <h3
-                        className="promo-row__card-title"
-                        style={{
-                          color: '#1b1b1d',
-                          fontFamily: "'Open Sans', Helvetica, Arial, sans-serif",
-                          fontSize: 22,
-                          fontWeight: 700,
-                          lineHeight: 1.3,
-                          marginBottom: 12,
-                        }}
-                      >
-                        <ContentSdkText field={card.title} />
-                      </h3>
-                    )}
+                      />
+                    </div>
+                  )}
+                  {/* Title */}
+                  {(card.title?.value || isEditing) && (
+                    <h3
+                      className="promo-row__card-title"
+                      style={{
+                        color: '#1b1b1d',
+                        fontFamily: "'Open Sans', Helvetica, Arial, sans-serif",
+                        fontSize: 22,
+                        fontWeight: 700,
+                        lineHeight: 1.3,
+                        marginBottom: 12,
+                      }}
+                    >
+                      <ContentSdkText field={card.title} />
+                    </h3>
+                  )}
 
-                    {/* Copy */}
-                    {(card.copy?.value || isEditing) && (
-                      <p
-                        className="promo-row__card-copy"
-                        style={{
-                          color: '#666',
-                          fontFamily: "'Open Sans', Helvetica, Arial, sans-serif",
-                          fontSize: 15,
-                          lineHeight: 1.6,
-                          marginBottom: 16,
-                          flex: 1,
-                        }}
-                      >
-                        <ContentSdkText field={card.copy} />
-                      </p>
-                    )}
+                  {/* Copy */}
+                  {(card.copy?.value || isEditing) && (
+                    <p
+                      className="promo-row__card-copy"
+                      style={{
+                        color: '#666',
+                        fontFamily: "'Open Sans', Helvetica, Arial, sans-serif",
+                        fontSize: 15,
+                        lineHeight: 1.6,
+                        marginBottom: 16,
+                        flex: 1,
+                      }}
+                    >
+                      <ContentSdkText field={card.copy} />
+                    </p>
+                  )}
 
                     {/* Link - rendered as editable field in editing mode */}
                     {(card.link?.value?.href || isEditing) && (
                       <ContentSdkLink
                         field={card.link}
-                        className="promo-row__card-link"
-                        style={{
-                          color: '#c41230',
-                          fontFamily: "'Open Sans', Helvetica, Arial, sans-serif",
-                          fontSize: 16,
-                          fontWeight: 600,
-                          textDecoration: 'none',
-                          display: 'inline-flex',
-                          alignItems: 'center',
-                          gap: 8,
-                          marginTop: 'auto',
-                        }}
+                      className="promo-row__card-link"
+                      style={{
+                        color: '#c41230',
+                        fontFamily: "'Open Sans', Helvetica, Arial, sans-serif",
+                        fontSize: 16,
+                        fontWeight: 600,
+                        textDecoration: 'none',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: 8,
+                        marginTop: 'auto',
+                      }}
                       />
-                    )}
-                  </div>
+                  )}
                 </div>
-              );
+              </div>
+            );
 
               // Make entire card clickable if link exists and not in editing mode
-              if (card.link?.value?.href && !isEditing) {
-                return (
-                  <a
-                    key={index}
-                    href={card.link.value.href}
-                    target={card.link.value.target}
-                    rel={card.link.value.target === '_blank' ? 'noopener noreferrer' : undefined}
-                    className={`promo-row__card-wrapper ${!isLastCard ? 'promo-row__card-wrapper--has-divider' : ''}`}
-                    style={{
-                      textDecoration: 'none',
-                      display: 'block',
-                      flex: '1 1 242px',
-                      minWidth: 242,
-                      position: 'relative',
-                    }}
-                  >
-                    {cardContent}
-                  </a>
-                );
-              }
-
+            if (card.link?.value?.href && !isEditing) {
               return (
-                <div
+                <a
                   key={index}
+                  href={card.link.value.href}
+                  target={card.link.value.target}
+                    rel={card.link.value.target === '_blank' ? 'noopener noreferrer' : undefined}
                   className={`promo-row__card-wrapper ${!isLastCard ? 'promo-row__card-wrapper--has-divider' : ''}`}
                   style={{
+                    textDecoration: 'none',
+                    display: 'block',
                     flex: '1 1 242px',
                     minWidth: 242,
                     position: 'relative',
                   }}
                 >
                   {cardContent}
-                </div>
+                </a>
               );
-            })}
+            }
+
+            return (
+              <div
+                key={index}
+                className={`promo-row__card-wrapper ${!isLastCard ? 'promo-row__card-wrapper--has-divider' : ''}`}
+                style={{
+                  flex: '1 1 242px',
+                  minWidth: 242,
+                  position: 'relative',
+                }}
+              >
+                {cardContent}
+              </div>
+            );
+          })}
           </div>
         </div>
       </div>

@@ -493,9 +493,98 @@
   color: #c41230 !important;
 }
 
-/* Hide sticky logo */
+/* Hide sticky logo in main header */
 .does-fade-out .sticky__logo {
   @apply hidden;
+}
+
+/* ===== Sticky Header (appears on scroll) ===== */
+.sticky-header {
+  @apply fixed top-0 left-0 right-0 bg-white shadow-md z-50;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-in-out;
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+}
+
+.sticky-header--visible {
+  transform: translateY(0);
+}
+
+.sticky-header__inner {
+  @apply flex items-center justify-between;
+  padding: 12px 0;
+}
+
+.sticky-header__logo {
+  @apply flex-shrink-0;
+}
+
+.sticky-header__logo img {
+  @apply h-[40px] w-auto;
+}
+
+.sticky-header__actions {
+  @apply flex items-center gap-[16px];
+}
+
+.sticky-header__search {
+  @apply flex items-center;
+}
+
+.sticky-header__search .CoveoOmnibox {
+  @apply flex items-center gap-[8px] rounded-full border border-solid border-[#d5d5d5] bg-[#f5f5f5] px-[16px] py-[8px];
+}
+
+.sticky-header__search .magic-box-input input {
+  @apply bg-transparent text-[#1b1b1d] outline-none w-[140px];
+  font-size: 14px;
+}
+
+.sticky-header__search .magic-box-input input::placeholder {
+  @apply text-[#666];
+}
+
+.sticky-header__search .CoveoSearchButton {
+  @apply text-[#1b1b1d] flex items-center;
+}
+
+.sticky-header__search .CoveoSearchButton svg {
+  @apply w-[16px] h-[16px] fill-current;
+}
+
+.sticky-header .btn {
+  @apply inline-flex items-center justify-center font-semibold rounded-full no-underline;
+  transition: all 0.2s ease;
+  font-size: 14px;
+}
+
+.sticky-header .btn-primary {
+  @apply bg-[#c41230] text-white border border-solid border-[#c41230];
+  padding: 8px 24px;
+  height: 36px;
+  width: auto;
+}
+
+.sticky-header .btn-primary:hover {
+  @apply bg-white text-[#c41230] border-[#c41230];
+}
+
+.sticky-header .btn-outline-primary {
+  @apply bg-white border border-solid border-[#c41230] text-[#c41230];
+  padding: 8px 24px;
+  height: 36px;
+  width: auto;
+}
+
+.sticky-header .btn-outline-primary:hover {
+  @apply bg-[#c41230] text-white border-[#c41230];
+}
+
+/* Responsive - hide sticky header on mobile */
+@media (max-width: 976px) {
+  .sticky-header {
+    @apply hidden;
+  }
 }
 
 /* Mobile nav (hidden on desktop) */
