@@ -1,0 +1,17 @@
+---
+ID: "a6b7c8d9-e0f1-2a3b-4c5d-6e7f8a9b0c1d"
+Parent: "f5a6b7c8-d9e0-1f2a-3b4c-5d6e7f8a9b0c"
+Template: "f5a6b7c8-d9e0-1f2a-3b4c-5d6e7f8a9b0c"
+Path: "/sitecore/templates/Project/click-click-launch/Components/Promos/Promo Row/__Standard Values"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20260120T000000Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
