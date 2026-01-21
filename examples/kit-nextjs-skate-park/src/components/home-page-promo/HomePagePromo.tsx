@@ -195,7 +195,7 @@ const Default = (props: HomePagePromoProps): JSX.Element => {
           </div>
 
           {/* Button */}
-          {(Button?.value?.href || isEditing) && (
+          {Button && (Button.value?.href || isEditing) && (
             <div
               className="home-page-promo__button-wrapper"
               style={{
