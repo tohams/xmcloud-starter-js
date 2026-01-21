@@ -4,6 +4,7 @@ import { BYOCServerWrapper, NextjsContentSdkComponent, FEaaSServerWrapper } from
 import { Form } from '@sitecore-content-sdk/nextjs';
 
 // end of built-in components
+import * as WearRedPromo from 'src/components/wear-red-promo/WearRedPromo';
 import * as Title from 'src/components/title/Title';
 import * as RowSplitter from 'src/components/row-splitter/RowSplitter';
 import * as RichText from 'src/components/rich-text/RichText';
@@ -24,6 +25,7 @@ export const componentMap = new Map<string, NextjsContentSdkComponent>([
   ['BYOCWrapper', BYOCServerWrapper],
   ['FEaaSWrapper', FEaaSServerWrapper],
   ['Form', Form],
+  ['WearRedPromo', { ...WearRedPromo }],
   ['Title', { ...Title }],
   ['RowSplitter', { ...RowSplitter }],
   ['RichText', { ...RichText }],

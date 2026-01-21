@@ -1,0 +1,53 @@
+.wear-red-promo {
+  @apply w-full;
+}
+
+/* Link hover effect - red underline */
+.wear-red-promo__link {
+  position: relative;
+}
+
+.wear-red-promo__link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #c41230;
+  transition: width 0.3s ease;
+}
+
+.wear-red-promo__link:hover::after {
+  width: calc(100% - 16px);
+}
+
+.wear-red-promo__link:hover {
+  text-decoration: none;
+}
+
+/* Rich text styling */
+.wear-red-promo__copy p {
+  margin: 0;
+}
+
+/* Responsive */
+@media screen and (max-width: 991px) {
+  .wear-red-promo__container > div {
+    flex-direction: column !important;
+  }
+
+  .wear-red-promo__image {
+    max-width: 100% !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .wear-red-promo__container > div {
+    padding: 32px !important;
+  }
+
+  .wear-red-promo__header {
+    font-size: 24px !important;
+  }
+}
