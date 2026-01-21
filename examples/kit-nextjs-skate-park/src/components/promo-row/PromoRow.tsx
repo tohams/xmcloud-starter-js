@@ -36,10 +36,9 @@ type PromoRowProps = ComponentProps & {
 };
 
 const Default = (props: PromoRowProps): JSX.Element => {
-  const { fields, params } = props;
-  const { styles, RenderingIdentifier: id } = params;
-  const { page } = props;
-  const { isEditing } = page.mode;
+  const { fields, params, page } = props;
+  const { styles, RenderingIdentifier: id } = params || {};
+  const isEditing = page?.mode?.isEditing ?? false;
 
   const {
     Image1,
