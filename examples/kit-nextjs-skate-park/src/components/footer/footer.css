@@ -24,10 +24,12 @@
 .footer-disclaimer a {
   color: #5c6670;
   text-decoration: underline;
+  transition: color 0.2s ease;
 }
 
 .footer-disclaimer a:hover {
   color: #c41230;
+  text-decoration-color: #c41230;
 }
 
 /* Main Footer */
@@ -145,23 +147,27 @@
 
 .footer-link span {
   text-decoration: none;
-  transition: text-decoration 0.2s ease;
+  transition: text-decoration 0.2s ease, color 0.2s ease;
+  color: inherit;
 }
 
 .footer-link:hover span {
+  color: #c41230;
   text-decoration: underline;
   text-decoration-color: #c41230;
-  text-underline-offset: 3px;
 }
 
 .footer-link svg {
   flex-shrink: 0;
   margin-left: 8px;
   opacity: 0.6;
+  transition: opacity 0.2s ease, color 0.2s ease;
+  color: inherit;
 }
 
 .footer-link:hover svg {
   opacity: 1;
+  color: #c41230;
 }
 
 /* Social and Badges Section */
@@ -269,11 +275,24 @@
   color: #5c6670;
   text-decoration: none;
   font-size: 13px;
+  transition: color 0.2s ease;
+  position: relative;
+}
+
+.footer-policy__links a::after {
+  display: none !important;
+  content: none !important;
 }
 
 .footer-policy__links a:hover {
-  color: #c41230;
+  color: #c41230 !important;
   text-decoration: underline;
+  text-decoration-color: #c41230;
+}
+
+.footer-policy__links a:hover::after {
+  display: none !important;
+  content: none !important;
 }
 
 .footer-policy__divider {
@@ -286,11 +305,24 @@
   color: #5c6670;
   text-decoration: none;
   font-size: 13px;
+  transition: color 0.2s ease;
+  position: relative;
+}
+
+.footer-policy__privacy::after {
+  display: none !important;
+  content: none !important;
 }
 
 .footer-policy__privacy:hover {
-  color: #c41230;
+  color: #c41230 !important;
   text-decoration: underline;
+  text-decoration-color: #c41230;
+}
+
+.footer-policy__privacy:hover::after {
+  display: none !important;
+  content: none !important;
 }
 
 /* Copyright */
