@@ -1,6 +1,6 @@
 ---
 ID: "c0d1e2f3-a4b5-6c7d-8e9f-0a1b2c3d4e5f"
-Parent: "94761350-44cb-4a88-938b-fd0fc7cbfdd1"
+Parent: "bb387a0f-4d26-470f-8523-850b3b2f0007"
 Template: "04646a89-996f-4ee7-878a-ffdbf1f0ef0d"
 Path: "/sitecore/layout/Renderings/Project/click-click-launch/Promos/Promo Row"
 SharedFields:
@@ -12,7 +12,7 @@ SharedFields:
   Value: Applications/32x32/document_out.png
 - ID: "17bb046a-a32a-41b3-8315-81217947611b"
   Hint: ComponentQuery
-  Value: ""
+  Value:
 - ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
   Hint: Datasource Template
   Value: "/sitecore/templates/Project/click-click-launch/Components/Promos/Promo Row"

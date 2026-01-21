@@ -318,13 +318,26 @@
 
 .full-width-hero-card__title div,
 .full-width-hero-card__title div div {
-  line-height: 32px;
+  line-height: 1.1;
   min-height: 0;
   margin: 0;
   padding: 0;
 }
 
+/* Hide empty divs with only non-breaking spaces inside the title */
+.full-width-hero-card__title div:empty,
+.full-width-hero-card__title div:has(> br:only-child),
+.full-width-hero-card__title p:empty {
+  display: none;
+}
+
+/* Target divs that only contain &nbsp; */
+.full-width-hero-card__title div:last-child:not(:first-child) {
+  display: none;
+}
+
 .full-width-hero-card__content {
+  margin-top: 24px;
   @apply flex flex-col gap-[32px] relative;
   z-index: 1;
   position: relative;
