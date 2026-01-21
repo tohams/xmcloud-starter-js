@@ -9,18 +9,18 @@ import {
 import { ComponentProps } from 'lib/component-props';
 
 interface Fields {
-  Header?: Field<string>;
-  Subheader?: Field<string>;
-  Title1?: Field<string>;
-  Subtitle1?: Field<string>;
-  Copy1?: Field<string>;
-  Title2?: Field<string>;
-  Subtitle2?: Field<string>;
-  Copy2?: Field<string>;
-  Title3?: Field<string>;
-  Subtitle3?: Field<string>;
-  Copy3?: Field<string>;
-  Button?: LinkField;
+  Header: Field<string>;
+  Subheader: Field<string>;
+  Title1: Field<string>;
+  Subtitle1: Field<string>;
+  Copy1: Field<string>;
+  Title2: Field<string>;
+  Subtitle2: Field<string>;
+  Copy2: Field<string>;
+  Title3: Field<string>;
+  Subtitle3: Field<string>;
+  Copy3: Field<string>;
+  Button: LinkField;
 }
 
 type HomePagePromoProps = ComponentProps & {
@@ -32,6 +32,16 @@ const Default = (props: HomePagePromoProps): JSX.Element => {
   const { styles, RenderingIdentifier: id } = params;
   const { page } = props;
   const { isEditing } = page.mode;
+
+  if (!fields) {
+    return (
+      <div className={`component home-page-promo ${styles || ''}`} id={id}>
+        <div className="component-content">
+          <span className="is-empty-hint">Home Page Promo</span>
+        </div>
+      </div>
+    );
+  }
 
   const {
     Header,
@@ -46,15 +56,10 @@ const Default = (props: HomePagePromoProps): JSX.Element => {
     Subtitle3,
     Copy3,
     Button,
-  } = fields || {};
+  } = fields;
 
   // Check if component has any content
-  const hasContent = !!(
-    Header?.value ||
-    Subheader?.value ||
-    Title1?.value ||
-    Button?.value?.href
-  );
+  const hasContent = !!(Header?.value || Subheader?.value || Title1?.value || Button?.value?.href);
 
   if (!hasContent && !isEditing) {
     return (
@@ -193,7 +198,7 @@ const Default = (props: HomePagePromoProps): JSX.Element => {
           </div>
 
           {/* Button */}
-          {Button && (Button.value?.href || isEditing) && (
+          {(Button?.value?.href || isEditing) && (
             <div
               className="home-page-promo__button-wrapper"
               style={{

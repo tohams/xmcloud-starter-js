@@ -11,10 +11,10 @@ import {
 import { ComponentProps } from 'lib/component-props';
 
 interface Fields {
-  Header?: Field<string>;
-  Copy?: Field<string>;
-  Image?: ImageField;
-  Link?: LinkField;
+  Header: Field<string>;
+  Copy: Field<string>;
+  Image: ImageField;
+  Link: LinkField;
 }
 
 type WearRedPromoProps = ComponentProps & {
@@ -27,15 +27,20 @@ const Default = (props: WearRedPromoProps): JSX.Element => {
   const { page } = props;
   const { isEditing } = page.mode;
 
-  const { Header, Copy, Image, Link } = fields || {};
+  if (!fields) {
+    return (
+      <div className={`component wear-red-promo ${styles || ''}`} id={id}>
+        <div className="component-content">
+          <span className="is-empty-hint">Wear Red Promo</span>
+        </div>
+      </div>
+    );
+  }
+
+  const { Header, Copy, Image, Link } = fields;
 
   // Check if component has any content
-  const hasContent = !!(
-    Header?.value ||
-    Copy?.value ||
-    Image?.value?.src ||
-    Link?.value?.href
-  );
+  const hasContent = !!(Header?.value || Copy?.value || Image?.value?.src || Link?.value?.href);
 
   if (!hasContent && !isEditing) {
     return (
@@ -61,10 +66,10 @@ const Default = (props: WearRedPromoProps): JSX.Element => {
             maxWidth: 1170,
             marginLeft: 'auto',
             marginRight: 'auto',
-          backgroundColor: 'white',
-          border: '15px solid #c41230',
-          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.15), 0 8px 32px rgba(0, 0, 0, 0.1)',
-          padding: '48px',
+            backgroundColor: 'white',
+            border: '15px solid #c41230',
+            boxShadow: '0 4px 20px rgba(0, 0, 0, 0.15), 0 8px 32px rgba(0, 0, 0, 0.1)',
+            padding: '48px',
             display: 'flex',
             flexDirection: 'row',
             gap: 48,
@@ -123,7 +128,7 @@ const Default = (props: WearRedPromoProps): JSX.Element => {
             />
 
             {/* Link */}
-            {Link && (Link.value?.href || isEditing) && (
+            {(Link?.value?.href || isEditing) && (
               <ContentSdkLink
                 field={Link}
                 className="wear-red-promo__link"
@@ -138,25 +143,7 @@ const Default = (props: WearRedPromoProps): JSX.Element => {
                   gap: 8,
                   position: 'relative',
                 }}
-              >
-                <span style={{ marginRight: 4 }}>{Link.value?.text}</span>
-                <svg
-                  width="8"
-                  height="12"
-                  viewBox="0 0 8 12"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  style={{ flexShrink: 0 }}
-                >
-                  <path
-                    d="M1.5 1L6.5 6L1.5 11"
-                    stroke="#c41230"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </ContentSdkLink>
+              />
             )}
           </div>
 
