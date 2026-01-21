@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import './news-and-stories.css';
 
 const NewsAndStories = () => {
@@ -91,7 +92,7 @@ const NewsAndStories = () => {
             {/* Featured Story */}
             <a href={featuredStory.href} className="news-and-stories__featured">
               <div className="news-and-stories__featured-image">
-                <img src={featuredStory.image} alt="" />
+                <Image src={featuredStory.image} alt="" width={800} height={600} />
                 <div className="news-and-stories__featured-overlay">
                   <div className="news-and-stories__featured-meta">
                     <span className="news-and-stories__featured-date">{featuredStory.date}</span>
@@ -108,7 +109,7 @@ const NewsAndStories = () => {
               {secondaryStories.map((story, index) => (
                 <a key={index} href={story.href} className="news-and-stories__secondary-item">
                   <div className="news-and-stories__secondary-image">
-                    <img src={story.image} alt="" />
+                    <Image src={story.image} alt="" width={400} height={300} />
                   </div>
                   <p className="news-and-stories__secondary-title">{story.title}</p>
                 </a>

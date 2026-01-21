@@ -7,7 +7,7 @@
 
 /* Disclaimer Section */
 .footer-disclaimer {
-  background-color: #cdd3d9;
+  background-color: #e5e9ed;
   padding: 16px 24px;
   text-align: center;
 }
@@ -34,7 +34,7 @@
 
 /* Main Footer */
 .footer-main {
-  background-color: #cdd3d9;
+  background-color: #e5e9ed;
   padding: 48px 24px;
 }
 
@@ -172,7 +172,7 @@
 
 /* Social and Badges Section */
 .footer-social-section {
-  background-color: #cdd3d9;
+  background-color: #e5e9ed;
   padding: 32px 24px;
   border-top: 1px solid #b8c0c8;
 }

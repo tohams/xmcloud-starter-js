@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 import './footer.css';
 
 // Social media icons as SVG components
@@ -74,12 +76,25 @@ interface FooterLinkProps {
   children: React.ReactNode;
 }
 
-const FooterLink = ({ href, children }: FooterLinkProps) => (
-  <a href={href} className="footer-link">
-    <span>{children}</span>
-    <ArrowIcon />
-  </a>
-);
+const FooterLink = ({ href, children }: FooterLinkProps) => {
+  const isExternal = href.startsWith('http://') || href.startsWith('https://');
+  
+  if (isExternal) {
+    return (
+      <a href={href} className="footer-link">
+        <span>{children}</span>
+        <ArrowIcon />
+      </a>
+    );
+  }
+  
+  return (
+    <Link href={href} className="footer-link">
+      <span>{children}</span>
+      <ArrowIcon />
+    </Link>
+  );
+};
 
 interface AccordionSectionProps {
   title: string;
@@ -158,7 +173,7 @@ const Footer = () => {
       <div className="footer-disclaimer">
         <p>
           *All health/medical information on this website has been reviewed and approved by the American Heart Association, based on scientific research and American Heart Association guidelines.{' '}
-          <a href="/content-editorial-process">Find more information on our content editorial process.</a>
+          <Link href="/content-editorial-process">Find more information on our content editorial process.</Link>
         </p>
       </div>
 
@@ -170,10 +185,11 @@ const Footer = () => {
             {/* Column 1: Logo and Contact Info */}
             <div className="footer-column footer-column--contact">
             <div className="footer-logo">
-              <img 
+              <Image 
                 src="/AHA_Full.svg" 
                 alt="American Heart Association" 
                 width="160"
+                height="60"
               />
             </div>
               
@@ -188,9 +204,9 @@ const Footer = () => {
                 <p>1-800-242-8721</p>
               </div>
 
-              <a href="/contact-us" className="footer-contact-button">
+              <Link href="/contact-us" className="footer-contact-button">
                 Contact Us
-              </a>
+              </Link>
 
               <div className="footer-contact-info">
                 <h4>Hours</h4>
@@ -240,10 +256,11 @@ const Footer = () => {
           <div className="footer-mobile">
             {/* Logo */}
             <div className="footer-mobile__logo">
-              <img 
+              <Image 
                 src="/AHA_Full.svg" 
                 alt="American Heart Association" 
                 width="150"
+                height="56"
               />
             </div>
 
@@ -263,7 +280,7 @@ const Footer = () => {
                   <h4>Customer Service</h4>
                   <p>1-800-242-8721</p>
                 </div>
-                <a href="/contact-us" className="footer-contact-button">Contact Us</a>
+                <Link href="/contact-us" className="footer-contact-button">Contact Us</Link>
                 <div className="footer-contact-info">
                   <h4>Hours</h4>
                   <p>Monday - Friday: 7 a.m. – 7 p.m. CT</p>
@@ -348,16 +365,16 @@ const Footer = () => {
 
           <div className="footer-badges">
             <a href="#" className="footer-badge-link">
-              <img src="/images/footer/nhc_optimized.png" alt="National Health Council Standards of Excellence Certification Program" />
+              <Image src="/images/footer/nhc_optimized.png" alt="National Health Council Standards of Excellence Certification Program" width={140} height={50} />
             </a>
             <a href="#" className="footer-badge-link">
-              <img src="/images/footer/Better_Business_Bureau_logo.png" alt="BBB Accredited Charity" />
+              <Image src="/images/footer/Better_Business_Bureau_logo.png" alt="BBB Accredited Charity" width={140} height={50} />
             </a>
             <a href="#" className="footer-badge-link">
-              <img src="/images/footer/Charity_Navigator_logo_120.jpg" alt="Charity Navigator 4-Star Rating" />
+              <Image src="/images/footer/Charity_Navigator_logo_120.jpg" alt="Charity Navigator 4-Star Rating" width={140} height={50} />
             </a>
             <a href="#" className="footer-badge-link">
-              <img src="/images/footer/sectigo_trust_seal_140w.png" alt="Secured by Sectigo" />
+              <Image src="/images/footer/sectigo_trust_seal_140w.png" alt="Secured by Sectigo" width={140} height={50} />
             </a>
           </div>
         </div>
@@ -369,13 +386,13 @@ const Footer = () => {
           <nav className="footer-policy__links">
             {policyLinks.map((link, index) => (
               <React.Fragment key={link.href}>
-                <a href={link.href}>{link.label}</a>
+                <Link href={link.href}>{link.label}</Link>
                 {index < policyLinks.length - 1 && <span className="footer-policy__divider">|</span>}
               </React.Fragment>
             ))}
           </nav>
           
-          <a href="/your-privacy-rights" className="footer-policy__privacy">Your Privacy Rights</a>
+          <Link href="/your-privacy-rights" className="footer-policy__privacy">Your Privacy Rights</Link>
         </div>
       </div>
 
