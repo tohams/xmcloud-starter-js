@@ -188,9 +188,9 @@
   }
   
   .full-width-hero-card .full-width-hero-card__btns .btn-outline-primary:hover {
-    background-color: #f0f0f0 !important;
+    background-color: #c41230 !important;
     border-color: white !important;
-    color: #dc143c !important;
+    color: white !important;
   }
   
   .full-width-hero-card .full-width-hero-card__btns .btn-outline-primary * {
@@ -395,9 +395,13 @@
 }
 
 .full-width-hero-card .btn-outline-primary:hover {
-  background-color: #f0f0f0 !important;
+  background-color: #c41230 !important;
   border-color: white !important;
-  color: #dc143c !important;
+  color: white !important;
+}
+
+.full-width-hero-card .btn-outline-primary:hover * {
+  color: white !important;
 }
 
 .full-width-hero-card .btn-outline-primary * {

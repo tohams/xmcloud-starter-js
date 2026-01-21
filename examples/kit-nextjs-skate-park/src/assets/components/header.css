@@ -200,7 +200,7 @@
 }
 
 .btn-primary:hover {
-  @apply bg-[#a10f28] border-[#a10f28];
+  @apply bg-white text-[#c41230] border-[#c41230];
 }
 
 .btn-outline-primary {
@@ -211,7 +211,7 @@
 }
 
 .btn-outline-primary:hover {
-  @apply bg-[#fef2f4];
+  @apply bg-[#c41230] text-white border-[#c41230];
 }
 
 /* ===== Main Navigation (Healthy Living, etc.) ===== */

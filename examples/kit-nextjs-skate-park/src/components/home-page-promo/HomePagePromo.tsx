@@ -117,7 +117,6 @@ const Default = (props: HomePagePromoProps): JSX.Element => {
                 fontSize: 18,
                 lineHeight: 1.6,
                 marginBottom: 48,
-                maxWidth: 1000,
               }}
             >
               <ContentSdkRichText field={Subheader} />
@@ -205,12 +204,14 @@ const Default = (props: HomePagePromoProps): JSX.Element => {
             >
               <ContentSdkLink
                 field={Button}
+                className="home-page-promo__button"
                 style={{
                   display: 'inline-block',
                   padding: '16px 80px',
                   border: '2px solid white',
                   borderRadius: 50,
-                  color: 'white',
+                  backgroundColor: 'white',
+                  color: '#c41230',
                   fontFamily: "'Open Sans', Helvetica, Arial, sans-serif",
                   fontSize: 16,
                   fontWeight: 600,
