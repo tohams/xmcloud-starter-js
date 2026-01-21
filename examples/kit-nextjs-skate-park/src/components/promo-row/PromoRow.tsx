@@ -84,75 +84,93 @@ const Default = (props: PromoRowProps): JSX.Element => {
     );
   }
 
+  // Filter to only cards with content
+  const visibleCards = isEditing ? cards : cards.filter(hasCardContent);
+
   return (
-    <div className={`component promo-row ${styles || ''}`} id={id}>
+    <div
+      className={`component promo-row ${styles || ''}`}
+      id={id}
+      style={{
+        width: '100%',
+        display: 'flex',
+        justifyContent: 'center',
+      }}
+    >
       <div
         className="promo-row__container"
         style={{
           width: '100%',
-          padding: '60px 24px',
-          backgroundColor: '#f5f5f5',
+          maxWidth: 1170,
+          padding: '32px 24px 60px 24px',
+          boxSizing: 'border-box',
         }}
       >
         <div
-          className="promo-row__grid"
+          className="promo-row__card-container"
           style={{
-            maxWidth: 1170,
-            marginLeft: 'auto',
-            marginRight: 'auto',
-            display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
-            gap: 32,
+            width: '100%',
+            backgroundColor: 'white',
+            borderRadius: 8,
+            boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1), 0 8px 32px rgba(0, 0, 0, 0.08)',
+            overflow: 'hidden',
           }}
         >
-          {cards.map((card, index) => {
-            if (!isEditing && !hasCardContent(card)) return null;
+          <div
+            className="promo-row__grid"
+            style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+            }}
+          >
+            {visibleCards.map((card, index) => {
+              const isLastCard = index === visibleCards.length - 1;
 
-            const cardContent = (
-              <div
-                className="promo-row__card"
-                style={{
-                  backgroundColor: 'white',
-                  borderRadius: 8,
-                  overflow: 'hidden',
-                  boxShadow: '0 2px 8px rgba(0, 0, 0, 0.08)',
-                  transition: 'box-shadow 0.3s ease',
-                  height: '100%',
-                  display: 'flex',
-                  flexDirection: 'column',
-                }}
-              >
-                {/* Image */}
-                {(card.image?.value?.src || isEditing) && (
-                  <div
-                    className="promo-row__card-image"
-                    style={{
-                      width: '100%',
-                      aspectRatio: '16/10',
-                      overflow: 'hidden',
-                    }}
-                  >
-                    <ContentSdkImage
-                      field={card.image}
-                      style={{
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'cover',
-                      }}
-                    />
-                  </div>
-                )}
-
+              const cardContent = (
+                <div
+                  className="promo-row__card"
+                  style={{
+                    backgroundColor: 'white',
+                    height: '100%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                  }}
+                >
                 {/* Content */}
                 <div
                   className="promo-row__card-content"
                   style={{
-                    padding: 24,
+                    padding: '24px 32px 32px 32px',
                     flex: 1,
                     display: 'flex',
                     flexDirection: 'column',
                   }}
                 >
+                  {/* Image */}
+                  {(card.image?.value?.src || isEditing) && (
+                    <div
+                      className="promo-row__card-image"
+                      style={{
+                        width: '100%',
+                        maxWidth: 309,
+                        aspectRatio: '309/206',
+                        overflow: 'hidden',
+                        marginBottom: 20,
+                        borderRadius: 4,
+                        marginLeft: 'auto',
+                        marginRight: 'auto',
+                      }}
+                    >
+                      <ContentSdkImage
+                        field={card.image}
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'cover',
+                        }}
+                      />
+                    </div>
+                  )}
                   {/* Title */}
                   {(card.title?.value || isEditing) && (
                     <h3
@@ -244,10 +262,13 @@ const Default = (props: PromoRowProps): JSX.Element => {
                       ? 'noopener noreferrer'
                       : undefined
                   }
-                  className="promo-row__card-wrapper"
+                  className={`promo-row__card-wrapper ${!isLastCard ? 'promo-row__card-wrapper--has-divider' : ''}`}
                   style={{
                     textDecoration: 'none',
                     display: 'block',
+                    flex: '1 1 242px',
+                    minWidth: 242,
+                    position: 'relative',
                   }}
                 >
                   {cardContent}
@@ -256,11 +277,20 @@ const Default = (props: PromoRowProps): JSX.Element => {
             }
 
             return (
-              <div key={index} className="promo-row__card-wrapper">
+              <div
+                key={index}
+                className={`promo-row__card-wrapper ${!isLastCard ? 'promo-row__card-wrapper--has-divider' : ''}`}
+                style={{
+                  flex: '1 1 242px',
+                  minWidth: 242,
+                  position: 'relative',
+                }}
+              >
                 {cardContent}
               </div>
             );
           })}
+          </div>
         </div>
       </div>
     </div>

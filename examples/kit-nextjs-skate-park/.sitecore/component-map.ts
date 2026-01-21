@@ -12,11 +12,13 @@ import * as PromoRow from 'src/components/promo-row/PromoRow';
 import * as Promo from 'src/components/promo/Promo';
 import * as PartialDesignDynamicPlaceholder from 'src/components/partial-design-dynamic-placeholder/PartialDesignDynamicPlaceholder';
 import * as PageContent from 'src/components/page-content/PageContent';
+import * as NewsAndStories from 'src/components/news-and-stories/NewsAndStories';
 import * as Navigation from 'src/components/navigation/Navigation';
 import * as LinkList from 'src/components/link-list/LinkList';
 import * as Image from 'src/components/image/Image';
 import * as HomePagePromo from 'src/components/home-page-promo/HomePagePromo';
 import * as FullWidthHeroCard from 'src/components/full-width-hero-card/FullWidthHeroCard';
+import * as Footer from 'src/components/footer/Footer';
 import * as FlexCardsContainer from 'src/components/flex-cards/FlexCardsContainer';
 import * as ContentBlock from 'src/components/content-block/ContentBlock';
 import * as Container from 'src/components/container/Container';
@@ -34,11 +36,13 @@ export const componentMap = new Map<string, NextjsContentSdkComponent>([
   ['Promo', { ...Promo }],
   ['PartialDesignDynamicPlaceholder', { ...PartialDesignDynamicPlaceholder }],
   ['PageContent', { ...PageContent }],
+  ['NewsAndStories', { ...NewsAndStories, componentType: 'client' }],
   ['Navigation', { ...Navigation, componentType: 'client' }],
   ['LinkList', { ...LinkList }],
   ['Image', { ...Image }],
   ['HomePagePromo', { ...HomePagePromo }],
   ['FullWidthHeroCard', { ...FullWidthHeroCard }],
+  ['Footer', { ...Footer, componentType: 'client' }],
   ['FlexCardsContainer', { ...FlexCardsContainer }],
   ['ContentBlock', { ...ContentBlock }],
   ['Container', { ...Container }],

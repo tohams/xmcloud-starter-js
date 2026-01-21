@@ -85,12 +85,14 @@
       @apply list-none;
     }
     .level0 {
-      @apply flex;
+      @apply flex flex-wrap justify-center;
+      gap: 20px;
     }
 
-    .level0,
-    .level1 {
-      @apply float-left ml-[30px];
+    .level0 > li,
+    .level1 > li {
+      @apply float-none ml-0;
+      white-space: nowrap;
 
       > .navigation-title {
         > a {

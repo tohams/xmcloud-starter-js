@@ -6,6 +6,8 @@ import SitecoreStyles from "components/content-sdk/SitecoreStyles";
 import { DesignLibraryApp } from "@sitecore-content-sdk/nextjs";
 import { AppPlaceholder } from "@sitecore-content-sdk/nextjs";
 import componentMap from ".sitecore/component-map";
+import Footer from "components/footer/Footer";
+import NewsAndStories from "components/news-and-stories/NewsAndStories";
 
 interface LayoutProps {
   page: Page;
@@ -92,6 +94,12 @@ const MAIN_NAV_ITEMS = [
     label: "Learn CPR",
     href: "https://cpr.heart.org/en/",
     items: ["CPR and First Aid", "Find A Course", "Find A Training Center"],
+  },
+  {
+    id: "in-your-community",
+    label: "In Your Community",
+    href: "/en/in-your-community",
+    items: ["Find Local Events", "Local Heart Walk", "Community Resources"],
   },
 ];
 
@@ -315,64 +323,6 @@ const Layout = ({ page }: LayoutProps): JSX.Element => {
                         </li>
                       ))}
                     </ul>
-                    <ul>
-                      <li className="c-main-nav__item">
-                        <div id="location-selector">
-                          <div>
-                            <div className="c-nav-dropdown__container">
-                              <button
-                                aria-haspopup="dialog"
-                                aria-expanded="false"
-                                className="c-top-nav__link c-cta dropdown-toggle"
-                              >
-                                <span className="c-underline-link">In Your Community</span>
-                              </button>
-                              <div role="dialog" className="c-nav-dropdown dropdown-menu">
-                                <form noValidate className="location-search">
-                                  <div className="location-search__fields">
-                                    <div className="form-group">
-                                      <label htmlFor="zipcode_94">Zip Code</label>
-                                      <input
-                                        name="zipcode"
-                                        type="text"
-                                        pattern="^\\d{5}(?:[-\\s]\\d{4})?$"
-                                        placeholder="Zip Code"
-                                        className="form-control"
-                                        id="zipcode_94"
-                                      />
-                                    </div>
-                                    <span className="location-search__or">or</span>
-                                    <div className="form-group">
-                                      <label className="w-100">
-                                        <div id="State" className="pb-2">
-                                          State
-                                        </div>
-                                        <div className="c-select-dropdown__container position-static">
-                                          <button
-                                            type="button"
-                                            role="listbox"
-                                            aria-labelledby="State"
-                                            aria-haspopup="true"
-                                            aria-expanded="false"
-                                            className="c-search-group__dropdown btn btn-white btn--select mx-0 w-100"
-                                          >
-                                            State
-                                          </button>
-                                        </div>
-                                      </label>
-                                    </div>
-                                  </div>
-                                  <button disabled type="submit" className="location-search__search btn btn-tertiary btn-round">
-                                    Search
-                                  </button>
-                                </form>
-                                <span className="c-nav-dropdown__arrow"></span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-                    </ul>
                   </nav>
                 </div>
               </div>
@@ -425,18 +375,8 @@ const Layout = ({ page }: LayoutProps): JSX.Element => {
                 )}
               </div>
             </main>
-            <footer>
-              <div id="footer">
-                {route && (
-                  <AppPlaceholder
-                    page={page}
-                    componentMap={componentMap}
-                    name="headless-footer"
-                    rendering={route}
-                  />
-                )}
-              </div>
-            </footer>
+            <NewsAndStories />
+            <Footer />
           </>
         )}
       </div>

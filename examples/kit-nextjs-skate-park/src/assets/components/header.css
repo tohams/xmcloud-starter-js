@@ -244,8 +244,8 @@
 .c-main-nav > ul:first-child {
   flex: 1 1 auto;
   display: flex;
-  justify-content: space-between;
-  gap: 12px;
+  justify-content: flex-start;
+  gap: 24px;
   flex-wrap: nowrap;
   white-space: nowrap;
   min-width: 0;
@@ -255,8 +255,8 @@
 .mr-auto {
   @apply flex items-center list-none m-0 p-0;
   flex: 1 1 auto;
-  justify-content: space-between;
-  gap: 12px;
+  justify-content: flex-start;
+  gap: 24px;
   flex-wrap: nowrap;
   white-space: nowrap;
   min-width: 0;
@@ -302,7 +302,9 @@
   word-break: normal;
   hyphens: none;
   flex-shrink: 1;
-  display: inline-block;
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 11px;
   box-sizing: border-box;
   width: auto;
   position: relative;
@@ -312,15 +314,15 @@
   border-bottom: 2px solid transparent;
   &::after {
     content: '';
-    display: inline-block;
+    display: block;
     width: 6px;
     height: 6px;
     border-right: 1.5px solid #1b1b1d;
     border-bottom: 1.5px solid #1b1b1d;
     transform: rotate(45deg);
-    margin-left: 6px;
-    vertical-align: middle;
-    margin-top: -2px;
+    margin-left: 0;
+    margin-top: 6px;
+    flex-shrink: 0;
   }
 }
 

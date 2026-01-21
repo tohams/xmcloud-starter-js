@@ -13,6 +13,19 @@
   }
 }
 
+/* Override inline margin-top on component-content at medium widths */
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .flex-cards-container .component-content {
+    margin-top: 30px !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .flex-cards-container .component-content {
+    margin-top: 32px !important;
+  }
+}
+
 .flex-card-container .component-content {
   @apply w-full;
 }

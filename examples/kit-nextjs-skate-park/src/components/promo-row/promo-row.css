@@ -1,9 +1,5 @@
 /* Promo Row Component Styles */
 
-.promo-row__card:hover {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12) !important;
-}
-
 .promo-row__card-link:hover {
   text-decoration: underline !important;
   text-decoration-color: #c41230 !important;
@@ -16,16 +12,36 @@
   text-underline-offset: 4px !important;
 }
 
-/* Responsive Grid */
-@media screen and (max-width: 992px) {
-  .promo-row__grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-  }
+/* Divider line between cards */
+.promo-row__card-wrapper--has-divider::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 1px;
+  background-color: #e0e0e0;
 }
 
-@media screen and (max-width: 640px) {
+/* Responsive - stack vertically when cards get too narrow */
+@media screen and (max-width: 800px) {
   .promo-row__grid {
-    grid-template-columns: 1fr !important;
+    flex-direction: column !important;
+  }
+  
+  .promo-row__card-wrapper {
+    min-width: 100% !important;
+    flex: 1 1 100% !important;
+  }
+  
+  /* Change divider from vertical to horizontal when stacked */
+  .promo-row__card-wrapper--has-divider::after {
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: auto;
+    height: 1px;
   }
   
   .promo-row__container {
