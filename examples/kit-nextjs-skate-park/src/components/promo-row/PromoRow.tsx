@@ -205,23 +205,23 @@ const Default = (props: PromoRowProps): JSX.Element => {
                   )}
 
                     {/* Link - rendered as editable field in editing mode */}
-                    {(card.link?.value?.href || isEditing) && (
+                    {card.link && (card.link.value?.href || isEditing) && (
                       <ContentSdkLink
                         field={card.link}
-                      className="promo-row__card-link"
-                      style={{
-                        color: '#c41230',
-                        fontFamily: "'Open Sans', Helvetica, Arial, sans-serif",
-                        fontSize: 16,
-                        fontWeight: 600,
-                        textDecoration: 'none',
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: 8,
-                        marginTop: 'auto',
-                      }}
+                        className="promo-row__card-link"
+                        style={{
+                          color: '#c41230',
+                          fontFamily: "'Open Sans', Helvetica, Arial, sans-serif",
+                          fontSize: 16,
+                          fontWeight: 600,
+                          textDecoration: 'none',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: 8,
+                          marginTop: 'auto',
+                        }}
                       />
-                  )}
+                    )}
                 </div>
               </div>
             );
