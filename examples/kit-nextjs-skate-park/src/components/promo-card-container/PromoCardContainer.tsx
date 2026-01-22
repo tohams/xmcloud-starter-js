@@ -14,13 +14,14 @@ const Default = ({ params, rendering, page }: PromoCardContainerProps): JSX.Elem
   const phKey = `promo-cards-${DynamicPlaceholderId}`;
 
   return (
-    <div className={`component promo-card-container ${styles || ''}`} id={id}>
+    <div className={`component promo-card-container ${styles || ''}`} id={id} style={{ width: '100%' }}>
       <div
         className="promo-card-container__wrapper"
         style={{
           width: '100%',
           display: 'flex',
           justifyContent: 'center',
+          alignItems: 'center',
         }}
       >
         <div
@@ -30,6 +31,7 @@ const Default = ({ params, rendering, page }: PromoCardContainerProps): JSX.Elem
             maxWidth: 1170,
             padding: '32px 24px 60px 24px',
             boxSizing: 'border-box',
+            margin: '0 auto',
           }}
         >
           <div
@@ -38,6 +40,7 @@ const Default = ({ params, rendering, page }: PromoCardContainerProps): JSX.Elem
               display: 'flex',
               flexWrap: 'wrap',
               gap: 24,
+              justifyContent: 'center',
             }}
           >
             <AppPlaceholder

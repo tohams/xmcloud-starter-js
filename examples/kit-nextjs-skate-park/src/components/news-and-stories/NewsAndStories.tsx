@@ -1,10 +1,14 @@
 'use client';
 
-import React from 'react';
+import React, { JSX } from 'react';
 import Image from 'next/image';
+import { ComponentProps } from 'lib/component-props';
 import './news-and-stories.css';
 
-const NewsAndStories = () => {
+type NewsAndStoriesProps = ComponentProps;
+
+const Default = ({ params }: NewsAndStoriesProps): JSX.Element => {
+  const { styles, RenderingIdentifier: id } = params || {};
   const featuredStory = {
     image: '/images/news/woman_choking.jpg',
     date: 'Jan 16, 2026',
@@ -65,7 +69,7 @@ const NewsAndStories = () => {
   ];
 
   return (
-    <section className="news-and-stories">
+    <section className={`component news-and-stories ${styles || ''}`} id={id}>
       <div className="news-and-stories__container">
         {/* Header */}
         <div className="news-and-stories__header">
@@ -134,4 +138,4 @@ const NewsAndStories = () => {
   );
 };
 
-export default NewsAndStories;
+export default Default;

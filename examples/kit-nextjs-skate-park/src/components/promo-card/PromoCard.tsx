@@ -8,9 +8,12 @@ import {
 import { ComponentProps } from 'lib/component-props';
 
 interface Fields {
-  heading: Field<string>; // Maps to SimplePromo template field
-  description: Field<string>; // Maps to SimplePromo template field
-  link: LinkField; // Maps to SimplePromo template field
+  // Field names may vary - using common patterns
+  heading?: Field<string>; // May be called "Text" or "heading"
+  description?: Field<string>; // May be called "Text 2" or "description"
+  link?: LinkField; // Link field
+  // Additional fields that may exist but we don't use:
+  // image, text3, image2
 }
 
 type PromoCardProps = ComponentProps & {
@@ -32,9 +35,12 @@ const Default = (props: PromoCardProps): JSX.Element => {
     );
   }
 
-  const { heading, description, link } = fields;
+  // Try multiple possible field name variations
+  const title = fields.heading || (fields as any).text || (fields as any).Title;
+  const copy = fields.description || (fields as any).text2 || (fields as any).Text2 || (fields as any).Copy;
+  const link = fields.link || (fields as any).Link;
 
-  const hasContent = !!(heading?.value || description?.value || link?.value?.href);
+  const hasContent = !!(title?.value || copy?.value || link?.value?.href);
 
   if (!hasContent && !isEditing) {
     return (
@@ -60,7 +66,7 @@ const Default = (props: PromoCardProps): JSX.Element => {
       }}
     >
       {/* Title */}
-      {(heading?.value || isEditing) && (
+      {(title?.value || isEditing) && (
         <h3
           className="promo-card__title"
           style={{
@@ -72,12 +78,12 @@ const Default = (props: PromoCardProps): JSX.Element => {
             marginBottom: 16,
           }}
         >
-          <ContentSdkText field={heading} />
+          <ContentSdkText field={title} />
         </h3>
       )}
 
       {/* Copy */}
-      {(description?.value || isEditing) && (
+      {(copy?.value || isEditing) && (
         <p
           className="promo-card__copy"
           style={{
@@ -89,7 +95,7 @@ const Default = (props: PromoCardProps): JSX.Element => {
             flex: 1,
           }}
         >
-          <ContentSdkText field={description} />
+          <ContentSdkText field={copy} />
         </p>
       )}
 

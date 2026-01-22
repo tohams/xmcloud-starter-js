@@ -9,7 +9,6 @@ import { DesignLibraryApp } from "@sitecore-content-sdk/nextjs";
 import { AppPlaceholder } from "@sitecore-content-sdk/nextjs";
 import componentMap from ".sitecore/component-map";
 import Footer from "components/footer/Footer";
-import NewsAndStories from "components/news-and-stories/NewsAndStories";
 
 interface LayoutProps {
   page: Page;
@@ -443,7 +442,6 @@ const Layout = ({ page }: LayoutProps): JSX.Element => {
                 )}
               </div>
             </main>
-            <NewsAndStories />
             <Footer />
           </>
         )}
