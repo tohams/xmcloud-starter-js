@@ -69,7 +69,7 @@ const Default = ({ params }: NewsAndStoriesProps): JSX.Element => {
   ];
 
   return (
-    <section className={`component news-and-stories ${styles || ''}`} id={id}>
+    <section className={`component news-and-stories ${styles || ''}`} id={id} style={{ width: '100%' }}>
       <div className="news-and-stories__container">
         {/* Header */}
         <div className="news-and-stories__header">
