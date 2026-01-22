@@ -21,7 +21,7 @@ SharedFields:
   Value:
 - ID: "a77e8568-1ab3-44f1-a664-b7c37ec7810d"
   Hint: Parameters Template
-  Value:
+  Value: "{7570C113-BE9F-4E32-9CD3-6472D7C6B053}"
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
   Value: 100
