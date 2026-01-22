@@ -65,3 +65,5 @@ export const Default = ({ params, rendering, page }: ContainerProps): JSX.Elemen
     <Container params={params} rendering={rendering} page={page} />
   );
 };
+
+export default Default;
