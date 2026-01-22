@@ -204,8 +204,8 @@ const Default = (props: PromoRowProps): JSX.Element => {
                     </p>
                   )}
 
-                    {/* Link - rendered as editable field in editing mode */}
-                    {card.link && (card.link.value?.href || isEditing) && (
+                    {/* Link - only rendered in editing mode (when card is not wrapped in <a>) */}
+                    {card.link && isEditing && (
                       <ContentSdkLink
                         field={card.link}
                         className="promo-row__card-link"
