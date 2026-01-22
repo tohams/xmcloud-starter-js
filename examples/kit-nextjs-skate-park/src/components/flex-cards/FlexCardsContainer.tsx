@@ -1,7 +1,6 @@
 import React, { JSX } from 'react';
 import {
   NextImage as ContentSdkImage,
-  Link as ContentSdkLink,
   Text as ContentSdkText,
   ImageField,
   Field,

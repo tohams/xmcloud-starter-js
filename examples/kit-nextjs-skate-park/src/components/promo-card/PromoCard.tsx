@@ -14,6 +14,13 @@ interface Fields {
   link?: LinkField; // Link field
   // Additional fields that may exist but we don't use:
   // image, text3, image2
+  // Allow for field name variations
+  text?: Field<string>;
+  Title?: Field<string>;
+  text2?: Field<string>;
+  Text2?: Field<string>;
+  Copy?: Field<string>;
+  Link?: LinkField;
 }
 
 type PromoCardProps = ComponentProps & {
@@ -36,9 +43,9 @@ const Default = (props: PromoCardProps): JSX.Element => {
   }
 
   // Try multiple possible field name variations
-  const title = fields.heading || (fields as any).text || (fields as any).Title;
-  const copy = fields.description || (fields as any).text2 || (fields as any).Text2 || (fields as any).Copy;
-  const link = fields.link || (fields as any).Link;
+  const title = fields.heading || fields.text || fields.Title;
+  const copy = fields.description || fields.text2 || fields.Text2 || fields.Copy;
+  const link = fields.link || fields.Link;
 
   const hasContent = !!(title?.value || copy?.value || link?.value?.href);
 

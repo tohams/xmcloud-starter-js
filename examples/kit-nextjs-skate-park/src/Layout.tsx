@@ -2,6 +2,7 @@
 
 import React, { JSX, useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Field, Page } from "@sitecore-content-sdk/nextjs";
 import Scripts from "src/Scripts";
 import SitecoreStyles from "components/content-sdk/SitecoreStyles";
@@ -109,11 +110,11 @@ const StickyHeader = ({ isVisible }: { isVisible: boolean }) => (
     <div className="container container-fluid container-wide">
       <div className="sticky-header__inner">
         <a href="https://www.heart.org/en/" className="sticky-header__logo">
-          <img
+          <Image
             src="/AHA_Full.svg"
             alt="American Heart Association"
-            height="40"
-            width="67"
+            height={40}
+            width={67}
           />
         </a>
         <div className="sticky-header__actions">
@@ -283,16 +284,18 @@ const Layout = ({ page }: LayoutProps): JSX.Element => {
                         </div>
                       </div>
                       <a href="https://www.heart.org/en/" className="c-top-nav__logo does-fade-out">
-                        <img
+                        <Image
                           src="/AHA_Full.svg"
                           alt="American Heart Association heart and torch logo"
-                          height="256"
-                          width="426"
+                          height={256}
+                          width={426}
                         />
                         <div className="sticky__logo">
-                          <img
+                          <Image
                             src="/AHA_Full.svg"
                             alt="American Heart Association"
+                            height={40}
+                            width={67}
                             style={{ display: "block", opacity: 0 }}
                           />
                         </div>
