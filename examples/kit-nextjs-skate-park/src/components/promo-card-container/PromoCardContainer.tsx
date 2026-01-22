@@ -3,57 +3,54 @@ import { ComponentProps } from 'lib/component-props';
 import componentMap from '.sitecore/component-map';
 import { AppPlaceholder } from "@sitecore-content-sdk/nextjs";
 
-type PromoCardContainerProps = ComponentProps & {
+interface PromoCardContainerProps extends ComponentProps {
   params: ComponentProps["params"] & {
     DynamicPlaceholderId: string;
   };
-};
+}
 
-const Default = ({ params, rendering, page }: PromoCardContainerProps): JSX.Element => {
-  const { styles, RenderingIdentifier: id, DynamicPlaceholderId } = params || {};
+const PromoCardContainer = ({
+  params,
+  rendering,
+  page,
+}: PromoCardContainerProps): JSX.Element => {
+  const {
+    styles,
+    RenderingIdentifier: id,
+    DynamicPlaceholderId,
+  } = params;
   const phKey = `promo-cards-${DynamicPlaceholderId}`;
 
   return (
-    <div className={`component promo-card-container ${styles || ''}`} id={id} style={{ width: '100%' }}>
-      <div
-        className="promo-card-container__wrapper"
-        style={{
-          width: '100%',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
+    <div className={`component promo-card-container ${styles}`} id={id}>
+      <div className="component-content">
         <div
-          className="promo-card-container__inner"
           style={{
             width: '100%',
             maxWidth: 1170,
             padding: '32px 24px 60px 24px',
             boxSizing: 'border-box',
             margin: '0 auto',
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: 24,
+            justifyContent: 'center',
           }}
         >
-          <div
-            className="promo-card-container__grid"
-            style={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              gap: 24,
-              justifyContent: 'center',
-            }}
-          >
-            <AppPlaceholder
-              name={phKey}
-              rendering={rendering}
-              page={page}
-              componentMap={componentMap}
-            />
-          </div>
+          <AppPlaceholder
+            name={phKey}
+            rendering={rendering}
+            page={page}
+            componentMap={componentMap}
+          />
         </div>
       </div>
     </div>
   );
+};
+
+export const Default = ({ params, rendering, page }: PromoCardContainerProps): JSX.Element => {
+  return <PromoCardContainer params={params} rendering={rendering} page={page} />;
 };
 
 export default Default;
